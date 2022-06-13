@@ -1,23 +1,10 @@
 import Orderhive from "../index";
-
-type TagType =
-  | "sales_order"
-  | "item"
-  | "customer"
-  | "company"
-  | "purchase_order";
+import { NewTag, TagType } from "./index";
 
 interface Obj {
   tag_name: string;
   type: TagType;
   tag_color?: string;
-}
-
-interface NewTag {
-  id: number;
-  tag_id: number;
-  tag_name: string;
-  tag_color: string;
 }
 
 export default async function createTag(

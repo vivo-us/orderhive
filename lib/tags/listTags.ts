@@ -1,19 +1,5 @@
 import Orderhive from "../index";
-
-type TagType =
-  | "sales_order"
-  | "item"
-  | "customer"
-  | "company"
-  | "purchase_order";
-
-interface Tag {
-  id: number;
-  tag_id: number;
-  count: number;
-  tag_name: string;
-  tag_color: string;
-}
+import { Tag, TagType } from "./index";
 
 export default async function listTags(
   this: Orderhive,
