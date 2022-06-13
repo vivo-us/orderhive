@@ -5,6 +5,7 @@ import deleteOrders from "./deleteOrders";
 import getOrderDetails from "./getOrderDetails";
 import listCustomOrderStatuses from "./listCustomOrderStatuses";
 import listOrders from "./listOrders";
+import editOrder from "./editOrder";
 
 export interface Address {
   name?: string | null;
@@ -23,6 +24,7 @@ export interface Address {
 }
 
 export interface CustomField {
+  id?: number;
   name: string;
   value: string | object | Array<string>;
   type: "DROP_DOWN" | "TEXT" | "DATE" | "CHECKBOX" | "NUMBER";
@@ -184,4 +186,5 @@ export default {
   getOrderDetails,
   listCustomOrderStatuses,
   listOrders,
+  editOrder,
 };
