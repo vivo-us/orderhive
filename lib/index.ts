@@ -5,6 +5,10 @@ import axios, { AxiosInstance } from "axios";
 import axiosRetry from "axios-retry";
 import tags from "./tags/index";
 import orders from "./orders/index";
+import stores from "./stores/index";
+import warehouses from "./warehouses/index";
+import products from "./products/index";
+import shipping from "./shipping/index";
 
 type HttpMethod = "GET" | "POST" | "PUT" | "DELETE";
 type AxiosHeaders = Record<string, string>;
@@ -50,6 +54,27 @@ class Orderhive {
   getOrderDetails = orders.getOrderDetails.bind(this);
   listCustomOrderStatuses = orders.listCustomOrderStatuses.bind(this);
   listOrders = orders.listOrders.bind(this);
+  editOrder = orders.editOrder.bind(this);
+  listStores = stores.listStores.bind(this);
+  getStoreDetails = stores.getStoreDetails.bind(this);
+  listWarehouses = warehouses.listWarehouses.bind(this);
+  getWarehouseDetails = warehouses.getWarehouseDetails.bind(this);
+  createSimpleProduct = products.createSimpleProduct.bind(this);
+  updateProduct = products.updateProduct.bind(this);
+  deleteProduct = products.deleteProduct.bind(this);
+  createBundleProduct = products.createBundleProduct.bind(this);
+  createConfigurableProduct = products.createConfigurableProduct.bind(this);
+  addConfigurableProductMember =
+    products.addConfigurableProductMember.bind(this);
+  getProductDetails = products.getProductDetails.bind(this);
+  addProductSupplier = products.addProductSupplier.bind(this);
+  updateProductSupplier = products.updateProductSupplier.bind(this);
+  deleteProductSupplier = products.deleteProductSupplier.bind(this);
+  getProductCatalog = products.getProductCatalog.bind(this);
+  getProductsInventory = products.getProductsInventory.bind(this);
+  updateProductStock = products.updateProductStock.bind(this);
+  searchProducts = products.searchProducts.bind(this);
+  getShipments = shipping.getShipments.bind(this);
   constructor(config: OrderhiveConfig) {
     this.idToken = config.idToken;
     this.refreshToken = config.refreshToken;
@@ -189,5 +214,26 @@ Orderhive.prototype.deleteOrders = orders.deleteOrders;
 Orderhive.prototype.getOrderDetails = orders.getOrderDetails;
 Orderhive.prototype.listCustomOrderStatuses = orders.listCustomOrderStatuses;
 Orderhive.prototype.listOrders = orders.listOrders;
-
+Orderhive.prototype.editOrder = orders.editOrder;
+Orderhive.prototype.listStores = stores.listStores;
+Orderhive.prototype.getStoreDetails = stores.getStoreDetails;
+Orderhive.prototype.listWarehouses = warehouses.listWarehouses;
+Orderhive.prototype.getWarehouseDetails = warehouses.getWarehouseDetails;
+Orderhive.prototype.createSimpleProduct = products.createSimpleProduct;
+Orderhive.prototype.updateProduct = products.updateProduct;
+Orderhive.prototype.deleteProduct = products.deleteProduct;
+Orderhive.prototype.createBundleProduct = products.createBundleProduct;
+Orderhive.prototype.createConfigurableProduct =
+  products.createConfigurableProduct;
+Orderhive.prototype.addConfigurableProductMember =
+  products.addConfigurableProductMember;
+Orderhive.prototype.getProductDetails = products.getProductDetails;
+Orderhive.prototype.addProductSupplier = products.addProductSupplier;
+Orderhive.prototype.updateProductSupplier = products.updateProductSupplier;
+Orderhive.prototype.deleteProductSupplier = products.deleteProductSupplier;
+Orderhive.prototype.getProductCatalog = products.getProductCatalog;
+Orderhive.prototype.getProductsInventory = products.getProductsInventory;
+Orderhive.prototype.updateProductStock = products.updateProductStock;
+Orderhive.prototype.searchProducts = products.searchProducts;
+Orderhive.prototype.getShipments = shipping.getShipments;
 export default Orderhive;
