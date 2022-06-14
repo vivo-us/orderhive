@@ -1,5 +1,4 @@
 import Orderhive from "../index";
-import { ProductSupplier, CreateProductSupplier } from "./definitions";
 
 export default async function updateProductSupplier(
   this: Orderhive,
@@ -16,7 +15,7 @@ export default async function updateProductSupplier(
   } catch (error: any) {
     if (error.response) {
       throw new this.OrderhiveError(
-        `Error updating supplier for product`,
+        `Error updating supplier ${supplierId} for product ${productId}`,
         error.response.data
       );
     }

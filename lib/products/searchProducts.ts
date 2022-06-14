@@ -1,5 +1,5 @@
-import { MiniProduct } from "./definitions";
 import Orderhive from "../index";
+import { MiniProduct } from "../definitions/products";
 
 export default async function searchProducts(
   this: Orderhive,

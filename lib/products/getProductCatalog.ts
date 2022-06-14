@@ -1,66 +1,16 @@
 import Orderhive from "../index";
 import {
-  Product,
+  SearchOptions,
+  FormattedSearchOptions,
+  ProductCatalogResponse,
   ProductTypeMap,
-  ReadableProductType,
   ProductStatusMap,
-  ReadableProductStatus,
-} from "./definitions";
-
-interface QtyRange {
-  key: string;
-  warehouse_id: number;
-  min: number;
-  max: number;
-}
-interface DateRange {
-  key: "created" | "modified";
-  min: number;
-  max: number;
-}
-
-interface SearchOptions {
-  query?: string;
-  size?: number;
-  page?: number;
-  types?: ReadableProductType[];
-  statuses?: ReadableProductStatus[];
-  tag_ids?: number[];
-  store_ids?: number[];
-  supplier_ids?: number[];
-  warehouse_ids?: number[];
-  category_ids?: number[];
-  archived?: boolean;
-  qty_ranges?: QtyRange;
-  date_ranges?: DateRange;
-}
-interface FormattedSearchOptions {
-  query?: string;
-  types?: number[];
-  statuses?: number[];
-  tag_ids?: number[];
-  store_ids?: number[];
-  supplier_ids?: number[];
-  warehouse_ids?: number[];
-  category_ids?: number[];
-  archived?: boolean;
-  qty_ranges?: QtyRange;
-  date_ranges?: DateRange;
-}
-
-interface CatalogMetadata {
-  current_page: number;
-  records_per_page: number;
-}
-interface ProductCatalogReturn {
-  meta: CatalogMetadata;
-  products: Product[];
-}
+} from "../definitions/products";
 
 export default async function getProductCatalog(
   this: Orderhive,
   options: SearchOptions
-): Promise<ProductCatalogReturn> {
+): Promise<ProductCatalogResponse> {
   let formattedOptions: FormattedSearchOptions = {};
   if (Object.keys(options).length === 0) {
     throw new Error("At least one option must be specified");

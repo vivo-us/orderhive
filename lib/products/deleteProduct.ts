@@ -1,17 +1,12 @@
 import Orderhive from "../index";
-
-interface DeleteProductReturn {
-  request_id: string;
-}
+import { DeleteProductResponse } from "../definitions/products";
 
 export default async function deleteProduct(
   this: Orderhive,
   productIds: number[]
-): Promise<DeleteProductReturn> {
+): Promise<DeleteProductResponse> {
   try {
-    const obj = {
-      product_ids: productIds,
-    };
+    const obj = { product_ids: productIds };
     const path = `/product/bulk/delete`;
     const headers = await this.signRequest("POST", path, obj);
     if (!headers) throw new Error("Could not sign request");

@@ -1,16 +1,15 @@
 import Orderhive from "../index";
-import { Product, CreateConfigurableProductMember } from "./definitions";
-
-interface AddConfigurableProductMemberData {
-  members: Array<CreateConfigurableProductMember>;
-}
+import {
+  Product,
+  CreateConfigurableProductMember,
+} from "../definitions/products";
 
 export default async function addConfigurableProductMember(
   this: Orderhive,
   productId: number,
-  data: AddConfigurableProductMemberData
+  members: CreateConfigurableProductMember[]
 ): Promise<Product> {
-  for (let member of data.members) {
+  for (let member of members) {
     let hasOption = false;
     for (let each in member) {
       if (!each.includes("option")) continue;
@@ -24,15 +23,16 @@ export default async function addConfigurableProductMember(
     }
   }
   try {
+    let obj = { members };
     const path = `/product/configurable/${productId}/variants`;
-    const headers = await this.signRequest("POST", path, data);
+    const headers = await this.signRequest("POST", path, obj);
     if (!headers) throw new Error("Could not sign request");
-    const res = await this.http.post(path, data, { headers });
+    const res = await this.http.post(path, obj, { headers });
     return res.data;
   } catch (error: any) {
     if (error.response) {
       throw new this.OrderhiveError(
-        `Error adding product to configurable product`,
+        `Error adding product(s) to configurable product ${productId}`,
         error.response.data
       );
     }

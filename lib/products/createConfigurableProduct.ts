@@ -1,5 +1,5 @@
 import Orderhive from "../index";
-import { Product, CreateConfigurableProduct } from "./definitions";
+import { Product, CreateConfigurableProduct } from "../definitions/products";
 
 export default async function createBundleProduct(
   this: Orderhive,

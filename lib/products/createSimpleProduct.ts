@@ -1,5 +1,5 @@
 import Orderhive from "../index";
-import { Product, CreateSimpleProduct } from "./definitions";
+import { Product, CreateSimpleProduct } from "../definitions/products";
 
 export default async function createSimpleProduct(
   this: Orderhive,

@@ -1,5 +1,5 @@
 import Orderhive from "../index";
-import { Product } from "./definitions";
+import { Product } from "../definitions/products";
 
 export default async function getProductDetails(
   this: Orderhive,
@@ -14,7 +14,7 @@ export default async function getProductDetails(
   } catch (error: any) {
     if (error.response) {
       throw new this.OrderhiveError(
-        `Error getting product details`,
+        `Error getting details for product ${productId}`,
         error.response.data
       );
     }

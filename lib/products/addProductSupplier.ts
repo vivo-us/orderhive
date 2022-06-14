@@ -1,5 +1,8 @@
 import Orderhive from "../index";
-import { ProductSupplier, CreateProductSupplier } from "./definitions";
+import {
+  ProductSupplier,
+  CreateProductSupplier,
+} from "../definitions/products";
 
 export default async function addSupplierToProduct(
   this: Orderhive,
@@ -15,7 +18,7 @@ export default async function addSupplierToProduct(
   } catch (error: any) {
     if (error.response) {
       throw new this.OrderhiveError(
-        `Error adding supplier to product`,
+        `Error adding supplier to product ${productId}`,
         error.response.data
       );
     }

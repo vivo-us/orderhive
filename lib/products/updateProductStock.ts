@@ -1,4 +1,7 @@
-import { StockUpdateWarehouse, StockUpdateReturn } from "./definitions";
+import {
+  StockUpdateWarehouse,
+  StockUpdateReturn,
+} from "../definitions/products";
 import Orderhive from "../index";
 
 export default async function updateProductStock(
@@ -26,7 +29,7 @@ export default async function updateProductStock(
   } catch (error: any) {
     if (error.response) {
       throw new this.OrderhiveError(
-        `Error updating product stock`,
+        `Error updating stock for product ${productId}`,
         error.response.data
       );
     }

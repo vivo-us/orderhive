@@ -9,9 +9,9 @@ import addProductSupplier from "./addProductSupplier";
 import updateProductSupplier from "./updateProductSupplier";
 import deleteProductSupplier from "./deleteProductSupplier";
 import getProductCatalog from "./getProductCatalog";
-import getProductsInventory from "./getProductsInventory";
 import updateProductStock from "./updateProductStock";
 import searchProducts from "./searchProducts";
+import mapProducts from "./mapProducts";
 
 export default {
   createSimpleProduct,
@@ -25,7 +25,7 @@ export default {
   updateProductSupplier,
   deleteProductSupplier,
   getProductCatalog,
-  getProductsInventory,
   updateProductStock,
   searchProducts,
+  mapProducts,
 };
