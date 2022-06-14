@@ -1,36 +1,10 @@
 import Orderhive from "../index";
-import { PaymentStatus } from "./index";
+import { ListOrdersOptions } from "../definitions/orders";
 
-interface Filter {
-  custom_status?: Array<number>;
-  storesByIds?: Array<number>;
-  tagsByNames?: Array<string>;
-  shipping_country?: Array<string>;
-  payment_status?: Array<PaymentStatus>;
-  from_date?: string;
-  to_date?: string;
-  warehousesByIds?: Array<number>;
-  shipping_service?: Array<string>;
-  shipping_carrier?: Array<string>;
-  pending_invoice?: boolean;
-  invoice_printed?: boolean;
-  from_due_date?: string;
-  to_due_date?: string;
-}
-
-interface Sort {
-  property: string;
-  direction: "ASC" | "DESC";
-}
-
-interface Options {
-  filters?: Filter;
-  sortBy?: Sort;
-  query?: string;
-  nextToken?: string;
-}
-
-export default async function listOrders(this: Orderhive, options: Options) {
+export default async function listOrders(
+  this: Orderhive,
+  options: ListOrdersOptions
+) {
   if (options.filters?.from_due_date && !options.filters?.to_due_date) {
     throw new Error("from_due_date requires to_due_date");
   }

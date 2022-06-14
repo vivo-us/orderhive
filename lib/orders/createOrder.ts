@@ -1,5 +1,5 @@
 import Orderhive from "../index";
-import { Order } from "./index";
+import { Order } from "../definitions/orders";
 
 export default async function createOrder(this: Orderhive, order: Order) {
   if (order.id) throw new Error("Order ID is not allowed for create order");

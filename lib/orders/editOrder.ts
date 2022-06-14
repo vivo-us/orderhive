@@ -1,27 +1,10 @@
 import Orderhive from "../index";
-import { Address, OrderExtraItem, OrderItem } from "./index";
-
-interface Options {
-  contact_id?: number;
-  channel_order_number?: string;
-  payment_method?: string;
-  reference_number?: string;
-  sales_person_id?: number;
-  remark?: string;
-  delivery_date?: string;
-  shipping_carrier?: string;
-  shipping_service?: string;
-  shipping_address?: Address;
-  billing_address?: Address;
-  preset_id?: number;
-  order_extra_items?: Array<OrderExtraItem>;
-  order_items?: Array<OrderItem>;
-}
+import { EditOrderOptions } from "../definitions/orders";
 
 export default async function editOrder(
   this: Orderhive,
   orderId: number,
-  options: Options
+  options: EditOrderOptions
 ) {
   if (options.order_items) {
     let sortedOrderItemsArray = options.order_items.sort((a, b) => {

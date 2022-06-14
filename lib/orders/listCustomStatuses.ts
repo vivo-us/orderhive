@@ -1,11 +1,8 @@
 import Orderhive from "../index";
 
-export default async function getOrderDetails(
-  this: Orderhive,
-  orderId: number
-) {
+export default async function listCustomStatuses(this: Orderhive) {
   try {
-    const path = `/orders/salesorder/${orderId}`;
+    const path = `/orders/custom_status`;
     const headers = await this.signRequest("GET", path);
     if (!headers) throw new Error("Could not sign request");
     const res = await this.http.get(path, { headers });
@@ -13,7 +10,7 @@ export default async function getOrderDetails(
   } catch (error: any) {
     if (error.response) {
       throw new this.OrderhiveError(
-        `Error getting order details for order ${orderId}`,
+        `Error getting custom order statuses`,
         error.response.data
       );
     }

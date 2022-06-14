@@ -2,11 +2,11 @@ import Orderhive from "../index";
 
 export default async function deleteOrders(
   this: Orderhive,
-  orderId: Array<number>
+  orderIds: Array<number>
 ) {
   try {
     const path = "/orders/salesorder/delete";
-    let obj = { sales_orders_id: orderId };
+    let obj = { sales_orders_id: orderIds };
     const headers = await this.signRequest("PUT", path, obj);
     if (!headers) throw new Error("Could not sign request");
     const res = await this.http.put(path, obj, { headers });
@@ -14,7 +14,7 @@ export default async function deleteOrders(
   } catch (error: any) {
     if (error.response) {
       throw new this.OrderhiveError(
-        "Error deleting order",
+        "Error deleting order(s)",
         error.response.data
       );
     }

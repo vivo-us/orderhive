@@ -1,5 +1,5 @@
 import Orderhive from "../index";
-import { OrderStatus } from "./index";
+import { OrderStatus } from "../definitions/orders";
 
 export default async function updateOrderStatus(
   this: Orderhive,
