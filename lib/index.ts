@@ -43,6 +43,7 @@ class Orderhive {
   private accessKeyId: string | null = null;
   private secretKey: string | null = null;
   private sessionToken: string | null = null;
+  private tokenTimestamp: Date | null = null;
   logger: winston.Logger;
   http: AxiosInstance;
 
@@ -167,6 +168,13 @@ class Orderhive {
 
   generateToken = async () => {
     try {
+      if (
+        this.tokenTimestamp &&
+        this.tokenTimestamp.getTime() > new Date().getTime() - 1000 * 60 * 55
+      ) {
+        this.logger.debug("Using previously generated token");
+        return;
+      }
       let res = await this.http.post(`/setup/refreshtokenviaidtoken`, {
         id_token: this.idToken,
         refresh_token: this.refreshToken,
@@ -175,6 +183,7 @@ class Orderhive {
       this.secretKey = res.data.secret_key;
       this.sessionToken = res.data.session_token;
       this.idToken = res.data.id_token;
+      this.tokenTimestamp = new Date();
       this.logger.info("Successfully generated token");
       return;
     } catch (error: any) {
@@ -185,9 +194,10 @@ class Orderhive {
   };
 
   signRequest = async (method: HttpMethod, path: string, payload: any = "") => {
+    await this.generateToken();
     if (!this.accessKeyId || !this.secretKey || !this.sessionToken) {
       throw new Error(
-        "The generateToken method must be called before signRequest"
+        "Tokens were not generated correctly, please check your credentials"
       );
     }
     try {
