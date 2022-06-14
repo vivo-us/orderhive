@@ -1,12 +1,11 @@
 import Orderhive from "../index";
-import { Shipment } from "../definitions/shipping";
+import { CustomsSettings } from "../definitions/shipping";
 
-export default async function getShipments(
-  this: Orderhive,
-  orderId: number
-): Promise<Shipment> {
+export default async function getCustomsSettings(
+  this: Orderhive
+): Promise<CustomsSettings[]> {
   try {
-    const path = `/orders/salesorder/${orderId}?childShipment=true`;
+    const path = `/shipping/customsinformation`;
     const headers = await this.signRequest("GET", path);
     if (!headers) throw new Error("Could not sign request");
     const res = await this.http.get(path, { headers });
@@ -14,7 +13,7 @@ export default async function getShipments(
   } catch (error: any) {
     if (error.response) {
       throw new this.OrderhiveError(
-        `Error getting shipments for order ${orderId}`,
+        `Error getting customs settings`,
         error.response.data
       );
     }
