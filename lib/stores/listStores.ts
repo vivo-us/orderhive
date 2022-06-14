@@ -1,14 +1,9 @@
 import Orderhive from "../index";
-import { Store } from "./index";
-
-interface ListStoresReturn {
-  count: number;
-  stores: Array<Store>;
-}
+import { ListStoresResponse } from "../definitions/stores";
 
 export default async function listStores(
   this: Orderhive
-): Promise<ListStoresReturn> {
+): Promise<ListStoresResponse> {
   try {
     const path = `/setup/store`;
     const headers = await this.signRequest("GET", path);

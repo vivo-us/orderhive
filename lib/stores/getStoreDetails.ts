@@ -1,5 +1,5 @@
 import Orderhive from "../index";
-import { Store } from "./index";
+import { Store } from "../definitions/stores";
 
 export default async function getStoreDetails(
   this: Orderhive,
@@ -14,7 +14,7 @@ export default async function getStoreDetails(
   } catch (error: any) {
     if (error.response) {
       throw new this.OrderhiveError(
-        `Error fetching store details`,
+        `Error fetching details for store ${storeId}`,
         error.response.data
       );
     }
