@@ -9,6 +9,7 @@ import stores from "./stores/index";
 import warehouses from "./warehouses/index";
 import products from "./products/index";
 import shipping from "./shipping/index";
+import inventory from "./inventory/index";
 
 type HttpMethod = "GET" | "POST" | "PUT" | "DELETE";
 type AxiosHeaders = Record<string, string>;
@@ -44,21 +45,30 @@ class Orderhive {
   private sessionToken: string | null = null;
   logger: winston.Logger;
   http: AxiosInstance;
+
   createTag = tags.createTag.bind(this);
   addTag = tags.addTag.bind(this);
   listTags = tags.listTags.bind(this);
+
   createOrder = orders.createOrder.bind(this);
   updateOrderStatus = orders.updateOrderStatus.bind(this);
   updateCustomOrderStatus = orders.updateCustomOrderStatus.bind(this);
   deleteOrders = orders.deleteOrders.bind(this);
   getOrderDetails = orders.getOrderDetails.bind(this);
-  listCustomOrderStatuses = orders.listCustomOrderStatuses.bind(this);
+  listCustomStatuses = orders.listCustomStatuses.bind(this);
   listOrders = orders.listOrders.bind(this);
   editOrder = orders.editOrder.bind(this);
+  getOrderJSON = orders.getOrderJSON.bind(this);
+  splitOrder = orders.splitOrder.bind(this);
+  moveOrderToFolder = orders.moveOrderToFolder.bind(this);
+  addComment = orders.addComment.bind(this);
+
   listStores = stores.listStores.bind(this);
   getStoreDetails = stores.getStoreDetails.bind(this);
+
   listWarehouses = warehouses.listWarehouses.bind(this);
   getWarehouseDetails = warehouses.getWarehouseDetails.bind(this);
+
   createSimpleProduct = products.createSimpleProduct.bind(this);
   updateProduct = products.updateProduct.bind(this);
   deleteProduct = products.deleteProduct.bind(this);
@@ -71,10 +81,23 @@ class Orderhive {
   updateProductSupplier = products.updateProductSupplier.bind(this);
   deleteProductSupplier = products.deleteProductSupplier.bind(this);
   getProductCatalog = products.getProductCatalog.bind(this);
-  getProductsInventory = products.getProductsInventory.bind(this);
   updateProductStock = products.updateProductStock.bind(this);
   searchProducts = products.searchProducts.bind(this);
+  mapProducts = products.mapProducts.bind(this);
+
   getShipments = shipping.getShipments.bind(this);
+  createShipment = shipping.createShipment.bind(this);
+  createMultipieceShipment = shipping.createMultipieceShipment.bind(this);
+  listShippingStores = shipping.listShippingStores.bind(this);
+  markOrderDelivered = shipping.markOrderDelivered.bind(this);
+  listShippingMethods = shipping.listShippingMethods.bind(this);
+  listShippingPackageTypes = shipping.listShippingPackageTypes.bind(this);
+  getLabelSettings = shipping.getLabelSettings.bind(this);
+  getCustomsSettings = shipping.getCustomsSettings.bind(this);
+
+  getWarehouseInventory = inventory.getWarehouseInventory.bind(this);
+  getProductsInventory = inventory.getProductsInventory.bind(this);
+  getProductInventory = inventory.getProductInventory.bind(this);
   constructor(config: OrderhiveConfig) {
     this.idToken = config.idToken;
     this.refreshToken = config.refreshToken;
@@ -207,18 +230,26 @@ class Orderhive {
 Orderhive.prototype.createTag = tags.createTag;
 Orderhive.prototype.listTags = tags.listTags;
 Orderhive.prototype.addTag = tags.addTag;
+
 Orderhive.prototype.createOrder = orders.createOrder;
 Orderhive.prototype.updateOrderStatus = orders.updateOrderStatus;
 Orderhive.prototype.updateCustomOrderStatus = orders.updateCustomOrderStatus;
 Orderhive.prototype.deleteOrders = orders.deleteOrders;
 Orderhive.prototype.getOrderDetails = orders.getOrderDetails;
-Orderhive.prototype.listCustomOrderStatuses = orders.listCustomOrderStatuses;
+Orderhive.prototype.listCustomStatuses = orders.listCustomStatuses;
 Orderhive.prototype.listOrders = orders.listOrders;
 Orderhive.prototype.editOrder = orders.editOrder;
+Orderhive.prototype.getOrderJSON = orders.getOrderJSON;
+Orderhive.prototype.splitOrder = orders.splitOrder;
+Orderhive.prototype.moveOrderToFolder = orders.moveOrderToFolder;
+Orderhive.prototype.addComment = orders.addComment;
+
 Orderhive.prototype.listStores = stores.listStores;
 Orderhive.prototype.getStoreDetails = stores.getStoreDetails;
+
 Orderhive.prototype.listWarehouses = warehouses.listWarehouses;
 Orderhive.prototype.getWarehouseDetails = warehouses.getWarehouseDetails;
+
 Orderhive.prototype.createSimpleProduct = products.createSimpleProduct;
 Orderhive.prototype.updateProduct = products.updateProduct;
 Orderhive.prototype.deleteProduct = products.deleteProduct;
@@ -232,8 +263,23 @@ Orderhive.prototype.addProductSupplier = products.addProductSupplier;
 Orderhive.prototype.updateProductSupplier = products.updateProductSupplier;
 Orderhive.prototype.deleteProductSupplier = products.deleteProductSupplier;
 Orderhive.prototype.getProductCatalog = products.getProductCatalog;
-Orderhive.prototype.getProductsInventory = products.getProductsInventory;
 Orderhive.prototype.updateProductStock = products.updateProductStock;
 Orderhive.prototype.searchProducts = products.searchProducts;
+Orderhive.prototype.mapProducts = products.mapProducts;
+
 Orderhive.prototype.getShipments = shipping.getShipments;
+Orderhive.prototype.createShipment = shipping.createShipment;
+Orderhive.prototype.createMultipieceShipment =
+  shipping.createMultipieceShipment;
+Orderhive.prototype.markOrderDelivered = shipping.markOrderDelivered;
+Orderhive.prototype.listShippingStores = shipping.listShippingStores;
+Orderhive.prototype.listShippingMethods = shipping.listShippingMethods;
+Orderhive.prototype.listShippingPackageTypes =
+  shipping.listShippingPackageTypes;
+Orderhive.prototype.getLabelSettings = shipping.getLabelSettings;
+Orderhive.prototype.getCustomsSettings = shipping.getCustomsSettings;
+
+Orderhive.prototype.getWarehouseInventory = inventory.getWarehouseInventory;
+Orderhive.prototype.getProductsInventory = inventory.getProductsInventory;
+Orderhive.prototype.getProductInventory = inventory.getProductInventory;
 export default Orderhive;
