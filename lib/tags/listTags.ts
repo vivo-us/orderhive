@@ -1,5 +1,5 @@
 import Orderhive from "../index";
-import { Tag, TagType } from "./index";
+import { Tag, TagType } from "../definitions/tags";
 
 export default async function listTags(
   this: Orderhive,

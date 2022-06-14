@@ -1,33 +1,24 @@
 import Orderhive from "../index";
-import { NewTag, TagType } from "./index";
-
-interface Obj {
-  tag_name: string;
-  type: TagType;
-  tag_color?: string;
-}
+import { NewTag, TagOptions } from "../definitions/tags";
 
 export default async function createTag(
   this: Orderhive,
-  name: string,
-  type: TagType,
-  color?: string
+  tagOptions: TagOptions
 ): Promise<NewTag | typeof this.OrderhiveError> {
-  if (color && (color.length !== 7 || color.charAt(0) !== "#")) {
+  if (
+    tagOptions.tag_color &&
+    (tagOptions.tag_color.length !== 7 ||
+      tagOptions.tag_color.charAt(0) !== "#")
+  ) {
     throw new Error(
       "Color must be a valid 7 characters long hex code including the starting #"
     );
   }
   try {
-    let obj: Obj = {
-      tag_name: name,
-      type,
-    };
-    if (color) obj.tag_color = color;
     let path = "/orders/tags";
-    const headers = await this.signRequest("POST", path, obj);
+    const headers = await this.signRequest("POST", path, tagOptions);
     if (!headers) throw new Error("Could not sign request");
-    const res = await this.http.post(path, obj, { headers });
+    const res = await this.http.post(path, tagOptions, { headers });
     return res.data;
   } catch (error: any) {
     if (error.response) {
