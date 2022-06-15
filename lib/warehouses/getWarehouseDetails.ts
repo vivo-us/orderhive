@@ -1,5 +1,6 @@
 import Orderhive from "../index";
 import { Warehouse } from "../definitions/warehouses";
+import { IdSchema } from "../definitions/global";
 
 /** *
  * @param  {number} warehouseId
@@ -10,6 +11,7 @@ export default async function getWarehouseDetails(
   this: Orderhive,
   warehouseId: number
 ): Promise<Warehouse> {
+  await IdSchema.required().validateAsync(warehouseId);
   try {
     const path = `/setup/warehouse/${warehouseId}`;
     const headers = await this.signRequest("GET", path);
