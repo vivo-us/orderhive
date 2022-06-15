@@ -1,16 +1,17 @@
+import joi from "joi";
 import { ProductImage } from "./products";
 import { DimensionUnit, WeightUnit } from "./global";
 import { ProductSupplier, ProductType, ProductWarehouse } from "./products";
 
-export interface GetAllInventoryOptions {
+export interface GetWarehouseInventoryOptions {
   page?: number;
   direction?: "-1" | "1";
   limit?: number;
 }
 
 export interface Inventory {
-  readonly _id: string;
-  readonly id: number;
+  _id: string;
+  id: number;
   image?: ProductImage;
   origin_country?: string;
   archived: string;
@@ -42,9 +43,9 @@ export interface Inventory {
   weight_unit: WeightUnit;
   measurement_unit: DimensionUnit;
   [key: string]: any;
-  readonly tenant_id: number;
-  readonly created: number;
-  readonly modified: number;
+  tenant_id: number;
+  created: number;
+  modified: number;
 }
 
 export interface ProductsInventory {
@@ -65,3 +66,14 @@ export interface ProductInventory {
   quantity: number;
   version?: number;
 }
+
+export interface WarehouseInventoryReponse {
+  count: number;
+  reportData: Inventory[];
+}
+
+export const WarehouseInventorySchema = joi.object({
+  page: joi.number().integer().positive().min(1),
+  direction: joi.string().valid("-1", "1"),
+  limit: joi.number().integer().positive().min(1),
+});

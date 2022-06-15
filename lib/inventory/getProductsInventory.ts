@@ -1,8 +1,9 @@
+import { IdArraySchema } from "./../definitions/global";
 import Orderhive from "../index";
 import { ProductsInventory } from "../definitions/inventory";
 
 /**
- * @param  {number[]} productIds
+ * @param  {number[]} productIds - Array of Orderhive Product IDs
  * @return {Promise<ProductInventory[]>}
  */
 
@@ -10,6 +11,7 @@ export default async function getProductsInventory(
   this: Orderhive,
   productIds: number[]
 ): Promise<ProductsInventory[]> {
+  await IdArraySchema.validateAsync(productIds);
   try {
     const obj = { ids: productIds };
     const path = `/product/warehouses`;
