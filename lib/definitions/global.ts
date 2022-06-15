@@ -1,3 +1,19 @@
+import joi from "joi";
+
+export const IdSchema = joi.number().integer().positive().messages({
+  "number.base": "Id must be a number",
+  "number.integer": "Id must be an integer",
+  "number.positive": "Id must be a positive number",
+  "number.required": "Id is required",
+});
+
+export const IdArraySchema = joi.array().items(IdSchema).messages({
+  "array.base": "Ids must be an array",
+  "array.required": "Ids is required",
+});
+
+export const QuerySchema = joi.string();
+
 export interface MessageResponse {
   message: string;
 }
@@ -9,6 +25,8 @@ export interface Timestamps {
 
 export type DimensionUnit = "IN" | "CM" | "M";
 export type WeightUnit = "KG" | "LB" | "GM" | "OZ";
+export const WeightUnitSchema = joi.string().valid("KG", "LB", "GM", "OZ");
+export const DimensionUnitSchema = joi.string().valid("IN", "CM", "M");
 export type OptionalDimensions = Optional<Dimensions>;
 export interface Dimensions {
   height: number;
@@ -16,6 +34,7 @@ export interface Dimensions {
   width: number;
   measurement_unit: DimensionUnit;
 }
+
 export type OptionalWeight = Optional<Weight>;
 export interface Weight {
   weight: number;
