@@ -1,5 +1,6 @@
 import Orderhive from "../index";
 import { Store } from "../definitions/stores";
+import { IdSchema } from "../definitions/global";
 
 /** *
  * @param  {number} storeId
@@ -10,6 +11,7 @@ export default async function getStoreDetails(
   this: Orderhive,
   storeId: number
 ): Promise<Store> {
+  await IdSchema.required().validateAsync(storeId);
   try {
     const path = `/setup/store/${storeId}`;
     const headers = await this.signRequest("GET", path);
