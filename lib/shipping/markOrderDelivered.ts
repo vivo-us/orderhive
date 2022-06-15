@@ -1,6 +1,11 @@
 import Orderhive from "../index";
 import { MessageResponse } from "../definitions/global";
 
+/**
+ * @param  {number[]} orderIds
+ * @return {Promise<MessageResponse>}
+ */
+
 export default async function markOrderDelivered(
   this: Orderhive,
   orderIds: number[]

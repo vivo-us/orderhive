@@ -1,5 +1,9 @@
 import Orderhive from "../index";
 
+/**
+ * @param  {number} orderId
+ */
+
 export default async function getOrderJSON(
   this: Orderhive,
   orderId: number

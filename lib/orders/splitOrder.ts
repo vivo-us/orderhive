@@ -1,6 +1,12 @@
 import Orderhive from "../index";
 import { SplitOrderData, SplitOrderResponse } from "../definitions/orders";
 
+/**
+ * @param  {number} orderId
+ * @param  {SplitOrderData} data
+ * @return {Promise<SplitOrderResponse>}
+ */
+
 export default async function splitOrder(
   this: Orderhive,
   orderId: number,

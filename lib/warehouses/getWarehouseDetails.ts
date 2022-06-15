@@ -1,9 +1,14 @@
 import Orderhive from "../index";
 import { Warehouse } from "../definitions/warehouses";
 
-export default async function listWarehouses(
+/** *
+ * @param  {number} warehouseId
+ * @return {Promise<Warehouse>}
+ */
+
+export default async function getWarehouseDetails(
   this: Orderhive,
-  warehouseId?: number
+  warehouseId: number
 ): Promise<Warehouse> {
   try {
     const path = `/setup/warehouse/${warehouseId}`;

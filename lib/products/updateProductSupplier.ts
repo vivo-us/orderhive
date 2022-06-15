@@ -4,6 +4,12 @@ import {
   CreateProductSupplier,
 } from "../definitions/products";
 
+/**
+ * @param  {number} productId
+ * @param  {CreateProductSupplier} data
+ * @return {Promise<ProductSupplier>}
+ */
+
 export default async function updateProductSupplier(
   this: Orderhive,
   productId: number,

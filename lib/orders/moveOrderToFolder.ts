@@ -1,5 +1,11 @@
 import Orderhive from "../index";
 
+/**
+ * @param  {number[]} orderIds
+ * @param  {string} folderId
+ * @return {Promise<undefined>}
+ */
+
 export default async function moveOrderToFolder(
   this: Orderhive,
   orderIds: number[],

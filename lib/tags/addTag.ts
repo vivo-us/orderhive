@@ -2,12 +2,19 @@ import Orderhive from "../index";
 
 type TagType = "sales_order";
 
+/** *
+ * @param  {number[]} orderIds
+ * @param  {number[]} tagIds
+ * @param  {TagType} type
+ * @return {Promise<undefined>}
+ */
+
 export default async function addTag(
   this: Orderhive,
   orderIds: Array<number>,
   tagIds: Array<number>,
   type?: TagType
-): Promise<undefined | typeof this.OrderhiveError> {
+): Promise<undefined> {
   try {
     let obj = {
       source_id: orderIds,

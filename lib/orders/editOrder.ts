@@ -1,6 +1,11 @@
 import Orderhive from "../index";
 import { EditOrderOptions } from "../definitions/orders";
 
+/**
+ * @param  {number} orderId
+ * @param  {EditOrderOptions} options
+ */
+
 export default async function editOrder(
   this: Orderhive,
   orderId: number,

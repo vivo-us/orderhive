@@ -1,10 +1,15 @@
 import Orderhive from "../index";
 import { NewTag, TagOptions } from "../definitions/tags";
 
+/** *
+ * @param  {TagOptions} tagOptions
+ * @return {Promise<NewTag>}
+ */
+
 export default async function createTag(
   this: Orderhive,
   tagOptions: TagOptions
-): Promise<NewTag | typeof this.OrderhiveError> {
+): Promise<NewTag> {
   if (
     tagOptions.tag_color &&
     (tagOptions.tag_color.length !== 7 ||

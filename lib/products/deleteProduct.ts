@@ -1,6 +1,11 @@
 import Orderhive from "../index";
 import { DeleteProductResponse } from "../definitions/products";
 
+/**
+ * @param  {number[]} productIds
+ * @return {Promise<DeleteProductResponse>}
+ */
+
 export default async function deleteProduct(
   this: Orderhive,
   productIds: number[]

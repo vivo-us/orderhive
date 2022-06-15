@@ -1,6 +1,11 @@
 import Orderhive from "../index";
 import { Shipment } from "../definitions/shipping";
 
+/**
+ * @param  {number} orderId
+ * @return {Promise<Shipment>}
+ */
+
 export default async function getShipments(
   this: Orderhive,
   orderId: number

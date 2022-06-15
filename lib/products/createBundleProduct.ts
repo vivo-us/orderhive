@@ -1,6 +1,11 @@
 import Orderhive from "../index";
 import { Product, CreateBundleProduct } from "../definitions/products";
 
+/**
+ * @param  {CreateBundleProduct} data
+ * @return {Promise<Product>}
+ */
+
 export default async function createBundleProduct(
   this: Orderhive,
   data: CreateBundleProduct

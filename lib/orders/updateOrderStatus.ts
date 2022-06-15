@@ -1,6 +1,11 @@
 import Orderhive from "../index";
 import { OrderStatus } from "../definitions/orders";
 
+/**
+ * @param  {number} orderId
+ * @param  {OrderStatus} orderStatus
+ */
+
 export default async function updateOrderStatus(
   this: Orderhive,
   orderId: number,

@@ -1,6 +1,11 @@
 import Orderhive from "../index";
 import { MiniProduct } from "../definitions/products";
 
+/**
+ * @param  {string} query
+ * @return {Promise<MiniProduct[]>}
+ */
+
 export default async function searchProducts(
   this: Orderhive,
   query: string

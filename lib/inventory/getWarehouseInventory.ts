@@ -1,6 +1,12 @@
 import Orderhive from "../index";
 import { GetAllInventoryOptions, Inventory } from "../definitions/inventory";
 
+/**
+ * @param  {number} warehouseId
+ * @param  {options} [options]
+ * @return {Promise<Inventory[]>}
+ */
+
 export default async function getWarehouseInventory(
   this: Orderhive,
   warehouseId: number,

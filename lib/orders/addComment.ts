@@ -1,6 +1,11 @@
 import Orderhive from "../index";
 import { AddCommentResponse } from "../definitions/orders";
 
+/**
+ * @param  {number} orderId
+ * @param  {string} comment
+ */
+
 export default async function addComment(
   this: Orderhive,
   orderId: number,

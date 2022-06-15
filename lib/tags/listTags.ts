@@ -1,10 +1,15 @@
 import Orderhive from "../index";
 import { Tag, TagType } from "../definitions/tags";
 
+/** *
+ * @param  {TagType} type
+ * @return {Promise<Tag[]>}
+ */
+
 export default async function listTags(
   this: Orderhive,
   type: TagType
-): Promise<Array<Tag> | typeof this.OrderhiveError> {
+): Promise<Tag[]> {
   try {
     let path = `/orders/tags/${type}/all`;
     const headers = await this.signRequest("GET", path);

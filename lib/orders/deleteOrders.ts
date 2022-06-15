@@ -1,5 +1,9 @@
 import Orderhive from "../index";
 
+/**
+ * @param  {number[]} orderIds
+ */
+
 export default async function deleteOrders(
   this: Orderhive,
   orderIds: Array<number>

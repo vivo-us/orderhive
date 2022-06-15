@@ -1,6 +1,10 @@
 import Orderhive from "../index";
 import { CustomsSettings } from "../definitions/shipping";
 
+/**
+ * @return {Promise<CustomsSettings[]>}
+ */
+
 export default async function getCustomsSettings(
   this: Orderhive
 ): Promise<CustomsSettings[]> {

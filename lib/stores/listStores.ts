@@ -1,6 +1,10 @@
 import Orderhive from "../index";
 import { ListStoresResponse } from "../definitions/stores";
 
+/** *
+ * @return {Promise<ListStoresResponse>}
+ */
+
 export default async function listStores(
   this: Orderhive
 ): Promise<ListStoresResponse> {

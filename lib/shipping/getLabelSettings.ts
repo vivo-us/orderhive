@@ -1,6 +1,10 @@
 import Orderhive from "../index";
 import { LabelSettings } from "../definitions/shipping";
 
+/**
+ * @return {Promise<LabelSettings[]>}
+ */
+
 export default async function getLabelSettings(
   this: Orderhive
 ): Promise<LabelSettings[]> {

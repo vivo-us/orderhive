@@ -7,6 +7,11 @@ import {
   ProductStatusMap,
 } from "../definitions/products";
 
+/**
+ * @param  {SearchOptions} options - Options for searching products
+ * @return {Promise<ProductCatalogResponse>}
+ */
+
 export default async function getProductCatalog(
   this: Orderhive,
   options: SearchOptions

@@ -47,58 +47,89 @@ class Orderhive {
   logger: winston.Logger;
   http: AxiosInstance;
 
-  createTag = tags.createTag.bind(this);
-  addTag = tags.addTag.bind(this);
-  listTags = tags.listTags.bind(this);
+  createTag: typeof tags.createTag = tags.createTag.bind(this);
+  addTag: typeof tags.addTag = tags.addTag.bind(this);
+  listTags: typeof tags.listTags = tags.listTags.bind(this);
 
-  createOrder = orders.createOrder.bind(this);
-  updateOrderStatus = orders.updateOrderStatus.bind(this);
-  updateCustomOrderStatus = orders.updateCustomOrderStatus.bind(this);
-  deleteOrders = orders.deleteOrders.bind(this);
-  getOrderDetails = orders.getOrderDetails.bind(this);
-  listCustomStatuses = orders.listCustomStatuses.bind(this);
-  listOrders = orders.listOrders.bind(this);
-  editOrder = orders.editOrder.bind(this);
-  getOrderJSON = orders.getOrderJSON.bind(this);
-  splitOrder = orders.splitOrder.bind(this);
-  moveOrderToFolder = orders.moveOrderToFolder.bind(this);
-  addComment = orders.addComment.bind(this);
+  createOrder: typeof orders.createOrder = orders.createOrder.bind(this);
+  updateOrderStatus: typeof orders.updateOrderStatus =
+    orders.updateOrderStatus.bind(this);
+  updateCustomOrderStatus: typeof orders.updateCustomOrderStatus =
+    orders.updateCustomOrderStatus.bind(this);
+  deleteOrders: typeof orders.deleteOrders = orders.deleteOrders.bind(this);
+  getOrderDetails: typeof orders.getOrderDetails =
+    orders.getOrderDetails.bind(this);
+  listCustomStatuses: typeof orders.listCustomStatuses =
+    orders.listCustomStatuses.bind(this);
+  listOrders: typeof orders.listOrders = orders.listOrders.bind(this);
+  editOrder: typeof orders.editOrder = orders.editOrder.bind(this);
+  getOrderJSON: typeof orders.getOrderJSON = orders.getOrderJSON.bind(this);
+  splitOrder: typeof orders.splitOrder = orders.splitOrder.bind(this);
+  moveOrderToFolder: typeof orders.moveOrderToFolder =
+    orders.moveOrderToFolder.bind(this);
+  addComment: typeof orders.addComment = orders.addComment.bind(this);
 
-  listStores = stores.listStores.bind(this);
-  getStoreDetails = stores.getStoreDetails.bind(this);
+  listStores: typeof stores.listStores = stores.listStores.bind(this);
+  getStoreDetails: typeof stores.getStoreDetails =
+    stores.getStoreDetails.bind(this);
 
-  listWarehouses = warehouses.listWarehouses.bind(this);
-  getWarehouseDetails = warehouses.getWarehouseDetails.bind(this);
+  listWarehouses: typeof warehouses.listWarehouses =
+    warehouses.listWarehouses.bind(this);
+  getWarehouseDetails: typeof warehouses.getWarehouseDetails =
+    warehouses.getWarehouseDetails.bind(this);
 
-  createSimpleProduct = products.createSimpleProduct.bind(this);
-  updateProduct = products.updateProduct.bind(this);
-  deleteProduct = products.deleteProduct.bind(this);
-  createBundleProduct = products.createBundleProduct.bind(this);
-  createConfigurableProduct = products.createConfigurableProduct.bind(this);
-  addConfigurableProductMember =
+  createSimpleProduct: typeof products.createSimpleProduct =
+    products.createSimpleProduct.bind(this);
+  updateProduct: typeof products.updateProduct =
+    products.updateProduct.bind(this);
+  deleteProduct: typeof products.deleteProduct =
+    products.deleteProduct.bind(this);
+  createBundleProduct: typeof products.createBundleProduct =
+    products.createBundleProduct.bind(this);
+  createConfigurableProduct: typeof products.createConfigurableProduct =
+    products.createConfigurableProduct.bind(this);
+  addConfigurableProductMember: typeof products.addConfigurableProductMember =
     products.addConfigurableProductMember.bind(this);
-  getProductDetails = products.getProductDetails.bind(this);
-  addProductSupplier = products.addProductSupplier.bind(this);
-  updateProductSupplier = products.updateProductSupplier.bind(this);
-  deleteProductSupplier = products.deleteProductSupplier.bind(this);
-  getProductCatalog = products.getProductCatalog.bind(this);
-  updateProductStock = products.updateProductStock.bind(this);
-  searchProducts = products.searchProducts.bind(this);
-  mapProducts = products.mapProducts.bind(this);
+  getProductDetails: typeof products.getProductDetails =
+    products.getProductDetails.bind(this);
+  addProductSupplier: typeof products.addProductSupplier =
+    products.addProductSupplier.bind(this);
+  updateProductSupplier: typeof products.updateProductSupplier =
+    products.updateProductSupplier.bind(this);
+  deleteProductSupplier: typeof products.deleteProductSupplier =
+    products.deleteProductSupplier.bind(this);
+  getProductCatalog: typeof products.getProductCatalog =
+    products.getProductCatalog.bind(this);
+  updateProductStock: typeof products.updateProductStock =
+    products.updateProductStock.bind(this);
+  searchProducts: typeof products.searchProducts =
+    products.searchProducts.bind(this);
+  mapProducts: typeof products.mapProducts = products.mapProducts.bind(this);
 
-  getShipments = shipping.getShipments.bind(this);
-  createShipment = shipping.createShipment.bind(this);
-  createMultipieceShipment = shipping.createMultipieceShipment.bind(this);
-  listShippingStores = shipping.listShippingStores.bind(this);
-  markOrderDelivered = shipping.markOrderDelivered.bind(this);
-  listShippingMethods = shipping.listShippingMethods.bind(this);
-  listShippingPackageTypes = shipping.listShippingPackageTypes.bind(this);
-  getLabelSettings = shipping.getLabelSettings.bind(this);
-  getCustomsSettings = shipping.getCustomsSettings.bind(this);
+  getShipments: typeof shipping.getShipments = shipping.getShipments.bind(this);
+  createShipment: typeof shipping.createShipment =
+    shipping.createShipment.bind(this);
+  createMultipieceShipment: typeof shipping.createMultipieceShipment =
+    shipping.createMultipieceShipment.bind(this);
+  listShippingStores: typeof shipping.listShippingStores =
+    shipping.listShippingStores.bind(this);
+  markOrderDelivered: typeof shipping.markOrderDelivered =
+    shipping.markOrderDelivered.bind(this);
+  listShippingMethods: typeof shipping.listShippingMethods =
+    shipping.listShippingMethods.bind(this);
+  listShippingPackageTypes: typeof shipping.listShippingPackageTypes =
+    shipping.listShippingPackageTypes.bind(this);
+  getLabelSettings: typeof shipping.getLabelSettings =
+    shipping.getLabelSettings.bind(this);
+  getCustomsSettings: typeof shipping.getCustomsSettings =
+    shipping.getCustomsSettings.bind(this);
 
-  getWarehouseInventory = inventory.getWarehouseInventory.bind(this);
-  getProductsInventory = inventory.getProductsInventory.bind(this);
-  getProductInventory = inventory.getProductInventory.bind(this);
+  getWarehouseInventory: typeof inventory.getWarehouseInventory =
+    inventory.getWarehouseInventory.bind(this);
+  getProductsInventory: typeof inventory.getProductsInventory =
+    inventory.getProductsInventory.bind(this);
+  getProductInventory: typeof inventory.getProductInventory =
+    inventory.getProductInventory.bind(this);
   constructor(config: OrderhiveConfig) {
     this.idToken = config.idToken;
     this.refreshToken = config.refreshToken;

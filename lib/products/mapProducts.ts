@@ -1,6 +1,12 @@
 import Orderhive from "../index";
 import { MessageResponse } from "../definitions/global";
 
+/**
+ * @param  {number} parentProductId
+ * @param  {number[]} childProductIds
+ * @return {Promise<MessageResponse>}
+ */
+
 export default async function mapProducts(
   this: Orderhive,
   parentProductId: number,

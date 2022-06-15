@@ -1,6 +1,10 @@
 import Orderhive from "../index";
 import { ShippingPackageType } from "../definitions/shipping";
 
+/**
+ * @return {Promise<ShippingPackageType[]>}
+ */
+
 export default async function listShippingPackageTypes(
   this: Orderhive
 ): Promise<ShippingPackageType[]> {

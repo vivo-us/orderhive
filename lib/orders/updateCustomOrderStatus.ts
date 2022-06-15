@@ -1,5 +1,10 @@
 import Orderhive from "../index";
 
+/**
+ * @param  {number[]} orderIds
+ * @param  {number} customStatus
+ */
+
 export default async function updateCustomOrderStatus(
   this: Orderhive,
   orderIds: Array<number>,

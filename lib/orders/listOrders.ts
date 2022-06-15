@@ -1,6 +1,10 @@
 import Orderhive from "../index";
 import { ListOrdersOptions } from "../definitions/orders";
 
+/**
+ * @param  {ListOrdersOptions} options
+ */
+
 export default async function listOrders(
   this: Orderhive,
   options: ListOrdersOptions

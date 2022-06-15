@@ -4,6 +4,12 @@ import {
   CreateConfigurableProductMember,
 } from "../definitions/products";
 
+/**
+ * @param  {number} productId
+ * @param  {CreateConfigurableProductMember[]} members
+ * @return {Promise<Product>}
+ */
+
 export default async function addConfigurableProductMember(
   this: Orderhive,
   productId: number,

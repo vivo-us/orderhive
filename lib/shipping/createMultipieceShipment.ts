@@ -1,6 +1,11 @@
 import Orderhive from "../index";
 import { CreateMultipieceShipmentOptions } from "../definitions/shipping";
 
+/**
+ * @param  {CreateMultipieceShipmentOptions} options
+ * @return {Promise<string>}
+ */
+
 export default async function createMultipieceShipment(
   this: Orderhive,
   options: CreateMultipieceShipmentOptions

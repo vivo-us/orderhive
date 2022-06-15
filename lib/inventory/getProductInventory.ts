@@ -1,6 +1,11 @@
 import Orderhive from "../index";
 import { ProductInventory } from "../definitions/inventory";
 
+/**
+ * @param  {number} productId
+ * @return {Promise<ProductInventory>}
+ */
+
 export default async function getProductInventory(
   this: Orderhive,
   productId: number

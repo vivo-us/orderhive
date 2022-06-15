@@ -1,6 +1,10 @@
 import Orderhive from "../index";
 import { ShippingStore } from "../definitions/shipping";
 
+/**
+ * @return {Promise<ShippingStore[]>}
+ */
+
 export default async function listShippingStores(
   this: Orderhive
 ): Promise<ShippingStore[]> {

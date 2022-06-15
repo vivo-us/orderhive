@@ -1,6 +1,11 @@
 import Orderhive from "../index";
 import { Product } from "../definitions/products";
 
+/**
+ * @param  {number} productId - Orderhive Product ID
+ * @return {Promise<Product>} - Product details from Orderhive
+ */
+
 export default async function getProductDetails(
   this: Orderhive,
   productId: number

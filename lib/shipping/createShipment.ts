@@ -4,6 +4,11 @@ import {
   CreateShipmentResponse,
 } from "../definitions/shipping";
 
+/**
+ * @param  {CreateShipmentOptions} options
+ * @return {Promise<CreateShipmentResponse>}
+ */
+
 export default async function createShipment(
   this: Orderhive,
   options: CreateShipmentOptions
