@@ -1,3 +1,4 @@
+import { IdSchema } from "./../definitions/global";
 import Orderhive from "../index";
 
 /**
@@ -11,6 +12,8 @@ export default async function updateProductSupplier(
   productId: number,
   supplierId: number
 ): Promise<undefined> {
+  await IdSchema.required().validateAsync(productId);
+  await IdSchema.required().validateAsync(supplierId);
   try {
     const path = `/product/${productId}/supplier/${supplierId}`;
     const headers = await this.signRequest("DELETE", path);

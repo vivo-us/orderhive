@@ -1,5 +1,9 @@
 import Orderhive from "../index";
-import { Product, CreateBundleProduct } from "../definitions/products";
+import {
+  Product,
+  CreateBundleProduct,
+  CreateBundleProductSchema,
+} from "../definitions/products";
 
 /**
  * @param  {CreateBundleProduct} data
@@ -10,6 +14,7 @@ export default async function createBundleProduct(
   this: Orderhive,
   data: CreateBundleProduct
 ): Promise<Product> {
+  await CreateBundleProductSchema.required().validateAsync(data);
   try {
     const path = `/product/bundle`;
     const headers = await this.signRequest("POST", path, data);

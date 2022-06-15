@@ -1,3 +1,4 @@
+import { IdArraySchema } from "./../definitions/global";
 import Orderhive from "../index";
 import { DeleteProductResponse } from "../definitions/products";
 
@@ -10,6 +11,7 @@ export default async function deleteProduct(
   this: Orderhive,
   productIds: number[]
 ): Promise<DeleteProductResponse> {
+  await IdArraySchema.required().validateAsync(productIds);
   try {
     const obj = { product_ids: productIds };
     const path = `/product/bulk/delete`;

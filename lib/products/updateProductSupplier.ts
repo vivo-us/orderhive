@@ -2,7 +2,9 @@ import Orderhive from "../index";
 import {
   ProductSupplier,
   CreateProductSupplier,
+  CreateProductSupplierSchema,
 } from "../definitions/products";
+import { IdSchema } from "../definitions/global";
 
 /**
  * @param  {number} productId
@@ -15,6 +17,8 @@ export default async function updateProductSupplier(
   productId: number,
   data: CreateProductSupplier
 ): Promise<ProductSupplier> {
+  await IdSchema.required().validateAsync(productId);
+  await CreateProductSupplierSchema.required().validateAsync(data);
   try {
     const path = `/product/${productId}/supplier`;
     const headers = await this.signRequest("PUT", path, data);

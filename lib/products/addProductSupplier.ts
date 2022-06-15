@@ -1,12 +1,14 @@
+import { IdSchema } from "./../definitions/global";
 import Orderhive from "../index";
 import {
   ProductSupplier,
   CreateProductSupplier,
+  CreateProductSupplierSchema,
 } from "../definitions/products";
 
 /**
- * @param  {number} productId
- * @param  {CreateProductSupplier} data
+ * @param  {number} productId - Orderhive Product ID
+ * @param  {CreateProductSupplier} data - Data to add the product supplier
  * @return {Promise<ProductSupplier>}
  */
 
@@ -15,6 +17,8 @@ export default async function addSupplierToProduct(
   productId: number,
   data: CreateProductSupplier
 ): Promise<ProductSupplier> {
+  await IdSchema.required().validateAsync(productId);
+  await CreateProductSupplierSchema.required().validateAsync(data);
   try {
     const path = `/product/${productId}/supplier`;
     const headers = await this.signRequest("POST", path, data);

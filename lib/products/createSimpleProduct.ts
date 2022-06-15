@@ -1,5 +1,9 @@
 import Orderhive from "../index";
-import { Product, CreateSimpleProduct } from "../definitions/products";
+import {
+  Product,
+  CreateSimpleProduct,
+  CreateProductSchema,
+} from "../definitions/products";
 
 /**
  * @param  {CreateSimpleProduct} data
@@ -10,6 +14,7 @@ export default async function createSimpleProduct(
   this: Orderhive,
   data: CreateSimpleProduct
 ): Promise<Product> {
+  await CreateProductSchema.required().validateAsync(data);
   try {
     const path = `/product/simple`;
     const headers = await this.signRequest("POST", path, data);

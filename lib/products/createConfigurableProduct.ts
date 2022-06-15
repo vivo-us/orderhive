@@ -1,5 +1,9 @@
 import Orderhive from "../index";
-import { Product, CreateConfigurableProduct } from "../definitions/products";
+import {
+  Product,
+  CreateConfigurableProduct,
+  CreateConfigurableProductSchema,
+} from "../definitions/products";
 
 /**
  * @param  {CreateConfigurableProduct} data
@@ -10,14 +14,7 @@ export default async function createBundleProduct(
   this: Orderhive,
   data: CreateConfigurableProduct
 ): Promise<Product> {
-  for (let each of data.product_options) {
-    for (let member of data.members) {
-      if (member[`option${each.position}`]) continue;
-      throw new Error(
-        `Missing option${each.position} to match product option ${each.name}`
-      );
-    }
-  }
+  await CreateConfigurableProductSchema.required().validateAsync(data);
   try {
     const path = `/product/configurable`;
     const headers = await this.signRequest("POST", path, data);

@@ -1,8 +1,10 @@
 import {
   StockUpdateWarehouse,
   StockUpdateReturn,
+  StockDataSchema,
 } from "../definitions/products";
 import Orderhive from "../index";
+import { IdSchema } from "../definitions/global";
 
 /**
  * @param  {number} productId
@@ -15,6 +17,8 @@ export default async function updateProductStock(
   productId: number,
   stockData: StockUpdateWarehouse[]
 ): Promise<StockUpdateReturn> {
+  await IdSchema.required().validateAsync(productId);
+  await StockDataSchema.required().validateAsync(stockData);
   for (let each of stockData) {
     if (!each.inventory_levels) continue;
     for (let level of each.inventory_levels) {

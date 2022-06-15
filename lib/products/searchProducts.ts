@@ -1,5 +1,6 @@
 import Orderhive from "../index";
 import { MiniProduct } from "../definitions/products";
+import { QuerySchema } from "../definitions/global";
 
 /**
  * @param  {string} query
@@ -10,6 +11,7 @@ export default async function searchProducts(
   this: Orderhive,
   query: string
 ): Promise<MiniProduct[]> {
+  await QuerySchema.required().validateAsync(query);
   try {
     const path = `/product/index/elastic/search?query=${query}`;
     const headers = await this.signRequest("GET", path);

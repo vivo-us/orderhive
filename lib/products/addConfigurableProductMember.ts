@@ -2,11 +2,13 @@ import Orderhive from "../index";
 import {
   Product,
   CreateConfigurableProductMember,
+  CreateConfigProductMemberSchema,
 } from "../definitions/products";
+import { IdSchema } from "../definitions/global";
 
 /**
- * @param  {number} productId
- * @param  {CreateConfigurableProductMember[]} members
+ * @param  {number} productId - Orderhive Product ID
+ * @param  {CreateConfigurableProductMember[]} members - Array of members to add to the product
  * @return {Promise<Product>}
  */
 
@@ -15,19 +17,8 @@ export default async function addConfigurableProductMember(
   productId: number,
   members: CreateConfigurableProductMember[]
 ): Promise<Product> {
-  for (let member of members) {
-    let hasOption = false;
-    for (let each in member) {
-      if (!each.includes("option")) continue;
-      hasOption = true;
-      break;
-    }
-    if (!hasOption) {
-      throw new Error(
-        "Configurable product members must have at least one option specified"
-      );
-    }
-  }
+  await IdSchema.required().validateAsync(productId);
+  await CreateConfigProductMemberSchema.required().validateAsync(members);
   try {
     let obj = { members };
     const path = `/product/configurable/${productId}/variants`;

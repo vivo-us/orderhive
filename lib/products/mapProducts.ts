@@ -1,6 +1,6 @@
 import Orderhive from "../index";
 import { MessageResponse } from "../definitions/global";
-
+import { IdArraySchema, IdSchema } from "../definitions/global";
 /**
  * @param  {number} parentProductId
  * @param  {number[]} childProductIds
@@ -12,6 +12,8 @@ export default async function mapProducts(
   parentProductId: number,
   childProductIds: number[]
 ): Promise<MessageResponse> {
+  await IdSchema.required().validateAsync(parentProductId);
+  await IdArraySchema.required().validateAsync(childProductIds);
   try {
     let obj = { product_ids: childProductIds };
     const path = `/product/automap/${parentProductId}`;
