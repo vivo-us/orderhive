@@ -15,7 +15,7 @@ npm install orderhive
 ## Usage
 
 ```javascript
-import Orderhive from 'orderhive';
+import {Orderhive} from 'orderhive';
 
 // Create a new instance of Orderhive
 // ID Token and Refresh token are given once you have
@@ -24,7 +24,7 @@ const orderhive = new Orderhive({
   refreshToken: /*Orderhive Refresh Token*/,
 });
 
-let warehouses = orderhive.listWarehouses();
+let warehouses = await orderhive.listWarehouses();
 ```
 
 ## Contributing
