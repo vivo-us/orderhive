@@ -7,8 +7,8 @@ import {
 import { IdSchema } from "../definitions/global";
 
 /**
- * @param  {number} productId
- * @param  {CreateProductSupplier} data
+ * @param  {number} productId - Orderhive Product ID
+ * @param  {CreateProductSupplier} data - Data to update the product supplier with
  * @return {Promise<ProductSupplier>}
  */
 

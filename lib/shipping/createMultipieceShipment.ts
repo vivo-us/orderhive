@@ -5,20 +5,20 @@ import {
 } from "../definitions/shipping";
 
 /**
- * @param  {CreateMultipieceShipmentOptions} options
+ * @param  {CreateMultipieceShipmentOptions} data - Data for creating a multipiece shipment
  * @return {Promise<string>}
  */
 
 export default async function createMultipieceShipment(
   this: Orderhive,
-  options: CreateMultipieceShipmentOptions
+  data: CreateMultipieceShipmentOptions
 ): Promise<string> {
-  await CreateMultipieceShipmentSchema.validateAsync(options);
+  await CreateMultipieceShipmentSchema.required().validateAsync(data);
   try {
     const path = `/shipping/multipieceshipments/add`;
-    const headers = await this.signRequest("POST", path, options);
+    const headers = await this.signRequest("POST", path, data);
     if (!headers) throw new Error("Could not sign request");
-    const res = await this.http.post(path, options, { headers });
+    const res = await this.http.post(path, data, { headers });
     return res.data;
   } catch (error: any) {
     if (error.response) {

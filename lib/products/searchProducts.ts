@@ -3,7 +3,7 @@ import { MiniProduct } from "../definitions/products";
 import { QuerySchema } from "../definitions/global";
 
 /**
- * @param  {string} query
+ * @param  {string} query - Query to use to search for products
  * @return {Promise<MiniProduct[]>}
  */
 

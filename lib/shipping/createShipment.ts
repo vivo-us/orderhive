@@ -6,20 +6,20 @@ import {
 } from "../definitions/shipping";
 
 /**
- * @param  {CreateShipmentOptions} options
+ * @param  {CreateShipmentOptions} data - Data for creating a shipment
  * @return {Promise<CreateShipmentResponse>}
  */
 
 export default async function createShipment(
   this: Orderhive,
-  options: CreateShipmentOptions
+  data: CreateShipmentOptions
 ): Promise<CreateShipmentResponse> {
-  await CreateShipmentSchema.validateAsync(options);
+  await CreateShipmentSchema.required().validateAsync(data);
   try {
     const path = `/shipping/shipments/add`;
-    const headers = await this.signRequest("POST", path, options);
+    const headers = await this.signRequest("POST", path, data);
     if (!headers) throw new Error("Could not sign request");
-    const res = await this.http.post(path, options, { headers });
+    const res = await this.http.post(path, data, { headers });
     return res.data;
   } catch (error: any) {
     if (error.response) {

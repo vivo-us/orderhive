@@ -9,9 +9,6 @@ import {
 /**
  * @param  {number} warehouseId - Orderhive Warehouse ID
  * @param  {GetWarehouseInventoryOptions} [options] - Options for the request
- * @param  {number} [options.page] - Page number of the results to return
- * @param  {number} [options.limit] - Number of results to return per page
- * @param  {"-1" | "1"} [options.direction] - Order of the results
  * @return {Promise<WarehouseInventoryReponse>}
  */
 
@@ -20,8 +17,8 @@ export default async function getWarehouseInventory(
   warehouseId: number,
   options?: GetWarehouseInventoryOptions
 ): Promise<WarehouseInventoryReponse> {
-  await IdSchema.validateAsync(warehouseId);
-  if (options) await WarehouseInventorySchema.validateAsync(options);
+  await IdSchema.required().validateAsync(warehouseId);
+  await WarehouseInventorySchema.validateAsync(options);
   try {
     let obj = {
       warehouse_id: warehouseId,

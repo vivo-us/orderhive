@@ -2,7 +2,7 @@ import Orderhive from "../index";
 import { Tag, TageTypeSchema, TagType } from "../definitions/tags";
 
 /** *
- * @param  {TagType} type
+ * @param  {TagType} type - Type of tag to list
  * @return {Promise<Tag[]>}
  */
 
@@ -10,7 +10,7 @@ export default async function listTags(
   this: Orderhive,
   type: TagType
 ): Promise<Tag[]> {
-  await TageTypeSchema.validateAsync(type);
+  await TageTypeSchema.required().validateAsync(type);
   try {
     let path = `/orders/tags/${type}/all`;
     const headers = await this.signRequest("GET", path);

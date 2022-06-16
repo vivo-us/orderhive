@@ -10,7 +10,7 @@ export default async function listCustomStatuses(this: Orderhive) {
   } catch (error: any) {
     if (error.response) {
       throw new this.OrderhiveError(
-        `Error getting custom order statuses`,
+        `Error getting custom order statuses list`,
         error.response.data
       );
     }

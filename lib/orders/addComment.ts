@@ -3,8 +3,9 @@ import { AddCommentResponse } from "../definitions/orders";
 import { IdSchema, QuerySchema } from "../definitions/global";
 
 /**
- * @param  {number} orderId
- * @param  {string} comment
+ * @param  {number} orderId - Orderhive Order ID
+ * @param  {string} comment - Comment to add to the order
+ * @return {Promise<AddCommentResponse>}
  */
 
 export default async function addComment(
@@ -12,8 +13,8 @@ export default async function addComment(
   orderId: number,
   comment: string
 ): Promise<AddCommentResponse> {
-  await IdSchema.validateAsync(orderId);
-  await QuerySchema.validateAsync(comment);
+  await IdSchema.required().validateAsync(orderId);
+  await QuerySchema.required().validateAsync(comment);
   try {
     let obj = {
       attachments: [],

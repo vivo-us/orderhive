@@ -1,21 +1,22 @@
 import Orderhive from "../index";
-import { NewTag, TagOptions } from "../definitions/tags";
+import { NewTag, TagData } from "../definitions/tags";
 
 /** *
- * @param  {TagOptions} tagOptions
+ * @param  {TagData} tagData - Data for creating a tag
  * @return {Promise<NewTag>}
  */
 
 export default async function createTag(
   this: Orderhive,
-  tagOptions: TagOptions
+  tagData: TagData
 ): Promise<NewTag> {
-  await TagOptions.validateAsync(tagOptions);
+  await TagData.required().validateAsync(tagData);
   try {
     let path = "/orders/tags";
-    const headers = await this.signRequest("POST", path, tagOptions);
+    tagData;
+    const headers = await this.signRequest("POST", path, tagData);
     if (!headers) throw new Error("Could not sign request");
-    const res = await this.http.post(path, tagOptions, { headers });
+    const res = await this.http.post(path, tagData, { headers });
     return res.data;
   } catch (error: any) {
     if (error.response) {

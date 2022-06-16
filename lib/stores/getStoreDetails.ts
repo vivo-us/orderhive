@@ -3,7 +3,7 @@ import { Store } from "../definitions/stores";
 import { IdSchema } from "../definitions/global";
 
 /** *
- * @param  {number} storeId
+ * @param  {number} storeId - Orderhive Store ID
  * @return {Promise<Store>}
  */
 

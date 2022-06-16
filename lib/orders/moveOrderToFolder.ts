@@ -2,8 +2,8 @@ import { IdArraySchema, QuerySchema } from "../definitions/global";
 import Orderhive from "../index";
 
 /**
- * @param  {number[]} orderIds
- * @param  {string} folderId
+ * @param  {number[]} orderIds - Array of Orderhive Order IDs
+ * @param  {string} folderId - Orderhive Folder ID orders should be moved to
  * @return {Promise<undefined>}
  */
 
@@ -12,8 +12,8 @@ export default async function moveOrderToFolder(
   orderIds: number[],
   folderId: string
 ): Promise<undefined> {
-  await IdArraySchema.validateAsync(orderIds);
-  await QuerySchema.validateAsync(folderId);
+  await IdArraySchema.required().validateAsync(orderIds);
+  await QuerySchema.required().validateAsync(folderId);
   try {
     let obj = { id: orderIds };
     const path = `/orders/salesorder/mv_folder/${folderId}`;

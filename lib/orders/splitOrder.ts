@@ -7,8 +7,8 @@ import {
 import { IdSchema } from "../definitions/global";
 
 /**
- * @param  {number} orderId
- * @param  {SplitOrderData} data
+ * @param  {number} orderId - Orderhive Order ID
+ * @param  {SplitOrderData} data - Split order data
  * @return {Promise<SplitOrderResponse>}
  */
 
@@ -17,8 +17,8 @@ export default async function splitOrder(
   orderId: number,
   data: SplitOrderData
 ): Promise<SplitOrderResponse> {
-  await IdSchema.validateAsync(orderId);
-  await SplitOrderDataSchema.validateAsync(data);
+  await IdSchema.required().validateAsync(orderId);
+  await SplitOrderDataSchema.required().validateAsync(data);
   try {
     const path = `/orders/salesorder/split/${orderId}`;
     const headers = await this.signRequest("POST", path, data);

@@ -4,14 +4,14 @@ import { IdSchema } from "../definitions/global";
 
 /**
  * @param  {number} productId - Orderhive Product ID
- * @return {Promise<ProductInventory>}
+ * @return {Promise<ProductInventory[]>}
  */
 
 export default async function getProductInventory(
   this: Orderhive,
   productId: number
 ): Promise<ProductInventory[]> {
-  await IdSchema.validateAsync(productId);
+  await IdSchema.required().validateAsync(productId);
   try {
     const path = `/product/${productId}/inventorylevel`;
     const headers = await this.signRequest("GET", path);

@@ -6,7 +6,7 @@ import {
 } from "../definitions/products";
 
 /**
- * @param  {CreateConfigurableProduct} data
+ * @param  {CreateConfigurableProduct} data - Data for creating a configurable product
  * @return {Promise<Product>}
  */
 

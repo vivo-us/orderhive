@@ -3,7 +3,7 @@ import Orderhive from "../index";
 import { Shipment } from "../definitions/shipping";
 
 /**
- * @param  {number} orderId
+ * @param  {number} orderId - Orderhive Order ID
  * @return {Promise<Shipment>}
  */
 
@@ -11,7 +11,7 @@ export default async function getShipments(
   this: Orderhive,
   orderId: number
 ): Promise<Shipment> {
-  await IdSchema.validateAsync(orderId);
+  await IdSchema.required().validateAsync(orderId);
   try {
     const path = `/orders/salesorder/${orderId}?childShipment=true`;
     const headers = await this.signRequest("GET", path);

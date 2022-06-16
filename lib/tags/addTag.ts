@@ -5,9 +5,9 @@ import Orderhive from "../index";
 type TagType = "sales_order";
 
 /** *
- * @param  {number[]} orderIds
- * @param  {number[]} tagIds
- * @param  {TagType} type
+ * @param  {number[]} orderIds - Orderhive Order IDs to add tags to
+ * @param  {number[]} tagIds - Orderhive Tag IDs to add to orders
+ * @param  {TagType} [type] - Type of tag to add to orders
  * @return {Promise<undefined>}
  */
 
@@ -17,8 +17,8 @@ export default async function addTag(
   tagIds: Array<number>,
   type?: TagType
 ): Promise<undefined> {
-  await IdArraySchema.validateAsync(orderIds);
-  await IdArraySchema.validateAsync(tagIds);
+  await IdArraySchema.required().validateAsync(orderIds);
+  await IdArraySchema.required().validateAsync(tagIds);
   await TageTypeSchema.validateAsync(type);
   try {
     let obj = {

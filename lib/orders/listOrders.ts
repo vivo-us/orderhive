@@ -1,15 +1,20 @@
 import Orderhive from "../index";
-import { ListOrdersOptions, ListOrderSchema } from "../definitions/orders";
+import {
+  ListOrdersOptions,
+  ListOrderSchema,
+  Order,
+} from "../definitions/orders";
 
 /**
- * @param  {ListOrdersOptions} options
+ * @param  {ListOrdersOptions} options - Options for listing orders
+ * @return {Promise<Order[]>}
  */
 
 export default async function listOrders(
   this: Orderhive,
   options: ListOrdersOptions
-) {
-  await ListOrderSchema.validateAsync(options);
+): Promise<Order[]> {
+  await ListOrderSchema.required().validateAsync(options);
   try {
     const path = `/orders/salesorder/v1`;
     const headers = await this.signRequest("POST", path, options);

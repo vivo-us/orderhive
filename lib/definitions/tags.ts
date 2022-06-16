@@ -25,12 +25,12 @@ export interface Tag extends Timestamps {
   tag_color: string;
 }
 
-export const TagOptions = joi.object().keys({
+export const TagData = joi.object().keys({
   tag_name: joi.string().required(),
   type: TageTypeSchema.required(),
   tag_color: HexColorSchema,
 });
-export interface TagOptions {
+export interface TagData {
   tag_name: string;
   type: TagType;
   tag_color?: string;

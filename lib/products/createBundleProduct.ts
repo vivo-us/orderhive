@@ -6,7 +6,7 @@ import {
 } from "../definitions/products";
 
 /**
- * @param  {CreateBundleProduct} data
+ * @param  {CreateBundleProduct} data - Data for creating a bundle product
  * @return {Promise<Product>}
  */
 

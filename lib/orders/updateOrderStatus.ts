@@ -3,8 +3,8 @@ import { OrderStatus, OrderStatusSchema } from "../definitions/orders";
 import { IdSchema } from "../definitions/global";
 
 /**
- * @param  {number} orderId
- * @param  {OrderStatus} orderStatus
+ * @param  {number} orderId - Orderhive Order ID
+ * @param  {OrderStatus} orderStatus - Order status to set
  */
 
 export default async function updateOrderStatus(
@@ -12,8 +12,8 @@ export default async function updateOrderStatus(
   orderId: number,
   orderStatus: OrderStatus
 ) {
-  await IdSchema.validateAsync(orderId);
-  await OrderStatusSchema.validateAsync(orderStatus);
+  await IdSchema.required().validateAsync(orderId);
+  await OrderStatusSchema.required().validateAsync(orderStatus);
   try {
     const path = "/orders/salesorder";
     let obj = {
@@ -27,7 +27,7 @@ export default async function updateOrderStatus(
   } catch (error: any) {
     if (error.response) {
       throw new this.OrderhiveError(
-        "Error updating order status",
+        `Error setting order ${orderId} status to ${orderStatus}`,
         error.response.data
       );
     }

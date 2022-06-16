@@ -2,8 +2,8 @@ import { IdSchema } from "./../definitions/global";
 import Orderhive from "../index";
 
 /**
- * @param  {number} productId
- * @param  {number} supplierId
+ * @param  {number} productId - Orderhive Product ID
+ * @param  {number} supplierId - Orderhive Supplier ID
  * @return {Promise<undefined>}
  */
 

@@ -17,7 +17,7 @@ export default async function getProductCatalog(
   this: Orderhive,
   options: SearchOptions
 ): Promise<ProductCatalogResponse> {
-  await SearchOptionsSchema.validateAsync(options);
+  await SearchOptionsSchema.required().validateAsync(options);
   let formattedOptions: FormattedSearchOptions = {};
   if (Object.keys(options).length === 0) {
     throw new Error("At least one option must be specified");

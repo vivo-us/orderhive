@@ -2,8 +2,8 @@ import Orderhive from "../index";
 import { MessageResponse } from "../definitions/global";
 import { IdArraySchema, IdSchema } from "../definitions/global";
 /**
- * @param  {number} parentProductId
- * @param  {number[]} childProductIds
+ * @param  {number} parentProductId - Orderhive Product ID of the parent product
+ * @param  {number[]} childProductIds - Array of Orderhive Product IDs for the child products
  * @return {Promise<MessageResponse>}
  */
 

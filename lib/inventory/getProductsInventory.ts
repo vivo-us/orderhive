@@ -11,7 +11,7 @@ export default async function getProductsInventory(
   this: Orderhive,
   productIds: number[]
 ): Promise<ProductsInventory[]> {
-  await IdArraySchema.validateAsync(productIds);
+  await IdArraySchema.required().validateAsync(productIds);
   try {
     const obj = { ids: productIds };
     const path = `/product/warehouses`;

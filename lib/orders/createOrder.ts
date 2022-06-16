@@ -6,8 +6,11 @@ import { Order, CreateOrderSchema, CreateOrder } from "../definitions/orders";
  * @return {Promise<Order>}
  */
 
-export default async function createOrder(this: Orderhive, order: CreateOrder) {
-  await CreateOrderSchema.validateAsync(order);
+export default async function createOrder(
+  this: Orderhive,
+  order: CreateOrder
+): Promise<Order> {
+  await CreateOrderSchema.required().validateAsync(order);
   try {
     const path = "/orders/salesorder/add";
     const headers = await this.signRequest("POST", path, order);

@@ -7,8 +7,8 @@ import Orderhive from "../index";
 import { IdSchema } from "../definitions/global";
 
 /**
- * @param  {number} productId
- * @param  {StockUpdateWarehouse} stockData
+ * @param  {number} productId - Orderhive Product ID
+ * @param  {StockUpdateWarehouse} stockData - Data to update the product stock with
  * @return {Promise<StockUpdateReturn>}
  */
 

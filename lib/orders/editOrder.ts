@@ -1,19 +1,24 @@
 import Orderhive from "../index";
-import { EditOrderOptions, EditOrderSchema } from "../definitions/orders";
+import {
+  EditOrderOptions,
+  EditOrderSchema,
+  Order,
+} from "../definitions/orders";
 import { IdSchema } from "../definitions/global";
 
 /**
- * @param  {number} orderId
- * @param  {EditOrderOptions} options
+ * @param  {number} orderId - Orderhive Order ID
+ * @param  {EditOrderOptions} options - Options for editing the order
+ * @return {Promise<Order>}
  */
 
 export default async function editOrder(
   this: Orderhive,
   orderId: number,
   options: EditOrderOptions
-) {
-  await IdSchema.validateAsync(orderId);
-  await EditOrderSchema.validateAsync(options);
+): Promise<Order> {
+  await IdSchema.required().validateAsync(orderId);
+  await EditOrderSchema.required().validateAsync(options);
   try {
     const path = `/orders/salesorder/${orderId}`;
     const headers = await this.signRequest("POST", path, options);

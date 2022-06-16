@@ -2,8 +2,8 @@ import { IdArraySchema, IdSchema } from "../definitions/global";
 import Orderhive from "../index";
 
 /**
- * @param  {number[]} orderIds
- * @param  {number} customStatusId
+ * @param  {number[]} orderIds - Array of Orderhive Order IDs
+ * @param  {number} customStatusId - Orderhive Custom Status ID
  */
 
 export default async function updateCustomOrderStatus(
@@ -11,8 +11,8 @@ export default async function updateCustomOrderStatus(
   orderIds: Array<number>,
   customStatusId: number
 ) {
-  await IdArraySchema.validateAsync(orderIds);
-  await IdSchema.validateAsync(customStatusId);
+  await IdArraySchema.required().validateAsync(orderIds);
+  await IdSchema.required().validateAsync(customStatusId);
   try {
     const path = "/orders/salesorder/custom_status/change";
     let obj = {
@@ -26,7 +26,7 @@ export default async function updateCustomOrderStatus(
   } catch (error: any) {
     if (error.response) {
       throw new this.OrderhiveError(
-        "Error updating order custom status",
+        `Error updating custom status for order(s)`,
         error.response.data
       );
     }

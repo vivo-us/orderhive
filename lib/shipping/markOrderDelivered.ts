@@ -2,7 +2,7 @@ import Orderhive from "../index";
 import { MessageResponse, IdArraySchema } from "../definitions/global";
 
 /**
- * @param  {number[]} orderIds
+ * @param  {number[]} orderIds - Array of Orderhive Order IDs
  * @return {Promise<MessageResponse>}
  */
 
@@ -10,7 +10,7 @@ export default async function markOrderDelivered(
   this: Orderhive,
   orderIds: number[]
 ): Promise<MessageResponse> {
-  await IdArraySchema.validateAsync(orderIds);
+  await IdArraySchema.required().validateAsync(orderIds);
   try {
     let obj = { sales_order_id: orderIds };
     const path = `/shipping/shipments/deliver`;

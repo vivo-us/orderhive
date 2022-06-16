@@ -3,7 +3,7 @@ import Orderhive from "../index";
 import { DeleteProductResponse } from "../definitions/products";
 
 /**
- * @param  {number[]} productIds
+ * @param  {number[]} productIds - Orderhive Product IDs
  * @return {Promise<DeleteProductResponse>}
  */
 
