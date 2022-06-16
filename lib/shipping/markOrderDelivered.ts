@@ -1,5 +1,5 @@
 import Orderhive from "../index";
-import { MessageResponse } from "../definitions/global";
+import { MessageResponse, IdArraySchema } from "../definitions/global";
 
 /**
  * @param  {number[]} orderIds
@@ -10,6 +10,7 @@ export default async function markOrderDelivered(
   this: Orderhive,
   orderIds: number[]
 ): Promise<MessageResponse> {
+  await IdArraySchema.validateAsync(orderIds);
   try {
     let obj = { sales_order_id: orderIds };
     const path = `/shipping/shipments/deliver`;

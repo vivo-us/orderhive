@@ -1,7 +1,16 @@
+import joi from "joi";
 import { CustomField, OrderExtraItem, OrderItem } from "./orders";
 import { Warehouse } from "./warehouses";
 import { Tag } from "./tags";
-import { WeightUnit, DimensionUnit, Address, Timestamps } from "./global";
+import {
+  WeightUnit,
+  DimensionUnit,
+  Address,
+  Timestamps,
+  WeightUnitSchema,
+  DimensionUnitSchema,
+  IdSchema,
+} from "./global";
 
 export interface ShippingStore extends Timestamps {
   id: number;
@@ -60,6 +69,13 @@ export interface CustomsSettings extends Timestamps {
   pre_defined_item_id?: number;
 }
 
+const CreateShipmentItemSchema = joi.object().keys({
+  item_id: IdSchema.required(),
+  quantity_to_ship: joi.number().integer().positive().required(),
+  sales_order_item_id: IdSchema.required(),
+  sku: joi.string(),
+  price: joi.number().positive(),
+});
 interface CreateShipmentItem {
   item_id: number;
   quantity_to_ship: number;
@@ -68,6 +84,18 @@ interface CreateShipmentItem {
   price?: number;
 }
 
+const ParentChildShipmentSchema = joi.object().keys({
+  package_weight: joi.number().positive(),
+  package_weight_unit: WeightUnitSchema,
+  length: joi.number().positive(),
+  width: joi.number().positive(),
+  height: joi.number().positive(),
+  dimension_unit: DimensionUnitSchema,
+  label_url: joi.string(),
+  package_options: joi.string().valid("Pre-defined", "Custom").required(),
+  predefined_package: joi.string(),
+  tracking_number: joi.string(),
+});
 interface ParentChildShipment {
   package_weight?: number;
   package_weight_unit?: WeightUnit;
@@ -81,6 +109,19 @@ interface ParentChildShipment {
   tracking_number?: string;
 }
 
+export const CreateMultipieceShipmentSchema = joi.object().keys({
+  parent_shipment: ParentChildShipmentSchema.required(),
+  child_shipments: joi.array().items(ParentChildShipmentSchema).required(),
+  rate_value: joi.number().positive(),
+  order_rate_value: joi.number().positive(),
+  order_currency: joi.string().required(),
+  shipping_method: joi.string().required(),
+  courier_name: joi.string().required(),
+  shipping_date: joi.string().required(),
+  sales_order_id: IdSchema.required(),
+  warehouse_id: IdSchema.required(),
+  items: joi.array().items(CreateShipmentItemSchema).required(),
+});
 export interface CreateMultipieceShipmentOptions {
   parent_shipment: ParentChildShipment;
   child_shipments: ParentChildShipment[];
@@ -95,6 +136,24 @@ export interface CreateMultipieceShipmentOptions {
   items: CreateShipmentItem[];
 }
 
+export const CreateShipmentSchema = joi.object().keys({
+  order_currency: joi.string().required(),
+  shipping_method: joi.string().required(),
+  courier_name: joi.string().required(),
+  shipping_date: joi.date().required(),
+  sales_order_id: IdSchema.required(),
+  warehouse_id: IdSchema.required(),
+  items: joi.array().items(CreateShipmentItemSchema).required(),
+  tracking_number: joi.string(),
+  label_url: joi.string(),
+  package_weight: joi.number().positive(),
+  package_weight_unit: WeightUnitSchema,
+  length: joi.number().positive(),
+  width: joi.number().positive(),
+  height: joi.number().positive(),
+  dimension_unit: DimensionUnitSchema,
+  shipping_cost: joi.number().positive(),
+});
 export interface CreateShipmentOptions {
   order_currency: string;
   shipping_method: string;

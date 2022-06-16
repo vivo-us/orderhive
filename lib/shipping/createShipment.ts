@@ -2,6 +2,7 @@ import Orderhive from "../index";
 import {
   CreateShipmentOptions,
   CreateShipmentResponse,
+  CreateShipmentSchema,
 } from "../definitions/shipping";
 
 /**
@@ -13,6 +14,7 @@ export default async function createShipment(
   this: Orderhive,
   options: CreateShipmentOptions
 ): Promise<CreateShipmentResponse> {
+  await CreateShipmentSchema.validateAsync(options);
   try {
     const path = `/shipping/shipments/add`;
     const headers = await this.signRequest("POST", path, options);

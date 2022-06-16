@@ -1,3 +1,4 @@
+import { IdSchema } from "./../definitions/global";
 import Orderhive from "../index";
 import { Shipment } from "../definitions/shipping";
 
@@ -10,6 +11,7 @@ export default async function getShipments(
   this: Orderhive,
   orderId: number
 ): Promise<Shipment> {
+  await IdSchema.validateAsync(orderId);
   try {
     const path = `/orders/salesorder/${orderId}?childShipment=true`;
     const headers = await this.signRequest("GET", path);

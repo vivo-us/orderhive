@@ -1,5 +1,8 @@
 import Orderhive from "../index";
-import { CreateMultipieceShipmentOptions } from "../definitions/shipping";
+import {
+  CreateMultipieceShipmentOptions,
+  CreateMultipieceShipmentSchema,
+} from "../definitions/shipping";
 
 /**
  * @param  {CreateMultipieceShipmentOptions} options
@@ -10,6 +13,7 @@ export default async function createMultipieceShipment(
   this: Orderhive,
   options: CreateMultipieceShipmentOptions
 ): Promise<string> {
+  await CreateMultipieceShipmentSchema.validateAsync(options);
   try {
     const path = `/shipping/multipieceshipments/add`;
     const headers = await this.signRequest("POST", path, options);
