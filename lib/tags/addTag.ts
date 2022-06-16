@@ -1,3 +1,5 @@
+import { IdArraySchema } from "../definitions/global";
+import { TageTypeSchema } from "../definitions/tags";
 import Orderhive from "../index";
 
 type TagType = "sales_order";
@@ -15,6 +17,9 @@ export default async function addTag(
   tagIds: Array<number>,
   type?: TagType
 ): Promise<undefined> {
+  await IdArraySchema.validateAsync(orderIds);
+  await IdArraySchema.validateAsync(tagIds);
+  await TageTypeSchema.validateAsync(type);
   try {
     let obj = {
       source_id: orderIds,

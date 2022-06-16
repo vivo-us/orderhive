@@ -1,4 +1,5 @@
-import { Timestamps } from "./global";
+import joi from "joi";
+import { HexColorSchema, Timestamps } from "./global";
 export interface NewTag {
   id: number;
   tag_id: number;
@@ -6,6 +7,9 @@ export interface NewTag {
   tag_color: string;
 }
 
+export const TageTypeSchema = joi
+  .string()
+  .valid("sales_order", "item", "customer", "company", "purchase_order");
 export type TagType =
   | "sales_order"
   | "item"
@@ -21,6 +25,11 @@ export interface Tag extends Timestamps {
   tag_color: string;
 }
 
+export const TagOptions = joi.object().keys({
+  tag_name: joi.string().required(),
+  type: TageTypeSchema.required(),
+  tag_color: HexColorSchema,
+});
 export interface TagOptions {
   tag_name: string;
   type: TagType;

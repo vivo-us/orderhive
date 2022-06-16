@@ -10,15 +10,7 @@ export default async function createTag(
   this: Orderhive,
   tagOptions: TagOptions
 ): Promise<NewTag> {
-  if (
-    tagOptions.tag_color &&
-    (tagOptions.tag_color.length !== 7 ||
-      tagOptions.tag_color.charAt(0) !== "#")
-  ) {
-    throw new Error(
-      "Color must be a valid 7 characters long hex code including the starting #"
-    );
-  }
+  await TagOptions.validateAsync(tagOptions);
   try {
     let path = "/orders/tags";
     const headers = await this.signRequest("POST", path, tagOptions);

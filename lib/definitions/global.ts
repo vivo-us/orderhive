@@ -1,5 +1,9 @@
 import joi from "joi";
 
+export const HexColorSchema = joi
+  .string()
+  .pattern(/^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$/);
+
 export const IdSchema = joi.number().integer().positive().messages({
   "number.base": "Id must be a number",
   "number.integer": "Id must be an integer",
