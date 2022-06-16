@@ -1,5 +1,6 @@
 import Orderhive from "../index";
-import { OrderStatus } from "../definitions/orders";
+import { OrderStatus, OrderStatusSchema } from "../definitions/orders";
+import { IdSchema } from "../definitions/global";
 
 /**
  * @param  {number} orderId
@@ -11,6 +12,8 @@ export default async function updateOrderStatus(
   orderId: number,
   orderStatus: OrderStatus
 ) {
+  await IdSchema.validateAsync(orderId);
+  await OrderStatusSchema.validateAsync(orderStatus);
   try {
     const path = "/orders/salesorder";
     let obj = {

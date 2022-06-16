@@ -45,6 +45,36 @@ export interface Weight {
   weight_unit: WeightUnit;
 }
 
+export const CreateAddressSchema = joi
+  .object()
+  .keys({
+    name: joi.string(),
+    company: joi.string(),
+    address1: joi.string().required(),
+    address2: joi.string(),
+    city: joi.string().required(),
+    state: joi.string().required(),
+    zipcode: joi.string().required(),
+    country: joi.string(),
+    country_code: joi.string().length(2).required(),
+    contact_number: joi.string(),
+    email: joi.string().email(),
+  })
+  .or("name", "company");
+
+export interface CreateAddress {
+  name?: string;
+  company?: string;
+  address1: string;
+  address2?: string;
+  city: string;
+  state: string;
+  zipcode: string;
+  country?: string;
+  country_code: string;
+  contact_number?: string;
+  email?: string;
+}
 export interface Address {
   name?: string | null;
   company?: string | null;

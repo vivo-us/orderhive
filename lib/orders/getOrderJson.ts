@@ -1,3 +1,4 @@
+import { IdSchema } from "../definitions/global";
 import Orderhive from "../index";
 
 /**
@@ -8,6 +9,7 @@ export default async function getOrderJSON(
   this: Orderhive,
   orderId: number
 ): Promise<any> {
+  await IdSchema.validateAsync(orderId);
   try {
     const path = `/orders/salesorder/${orderId}/getJson`;
     const headers = await this.signRequest("GET", path);

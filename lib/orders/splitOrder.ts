@@ -1,5 +1,10 @@
 import Orderhive from "../index";
-import { SplitOrderData, SplitOrderResponse } from "../definitions/orders";
+import {
+  SplitOrderData,
+  SplitOrderResponse,
+  SplitOrderDataSchema,
+} from "../definitions/orders";
+import { IdSchema } from "../definitions/global";
 
 /**
  * @param  {number} orderId
@@ -12,6 +17,8 @@ export default async function splitOrder(
   orderId: number,
   data: SplitOrderData
 ): Promise<SplitOrderResponse> {
+  await IdSchema.validateAsync(orderId);
+  await SplitOrderDataSchema.validateAsync(data);
   try {
     const path = `/orders/salesorder/split/${orderId}`;
     const headers = await this.signRequest("POST", path, data);

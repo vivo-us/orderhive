@@ -1,20 +1,23 @@
+import { IdArraySchema, IdSchema } from "../definitions/global";
 import Orderhive from "../index";
 
 /**
  * @param  {number[]} orderIds
- * @param  {number} customStatus
+ * @param  {number} customStatusId
  */
 
 export default async function updateCustomOrderStatus(
   this: Orderhive,
   orderIds: Array<number>,
-  customStatus: number
+  customStatusId: number
 ) {
+  await IdArraySchema.validateAsync(orderIds);
+  await IdSchema.validateAsync(customStatusId);
   try {
     const path = "/orders/salesorder/custom_status/change";
     let obj = {
       sales_order_ids: orderIds,
-      custom_status: customStatus,
+      custom_status: customStatusId,
     };
     const headers = await this.signRequest("POST", path, obj);
     if (!headers) throw new Error("Could not sign request");

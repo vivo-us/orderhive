@@ -1,3 +1,4 @@
+import { IdArraySchema } from "./../definitions/global";
 import Orderhive from "../index";
 
 /**
@@ -8,6 +9,7 @@ export default async function deleteOrders(
   this: Orderhive,
   orderIds: Array<number>
 ) {
+  await IdArraySchema.validateAsync(orderIds);
   try {
     const path = "/orders/salesorder/delete";
     let obj = { sales_orders_id: orderIds };

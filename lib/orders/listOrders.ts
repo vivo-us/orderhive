@@ -1,5 +1,5 @@
 import Orderhive from "../index";
-import { ListOrdersOptions } from "../definitions/orders";
+import { ListOrdersOptions, ListOrderSchema } from "../definitions/orders";
 
 /**
  * @param  {ListOrdersOptions} options
@@ -9,12 +9,7 @@ export default async function listOrders(
   this: Orderhive,
   options: ListOrdersOptions
 ) {
-  if (options.filters?.from_due_date && !options.filters?.to_due_date) {
-    throw new Error("from_due_date requires to_due_date");
-  }
-  if (options.filters?.from_date && !options.filters?.to_date) {
-    throw new Error("from_date requires to_date");
-  }
+  await ListOrderSchema.validateAsync(options);
   try {
     const path = `/orders/salesorder/v1`;
     const headers = await this.signRequest("POST", path, options);

@@ -1,3 +1,4 @@
+import { IdArraySchema, QuerySchema } from "../definitions/global";
 import Orderhive from "../index";
 
 /**
@@ -11,6 +12,8 @@ export default async function moveOrderToFolder(
   orderIds: number[],
   folderId: string
 ): Promise<undefined> {
+  await IdArraySchema.validateAsync(orderIds);
+  await QuerySchema.validateAsync(folderId);
   try {
     let obj = { id: orderIds };
     const path = `/orders/salesorder/mv_folder/${folderId}`;
