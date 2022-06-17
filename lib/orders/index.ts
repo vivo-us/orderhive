@@ -10,6 +10,7 @@ import getOrderJSON from "./getOrderJson";
 import splitOrder from "./splitOrder";
 import moveOrderToFolder from "./moveOrderToFolder";
 import addComment from "./addComment";
+import removeTag from "./removeTag";
 
 export default {
   createOrder,
@@ -24,4 +25,5 @@ export default {
   splitOrder,
   moveOrderToFolder,
   addComment,
+  removeTag,
 };

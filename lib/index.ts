@@ -72,6 +72,7 @@ class Orderhive {
   moveOrderToFolder: typeof orders.moveOrderToFolder =
     orders.moveOrderToFolder.bind(this);
   addComment: typeof orders.addComment = orders.addComment.bind(this);
+  removeTag: typeof orders.removeTag = orders.removeTag.bind(this);
 
   listStores: typeof stores.listStores = stores.listStores.bind(this);
   getStoreDetails: typeof stores.getStoreDetails =
