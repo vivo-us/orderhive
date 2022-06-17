@@ -8,6 +8,7 @@ import {
   CreateAddress,
   WeightUnitSchema,
 } from "./global";
+import { Tag } from "./tags";
 
 const AddCustomFieldSchema = joi.object().keys({
   name: joi.string().required(),
@@ -324,6 +325,7 @@ export interface Order {
   store_id: number;
   sync_created?: string;
   tax_type: "INCLUSIVE" | "EXCLUSIVE";
+  tags?: Tag[];
   warehouse_id: number;
 }
 
@@ -377,6 +379,7 @@ export interface AddCommentResponse extends Timestamps {
 const FilterSchema = joi
   .object()
   .keys({
+    order_status: joi.array().items(OrderStatusSchema),
     custom_status: joi.array().items(IdSchema),
     storesByIds: joi.array().items(IdSchema),
     tagsByNames: joi.array().items(joi.string()),
@@ -395,16 +398,17 @@ const FilterSchema = joi
   .and("from_date", "to_date")
   .and("from_due_date", "to_due_date");
 interface Filter {
-  custom_status?: Array<number>;
-  storesByIds?: Array<number>;
-  tagsByNames?: Array<string>;
-  shipping_country?: Array<string>;
-  payment_status?: Array<PaymentStatus>;
+  order_status?: OrderStatus[];
+  custom_status?: number[];
+  storesByIds?: number[];
+  tagsByNames?: string[];
+  shipping_country?: string[];
+  payment_status?: PaymentStatus[];
   from_date?: string;
   to_date?: string;
-  warehousesByIds?: Array<number>;
-  shipping_service?: Array<string>;
-  shipping_carrier?: Array<string>;
+  warehousesByIds?: number[];
+  shipping_service?: string[];
+  shipping_carrier?: string[];
   pending_invoice?: boolean;
   invoice_printed?: boolean;
   from_due_date?: string;
@@ -421,10 +425,10 @@ interface Sort {
 }
 
 export const ListOrderSchema = joi.object().keys({
-  filters: FilterSchema,
-  sortBy: SortSchema,
-  query: joi.string(),
-  nextToken: joi.string(),
+  filters: FilterSchema.optional(),
+  sortBy: SortSchema.optional(),
+  query: joi.string().optional(),
+  nextToken: joi.string().optional(),
 });
 
 export interface ListOrdersOptions {
@@ -471,4 +475,9 @@ export interface EditOrderOptions {
   billing_address?: Address;
   order_extra_items?: Array<OrderExtraItem>;
   order_items?: Array<OrderItem>;
+}
+
+export interface ListOrdersResponse {
+  data: Order[];
+  next_token?: string;
 }

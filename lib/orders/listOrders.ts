@@ -2,18 +2,18 @@ import Orderhive from "../index";
 import {
   ListOrdersOptions,
   ListOrderSchema,
-  Order,
+  ListOrdersResponse,
 } from "../definitions/orders";
 
 /**
  * @param  {ListOrdersOptions} options - Options for listing orders
- * @return {Promise<Order[]>}
+ * @return {Promise<ListOrdersResponse>}
  */
 
 export default async function listOrders(
   this: Orderhive,
   options: ListOrdersOptions
-): Promise<Order[]> {
+): Promise<ListOrdersResponse> {
   await ListOrderSchema.required().validateAsync(options);
   try {
     const path = `/orders/salesorder/v1`;
