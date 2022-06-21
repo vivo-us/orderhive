@@ -25,6 +25,7 @@ export default async function addTag(
       source_id: orderIds,
       tags: tagIds,
     };
+    if (!type) type = "sales_order";
     let path = `/orders/tags/${type}`;
     const headers = await this.signRequest("PUT", path, obj);
     if (!headers) throw new Error("Could not sign request");

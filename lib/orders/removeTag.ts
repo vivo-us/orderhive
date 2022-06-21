@@ -1,11 +1,10 @@
 import Orderhive from "../index";
 import { IdSchema } from "../definitions/global";
-import { Order } from "../definitions/orders";
 
 /**
  * @param  {number} orderId - Orderhive Order ID
  * @param  {number} tagId - Orderhive Tag ID
- * @return {Promise<Order>}
+ * @return {Promise<undefined>}
  */
 
 export default async function getOrderDetails(

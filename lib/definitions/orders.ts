@@ -7,6 +7,7 @@ import {
   CreateAddressSchema,
   CreateAddress,
   WeightUnitSchema,
+  WeightUnit,
 } from "./global";
 import { Tag } from "./tags";
 
@@ -123,21 +124,81 @@ export interface OrderExtraItem extends Weight {
   update_type?: "ADD" | "EDIT" | "REMOVE";
 }
 
+export const UpdateOrderItemSchema = joi.object().keys({
+  id: IdSchema.required(),
+  asin_number: joi.string(),
+  barcode: joi.string(),
+  channel_primary_id: joi.string(),
+  channel_secondary_id: joi.string(),
+  discount_percent: joi.when("discount_type", {
+    is: "percent",
+    then: joi.number().positive().required(),
+    otherwise: joi.number().positive().optional(),
+  }),
+  discount_type: joi.string().valid("percent", "value").required(),
+  discount_value: joi.when("discount_type", {
+    is: "value",
+    then: joi.number().positive().required(),
+    otherwise: joi.number().positive().optional(),
+  }),
+  meta_data: joi.array().items(MetaDataSchema),
+  name: joi.string(),
+  note: joi.string(),
+  price: joi.number().positive(),
+  quantity_ordered: joi.number().positive().integer().min(1).required(),
+  quantity_invoiced: joi.number().positive().integer(),
+  row_total: joi.number().positive(),
+  sku: joi.string(),
+  tax_info: TaxInfoSchema,
+  tax_percent: joi.number().positive(),
+  tax_value: joi.number().positive(),
+  type: joi.string(),
+  weight: joi.number().positive(),
+  weight_unit: WeightUnitSchema,
+  update_type: joi.string().valid("ADD", "EDIT", "REMOVE").required(),
+});
+
+export interface UpdateOrderItem {
+  id: number;
+  asin_number?: string | null;
+  barcode?: string | null;
+  channel_primary_id?: string | null;
+  channel_secondary_id?: string | null;
+  discount_percent?: number;
+  discount_type: "percent" | "value";
+  discount_value?: number;
+  meta_data?: Array<MetaData> | null;
+  name?: string | null;
+  note?: string | null;
+  price?: number;
+  quantity_ordered: number;
+  quantity_invoiced?: number;
+  row_total?: number;
+  sku?: string | null;
+  tax_info?: TaxInfo | null;
+  tax_percent?: number;
+  tax_value?: number;
+  type?: string | null;
+  weight?: number;
+  weight_unit?: WeightUnit;
+  update_type: "ADD" | "EDIT" | "REMOVE";
+}
+
 const AddOrderItemSchema = joi.object().keys({
   asin_number: joi.string(),
   barcode: joi.string(),
   channel_primary_id: joi.string(),
   channel_secondary_id: joi.string(),
   discount_percent: joi.when("discount_type", {
-    is: "PERCENT",
+    is: "percent",
     then: joi.number().positive().required(),
-    otherwise: joi.forbidden(),
+    otherwise: joi.number().positive().optional(),
   }),
-  discount_type: joi.string().valid("PERCENT", "VALUE").required(),
+  discount_type: joi.string().valid("percent", "value").required(),
   discount_value: joi.when("discount_type", {
-    is: "VALUE",
+    is: "value",
     then: joi.number().positive().required(),
-    otherwise: joi.forbidden(),
+    otherwise: joi.number().positive().optional(),
   }),
   item_id: IdSchema.required(),
   meta_data: joi.array().items(MetaDataSchema),
@@ -161,7 +222,7 @@ export interface AddOrderItem extends Weight {
   channel_primary_id?: string | null;
   channel_secondary_id?: string | null;
   discount_percent?: number;
-  discount_type: "PERCENT" | "VALUE";
+  discount_type: "percent" | "value";
   discount_value?: number;
   item_id: number;
   meta_data?: Array<MetaData> | null;
@@ -187,7 +248,7 @@ export interface OrderItem extends Weight {
   components?: Array<any> | null;
   default_supplier_id?: number;
   discount_percent?: number;
-  discount_type: "PERCENT" | "VALUE";
+  discount_type: "percent" | "value";
   discount_value?: number;
   id?: number;
   item_id: number;
@@ -294,38 +355,39 @@ export interface CreateOrder {
 }
 
 export interface Order {
-  base_currency?: string | null;
-  base_currency_rate?: number;
+  base_currency: string | null;
+  base_currency_rate: number | null;
   billing_address: CreateAddress;
-  channel_order_id?: string;
-  channel_order_number?: string | null;
-  config?: any;
-  contact_id?: number | null;
-  currency?: string;
-  custom_fields?: Array<CustomField>;
-  custom_pricing_tier_id?: number;
-  custom_status?: number;
-  delivery_date?: string | null;
+  channel_order_id: string;
+  channel_order_number: string | null;
+  config: any | null;
+  contact_id: number | null;
+  currency: string;
+  custom_fields: Array<CustomField> | null;
+  custom_pricing_tier_id: number | null;
+  custom_status: number | null;
+  delivery_date: string | null;
   grand_total: number;
-  id?: number;
-  order_extra_items?: Array<OrderExtraItem>;
+  id: number;
+  order_extra_items: Array<OrderExtraItem>;
   order_items: Array<OrderItem>;
   order_status: OrderStatus;
-  parent_id?: number | null;
-  payment_method?: string | null;
+  parent_id: number | null;
+  payment_method: string | null;
   payment_status: PaymentStatus;
-  preset_id?: number | null;
-  reference_number?: string | null;
-  remark?: string | null;
-  sales_person_id?: number | null;
+  preset_id: number | null;
+  prime: boolean;
+  reference_number: string | null;
+  remark: string | null;
+  sales_person_id: number | null;
   shipping_address: CreateAddress;
-  shipping_carrier?: string | null;
-  shipping_due_date?: string | null;
-  shipping_service?: string | null;
+  shipping_carrier: string | null;
+  shipping_due_date: string | null;
+  shipping_service: string | null;
   store_id: number;
-  sync_created?: string;
+  sync_created: string;
   tax_type: "INCLUSIVE" | "EXCLUSIVE";
-  tags?: Tag[];
+  tags: Tag[] | null;
   warehouse_id: number;
 }
 
@@ -456,7 +518,7 @@ export const EditOrderSchema = joi.object().keys({
     })
   ),
   order_items: joi.array().items(
-    AddOrderItemSchema.append({
+    UpdateOrderItemSchema.append({
       update_type: joi.string().valid("ADD", "EDIT", "REMOVE").required(),
     })
   ),
@@ -474,7 +536,7 @@ export interface EditOrderOptions {
   shipping_address?: Address;
   billing_address?: Address;
   order_extra_items?: Array<OrderExtraItem>;
-  order_items?: Array<OrderItem>;
+  order_items?: Array<UpdateOrderItem>;
 }
 
 export interface ListOrdersResponse {
