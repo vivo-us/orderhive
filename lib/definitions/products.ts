@@ -144,22 +144,29 @@ type CustomFieldType = "DROP_DOWN" | "TEXT" | "DATE" | "CHECKBOX" | "NUMBER";
 interface CustomField {
   id?: number;
   name: string;
-  value: string | object | string[];
+  value: string | object | string[] | object[];
   type: CustomFieldType;
   show_on_frontcard?: boolean;
 }
 
 const CreateCustomFieldSchema = joi.object().keys({
   id: IdSchema.required(),
-  value: joi.string().required(),
+  value: joi
+    .alternatives()
+    .try(
+      joi.string(),
+      joi.object(),
+      joi.array().items(joi.alternatives().try(joi.string(), joi.object()))
+    )
+    .required(),
 });
 interface CreateSimpleProductCustomField {
   id: string;
   value: string;
 }
 interface UpdateCustomField {
-  id: number;
-  value: string;
+  id: string;
+  value: string | object | string[] | object[];
 }
 
 const CreateProductTagsSchema = joi.object().keys({
