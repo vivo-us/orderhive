@@ -2,8 +2,6 @@
 
 Orderhive is a module that integrates with [Orderhive](https://orderhive.com) and manages the exchange of tokens for you.
 
-This has recently been updated to store API keys per Orderhive requirements. Currently these are encrypted and stored inside a MySQL database, however more options can will be added in the future.
-
 This module is under active development currently, although much of the core functionality has been complete.
 
 Documentation will be added as we get to it. However everything has been typed, so you can use that for reference.
@@ -28,19 +26,10 @@ const { Orderhive } = require("orderhive"); // require statement
 
 // Create a new instance of Orderhive
 // ID Token and Refresh token are given once you have registered your application with Orderhive
-// Currently this only supports Mysql databases
 
 const orderhive = new Orderhive({
   idToken: "dfli3lhvnklas",
   refreshToken: "jfo208vnaslf8324",
-  db: {
-    host: "12.34.56.78",
-    username: "testUser",
-    password: "testPassword",
-    port: 3306,
-    database: "testDb",
-    encryptionKey: "encryptionKey", // For encryption api keys
-  },
 });
 
 // Example request
