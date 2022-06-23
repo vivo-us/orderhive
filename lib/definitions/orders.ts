@@ -22,7 +22,7 @@ const AddCustomFieldSchema = joi.object().keys({
     .required(),
 });
 export interface CustomField {
-  id?: number;
+  id?: string;
   name: string;
   value: string | object | Array<string>;
   type: "DROP_DOWN" | "TEXT" | "DATE" | "CHECKBOX" | "NUMBER";
@@ -31,8 +31,8 @@ export interface CustomField {
 const GroupSchema = joi.object().keys({
   id: IdSchema.required(),
   name: joi.string().required(),
-  tax_value: joi.number().positive().required(),
-  total_tax_value: joi.number().positive().required(),
+  tax_value: joi.number().positive().allow(0).required(),
+  total_tax_value: joi.number().positive().allow(0).required(),
 });
 export interface Group {
   id: number;
@@ -43,7 +43,7 @@ export interface Group {
 
 const TaxInfoSchema = joi.object().keys({
   id: IdSchema.required(),
-  tax_rate: joi.number().positive().required(),
+  tax_rate: joi.number().positive().allow(0).required(),
   groups: joi.array().items(GroupSchema).required(),
 });
 export interface TaxInfo {
@@ -88,12 +88,12 @@ export interface MetaData {
 const AddOrderExtraItemSchema = joi.object().keys({
   display_type: joi.string(),
   name: joi.string().required(),
-  price: joi.number().positive().required(),
-  quantity_ordered: joi.number().positive().integer().required(),
-  row_total: joi.number().positive(),
+  price: joi.number().positive().allow(0).required(),
+  quantity_ordered: joi.number().positive().allow(0).integer().required(),
+  row_total: joi.number().positive().allow(0),
   tax_info: TaxInfoSchema,
-  tax_percent: joi.number().positive(),
-  tax_value: joi.number().positive(),
+  tax_percent: joi.number().positive().allow(0),
+  tax_value: joi.number().positive().allow(0),
 });
 export interface AddOrderExtraItem extends Weight {
   display_type?: string;
@@ -126,34 +126,41 @@ export interface OrderExtraItem extends Weight {
 
 export const UpdateOrderItemSchema = joi.object().keys({
   id: IdSchema.required(),
+  item_id: IdSchema.required(),
   asin_number: joi.string(),
   barcode: joi.string(),
   channel_primary_id: joi.string(),
   channel_secondary_id: joi.string(),
   discount_percent: joi.when("discount_type", {
     is: "percent",
-    then: joi.number().positive().required(),
-    otherwise: joi.number().positive().optional(),
+    then: joi.number().positive().allow(0).required(),
+    otherwise: joi.number().positive().allow(0),
   }),
   discount_type: joi.string().valid("percent", "value").required(),
   discount_value: joi.when("discount_type", {
     is: "value",
-    then: joi.number().positive().required(),
-    otherwise: joi.number().positive().optional(),
+    then: joi.number().positive().allow(0).required(),
+    otherwise: joi.number().positive().allow(0),
   }),
   meta_data: joi.array().items(MetaDataSchema),
   name: joi.string(),
   note: joi.string(),
-  price: joi.number().positive(),
-  quantity_ordered: joi.number().positive().integer().min(1).required(),
-  quantity_invoiced: joi.number().positive().integer(),
-  row_total: joi.number().positive(),
+  price: joi.number().positive().allow(0),
+  quantity_ordered: joi
+    .number()
+    .positive()
+    .allow(0)
+    .integer()
+    .min(1)
+    .required(),
+  quantity_invoiced: joi.number().positive().allow(0).integer(),
+  row_total: joi.number().positive().allow(0),
   sku: joi.string(),
   tax_info: TaxInfoSchema,
-  tax_percent: joi.number().positive(),
-  tax_value: joi.number().positive(),
+  tax_percent: joi.number().positive().allow(0),
+  tax_value: joi.number().positive().allow(0),
   type: joi.string(),
-  weight: joi.number().positive(),
+  weight: joi.number().positive().allow(0),
   weight_unit: WeightUnitSchema,
   update_type: joi.string().valid("ADD", "EDIT", "REMOVE").required(),
 });
@@ -191,29 +198,35 @@ const AddOrderItemSchema = joi.object().keys({
   channel_secondary_id: joi.string(),
   discount_percent: joi.when("discount_type", {
     is: "percent",
-    then: joi.number().positive().required(),
-    otherwise: joi.number().positive().optional(),
+    then: joi.number().positive().allow(0).required(),
+    otherwise: joi.number().positive().allow(0),
   }),
   discount_type: joi.string().valid("percent", "value").required(),
   discount_value: joi.when("discount_type", {
     is: "value",
-    then: joi.number().positive().required(),
-    otherwise: joi.number().positive().optional(),
+    then: joi.number().positive().allow(0).required(),
+    otherwise: joi.number().positive().allow(0),
   }),
   item_id: IdSchema.required(),
   meta_data: joi.array().items(MetaDataSchema),
   name: joi.string(),
   note: joi.string(),
-  price: joi.number().positive(),
-  quantity_ordered: joi.number().positive().integer().min(1).required(),
-  quantity_invoiced: joi.number().positive().integer(),
-  row_total: joi.number().positive(),
+  price: joi.number().positive().allow(0),
+  quantity_ordered: joi
+    .number()
+    .positive()
+    .allow(0)
+    .integer()
+    .min(1)
+    .required(),
+  quantity_invoiced: joi.number().positive().allow(0).integer(),
+  row_total: joi.number().positive().allow(0),
   sku: joi.string(),
   tax_info: TaxInfoSchema,
-  tax_percent: joi.number().positive().required(),
-  tax_value: joi.number().positive(),
+  tax_percent: joi.number().positive().allow(0).required(),
+  tax_value: joi.number().positive().allow(0),
   type: joi.string(),
-  weight: joi.number().positive().required(),
+  weight: joi.number().positive().allow(0).required(),
   weight_unit: WeightUnitSchema.required(),
 });
 export interface AddOrderItem extends Weight {
@@ -239,45 +252,45 @@ export interface AddOrderItem extends Weight {
   type?: string | null;
 }
 export interface OrderItem extends Weight {
-  asin_number?: string | null;
-  barcode?: string | null;
-  brand?: string | null;
-  category?: string | null;
-  channel_primary_id?: string | null;
-  channel_secondary_id?: string | null;
-  components?: Array<any> | null;
-  default_supplier_id?: number;
-  discount_percent?: number;
+  asin_number: string | null;
+  barcode: string | null;
+  brand: string | null;
+  category: string | null;
+  channel_primary_id: string | null;
+  channel_secondary_id: string | null;
+  components: Array<any> | null;
+  default_supplier_id: number | null;
+  discount_percent: number;
   discount_type: "percent" | "value";
-  discount_value?: number;
-  id?: number;
+  discount_value: number;
+  id: number;
   item_id: number;
-  item_warehouse?: Array<ItemWarehouse> | null;
-  last_purchase_price?: number;
-  meta_data?: Array<MetaData> | null;
-  name?: string | null;
-  note?: string | null;
-  price?: number;
-  product_image?: ProductImage | null;
-  properties?: Array<any> | null;
+  item_warehouse: Array<ItemWarehouse> | null;
+  last_purchase_price: number | null;
+  meta_data: Array<MetaData> | null;
+  name: string | null;
+  note: string | null;
+  price: number;
+  product_image: ProductImage | null;
+  properties: Array<any> | null;
   quantity_ordered: number;
-  quantity_cancelled?: number;
-  quantity_shipped?: number;
-  quantity_available?: number;
-  quantity_on_hand?: number | null;
-  quantity_returned?: number;
-  quantity_delivered?: number;
-  quantity_packed?: number;
-  quantity_dropshipped?: number;
-  quantity_invoiced?: number;
-  row_total?: number;
-  serial_numbers?: Array<string> | null;
-  sku?: string | null;
-  suppliers?: object;
-  tax_info?: TaxInfo | null;
+  quantity_cancelled: number;
+  quantity_shipped: number;
+  quantity_available: number;
+  quantity_on_hand: number | null;
+  quantity_returned: number;
+  quantity_delivered: number;
+  quantity_packed: number;
+  quantity_dropshipped: number;
+  quantity_invoiced: number;
+  row_total: number;
+  serial_numbers: Array<string> | null;
+  sku: string | null;
+  suppliers: object;
+  tax_info: TaxInfo | null;
   tax_percent: number;
-  tax_value?: number;
-  type?: string | null;
+  tax_value: number;
+  type: string | null;
   update_type?: "ADD" | "EDIT" | "REMOVE";
 }
 
@@ -298,7 +311,7 @@ export type PaymentStatus = "PAID" | "NOT_PAID" | "PARTIAL_PAID";
 
 export const CreateOrderSchema = joi.object().keys({
   base_currency: joi.string(),
-  base_currency_rate: joi.number().positive(),
+  base_currency_rate: joi.number().positive().allow(0),
   billing_address: CreateAddressSchema.required(),
   channel_order_id: joi.string(),
   channel_order_number: joi.string(),
@@ -307,7 +320,7 @@ export const CreateOrderSchema = joi.object().keys({
   custom_fields: joi.array().items(AddCustomFieldSchema),
   custom_pricing_tier_id: IdSchema,
   delivery_date: joi.string(),
-  grand_total: joi.number().positive().required(),
+  grand_total: joi.number().positive().allow(0).required(),
   order_extra_items: joi.array().items(AddOrderExtraItemSchema),
   order_items: joi.array().items(AddOrderItemSchema).required(),
   order_status: OrderStatusSchema.required(),
@@ -385,6 +398,7 @@ export interface Order {
   shipping_due_date: string | null;
   shipping_service: string | null;
   store_id: number;
+  store_name: string;
   sync_created: string;
   tax_type: "INCLUSIVE" | "EXCLUSIVE";
   tags: Tag[] | null;
@@ -393,7 +407,7 @@ export interface Order {
 
 const SplitItemSchema = joi.object().keys({
   id: IdSchema.required(),
-  qty_split: joi.number().positive().integer().required(),
+  qty_split: joi.number().positive().allow(0).integer().required(),
 });
 interface SplitItem {
   id: number;
@@ -487,10 +501,10 @@ interface Sort {
 }
 
 export const ListOrderSchema = joi.object().keys({
-  filters: FilterSchema.optional(),
-  sortBy: SortSchema.optional(),
-  query: joi.string().optional(),
-  nextToken: joi.string().optional(),
+  filters: FilterSchema,
+  sortBy: SortSchema,
+  query: joi.string(),
+  nextToken: joi.string(),
 });
 
 export interface ListOrdersOptions {
