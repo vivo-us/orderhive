@@ -30,6 +30,7 @@ interface DatabaseConfig {
   password: string;
   database: string;
   encryptionKey: string;
+  logging?: boolean;
 }
 interface OrderhiveConfig {
   idToken: string;
@@ -194,9 +195,10 @@ class Orderhive {
       ],
     });
     let { db } = config;
+    if (db.logging === undefined) db.logging = true;
     this.encryptionKey = config.db.encryptionKey;
     this.database = new Sequelize(db.database, db.username, db.password, {
-      logging: false,
+      logging: (message) => db.logging && this.logger.info(message),
       dialect: "mysql",
       dialectOptions: {
         port: db.port,
@@ -210,6 +212,7 @@ class Orderhive {
         acquire: 30000,
       },
     });
+    this.database;
     this.init()
       .then(() => (this.ready = true))
       .catch((err) => {
