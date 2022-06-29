@@ -10,6 +10,8 @@ import warehouses from "./warehouses/index";
 import products from "./products/index";
 import shipping from "./shipping/index";
 import inventory from "./inventory/index";
+import { Model, Sequelize, DataTypes, Optional, Op } from "sequelize";
+import CryptoJS from "crypto-js";
 
 type HttpMethod = "GET" | "POST" | "PUT" | "DELETE";
 type AxiosHeaders = Record<string, string>;
@@ -21,10 +23,45 @@ type LogLevel =
   | "verbose"
   | "debug"
   | "silly";
+interface DatabaseConfig {
+  host: string;
+  port: number;
+  username: string;
+  password: string;
+  database: string;
+  encryptionKey: string;
+}
 interface OrderhiveConfig {
   idToken: string;
   refreshToken: string;
+  db: DatabaseConfig;
   loggingLevel?: LogLevel;
+}
+
+interface OrderhiveApiTokenAttributes {
+  id: number;
+  accessKeyId: string;
+  secretKey: string;
+  sessionToken: string;
+  idToken: string;
+  expirationDate: Date;
+}
+
+interface OrderhiveApiTokenInput
+  extends Optional<OrderhiveApiTokenAttributes, "id"> {}
+interface OrderhiveApiTokenOutput
+  extends Required<OrderhiveApiTokenAttributes> {}
+
+class OrderhiveApiToken
+  extends Model<OrderhiveApiTokenAttributes, OrderhiveApiTokenInput>
+  implements OrderhiveApiTokenAttributes
+{
+  id!: number;
+  accessKeyId!: string;
+  secretKey!: string;
+  sessionToken!: string;
+  idToken!: string;
+  expirationDate!: Date;
 }
 
 /**
@@ -47,8 +84,12 @@ class Orderhive {
   private secretKey: string | null = null;
   private sessionToken: string | null = null;
   private tokenExpiration: Date | null = null;
+  private encryptionKey: string;
+  ready: boolean = false;
   logger: winston.Logger;
   http: AxiosInstance;
+  database: Sequelize;
+  OrderhiveApiToken = OrderhiveApiToken;
 
   createTag: typeof tags.createTag = tags.createTag.bind(this);
   addTag: typeof tags.addTag = tags.addTag.bind(this);
@@ -152,6 +193,31 @@ class Orderhive {
         }),
       ],
     });
+    let { db } = config;
+    this.encryptionKey = config.db.encryptionKey;
+    this.database = new Sequelize(db.database, db.username, db.password, {
+      logging: false,
+      dialect: "mysql",
+      dialectOptions: {
+        port: db.port,
+        host: db.host,
+        multipleStatements: true,
+      },
+      pool: {
+        max: 100,
+        min: 0,
+        idle: 10000,
+        acquire: 30000,
+      },
+    });
+    this.init()
+      .then(() => (this.ready = true))
+      .catch((err) => {
+        throw new this.OrderhiveError(
+          "An error occurred while initializing database",
+          err
+        );
+      });
     this.http = axios.create({ baseURL: `https://${this.host}` });
     axiosRetry(this.http, {
       retries: 3,
@@ -201,7 +267,108 @@ class Orderhive {
     });
   }
 
+  init = async () => {
+    let self = this;
+    this.OrderhiveApiToken.init(
+      {
+        id: {
+          type: DataTypes.INTEGER,
+          primaryKey: true,
+          autoIncrement: true,
+        },
+        accessKeyId: {
+          type: DataTypes.STRING,
+          allowNull: false,
+          set(value: string) {
+            let encrypted = CryptoJS.AES.encrypt(
+              value.trim(),
+              self.encryptionKey
+            );
+            this.setDataValue("accessKeyId", encrypted.toString());
+          },
+          get() {
+            let decrypted = CryptoJS.AES.decrypt(
+              this.getDataValue("accessKeyId"),
+              self.encryptionKey
+            );
+            return decrypted.toString(CryptoJS.enc.Utf8);
+          },
+        },
+        secretKey: {
+          type: DataTypes.STRING,
+          allowNull: false,
+          set(value: string) {
+            let encrypted = CryptoJS.AES.encrypt(
+              value.trim(),
+              self.encryptionKey
+            );
+            this.setDataValue("secretKey", encrypted.toString());
+          },
+          get() {
+            let decrypted = CryptoJS.AES.decrypt(
+              this.getDataValue("secretKey"),
+              self.encryptionKey
+            );
+            return decrypted.toString(CryptoJS.enc.Utf8);
+          },
+        },
+        sessionToken: {
+          type: DataTypes.TEXT,
+          allowNull: false,
+          set(value: string) {
+            let encrypted = CryptoJS.AES.encrypt(
+              value.trim(),
+              self.encryptionKey
+            );
+            this.setDataValue("sessionToken", encrypted.toString());
+          },
+          get() {
+            let decrypted = CryptoJS.AES.decrypt(
+              this.getDataValue("sessionToken"),
+              self.encryptionKey
+            );
+            return decrypted.toString(CryptoJS.enc.Utf8);
+          },
+        },
+        idToken: {
+          type: DataTypes.TEXT,
+          allowNull: false,
+          set(value: string) {
+            let encrypted = CryptoJS.AES.encrypt(
+              value.trim(),
+              self.encryptionKey
+            );
+            this.setDataValue("idToken", encrypted.toString());
+          },
+          get() {
+            let decrypted = CryptoJS.AES.decrypt(
+              this.getDataValue("idToken"),
+              self.encryptionKey
+            );
+            return decrypted.toString(CryptoJS.enc.Utf8);
+          },
+        },
+        expirationDate: { type: DataTypes.DATE, allowNull: false },
+      },
+      {
+        sequelize: this.database,
+        modelName: "orderhiveApiTokens",
+      }
+    );
+    await this.OrderhiveApiToken.sync();
+  };
+
   generateToken = async () => {
+    let retries = 0;
+    while (!this.ready && retries < 3) {
+      retries++;
+      await new Promise((resolve) => setTimeout(resolve, (retries + 1) * 1000));
+    }
+    if (!this.ready) {
+      throw new this.OrderhiveError(
+        "Orderhive is not ready. Could not initialize database. Please check your configuration."
+      );
+    }
     try {
       let date = new Date();
       if (
@@ -211,17 +378,43 @@ class Orderhive {
         this.logger.debug("Using previously generated token");
         return;
       }
-      let res = await this.http.post(`/setup/refreshtokenviaidtoken`, {
-        id_token: this.idToken,
-        refresh_token: this.refreshToken,
+      let tokens = await this.OrderhiveApiToken.findOne({
+        where: {
+          expirationDate: {
+            [Op.gt]: new Date(date.getTime() + 1000 * 60 * 5),
+          },
+        },
       });
-      this.accessKeyId = res.data.access_key_id;
-      this.secretKey = res.data.secret_key;
-      this.sessionToken = res.data.session_token;
-      this.idToken = res.data.id_token;
-      this.tokenExpiration = new Date(date.getTime() + 1000 * 60 * 60);
-      this.logger.info("Successfully generated token");
-      return;
+      if (tokens) {
+        let { accessKeyId, secretKey, sessionToken, idToken, expirationDate } =
+          tokens.toJSON();
+        this.accessKeyId = accessKeyId;
+        this.secretKey = secretKey;
+        this.sessionToken = sessionToken;
+        this.idToken = idToken;
+        this.tokenExpiration = expirationDate;
+        this.logger.info("Using cached token");
+        return;
+      } else {
+        let res = await this.http.post(`/setup/refreshtokenviaidtoken`, {
+          id_token: this.idToken,
+          refresh_token: this.refreshToken,
+        });
+        this.accessKeyId = res.data.access_key_id;
+        this.secretKey = res.data.secret_key;
+        this.sessionToken = res.data.session_token;
+        this.idToken = res.data.id_token;
+        this.tokenExpiration = new Date(date.getTime() + 1000 * 60 * 60);
+        this.logger.info("Successfully generated token");
+        await this.OrderhiveApiToken.create({
+          accessKeyId: res.data.access_key_id,
+          secretKey: res.data.secret_key,
+          sessionToken: res.data.session_token,
+          idToken: res.data.id_token,
+          expirationDate: new Date(date.getTime() + 1000 * 60 * 60),
+        });
+        return;
+      }
     } catch (error: any) {
       if (error.response) return error;
       this.logger.error(error.message);
