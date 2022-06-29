@@ -536,21 +536,23 @@ export const EditOrderSchema = joi.object().keys({
       update_type: joi.string().valid("ADD", "EDIT", "REMOVE").required(),
     })
   ),
+  warehouse_id: IdSchema,
 });
 export interface EditOrderOptions {
-  contact_id?: number;
+  billing_address?: Address;
   channel_order_number?: string;
+  contact_id?: number;
+  delivery_date?: string;
   payment_method?: string;
   reference_number?: string;
-  sales_person_id?: number;
   remark?: string;
-  delivery_date?: string;
+  sales_person_id?: number;
+  shipping_address?: Address;
   shipping_carrier?: string;
   shipping_service?: string;
-  shipping_address?: Address;
-  billing_address?: Address;
   order_extra_items?: Array<OrderExtraItem>;
   order_items?: Array<UpdateOrderItem>;
+  warehouse_id: number;
 }
 
 export interface ListOrdersResponse {
