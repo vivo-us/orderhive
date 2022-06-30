@@ -92,7 +92,7 @@ const ParentChildShipmentSchema = joi.object().keys({
   height: joi.number().positive(),
   dimension_unit: DimensionUnitSchema,
   label_url: joi.string(),
-  package_options: joi.string().valid("Pre-defined", "Custom").required(),
+  package_option: joi.string().valid("Pre-defined", "Custom").required(),
   predefined_package: joi.string(),
   tracking_number: joi.string(),
 });
@@ -104,7 +104,7 @@ interface ParentChildShipment {
   height?: number;
   dimension_unit?: DimensionUnit;
   label_url?: string;
-  package_options: "Pre-defined" | "Custom";
+  package_option: "Pre-defined" | "Custom";
   predefined_package?: string;
   tracking_number?: string;
 }
