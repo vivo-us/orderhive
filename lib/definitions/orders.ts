@@ -144,7 +144,7 @@ export const UpdateOrderItemSchema = joi.object().keys({
   }),
   meta_data: joi.array().items(MetaDataSchema),
   name: joi.string(),
-  note: joi.string(),
+  note: joi.string().allow(""),
   price: joi.number().positive().allow(0),
   quantity_ordered: joi
     .number()
@@ -210,7 +210,7 @@ const AddOrderItemSchema = joi.object().keys({
   item_id: IdSchema.required(),
   meta_data: joi.array().items(MetaDataSchema),
   name: joi.string(),
-  note: joi.string(),
+  note: joi.string().allow(""),
   price: joi.number().positive().allow(0),
   quantity_ordered: joi
     .number()
