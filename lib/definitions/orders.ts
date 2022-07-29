@@ -12,11 +12,33 @@ import {
 import { Tag } from "./tags";
 
 const AddCustomFieldSchema = joi.object().keys({
+  id: IdSchema.optional(),
   name: joi.string().required(),
   value: joi
-    .alternatives(joi.string(), joi.object(), joi.array().items(joi.string()))
+    .alternatives(
+      joi.boolean(),
+      joi.string(),
+      joi.object(),
+      joi.array().items(joi.string())
+    )
     .required(),
-  ype: joi
+  type: joi
+    .string()
+    .valid("DROP_DOWN", "TEXT", "DATE", "CHECKBOX", "NUMBER")
+    .required(),
+});
+
+const EditCustomFieldSchema = joi.object().keys({
+  name: joi.string().required(),
+  value: joi
+    .alternatives(
+      joi.boolean(),
+      joi.string(),
+      joi.object(),
+      joi.array().items(joi.string())
+    )
+    .required(),
+  type: joi
     .string()
     .valid("DROP_DOWN", "TEXT", "DATE", "CHECKBOX", "NUMBER")
     .required(),
@@ -24,7 +46,12 @@ const AddCustomFieldSchema = joi.object().keys({
 export interface CustomField {
   id?: string;
   name: string;
-  value: string | object | Array<string>;
+  value: Boolean | string | object | Array<string>;
+  type: "DROP_DOWN" | "TEXT" | "DATE" | "CHECKBOX" | "NUMBER";
+}
+interface EditCustomField {
+  name: string;
+  value: Boolean | string | object | Array<string>;
   type: "DROP_DOWN" | "TEXT" | "DATE" | "CHECKBOX" | "NUMBER";
 }
 
@@ -517,6 +544,7 @@ export interface ListOrdersOptions {
 export const EditOrderSchema = joi.object().keys({
   contact_id: IdSchema,
   channel_order_number: joi.string(),
+  custom_fields: joi.array().items(EditCustomFieldSchema),
   payment_method: joi.string(),
   reference_number: joi.string(),
   sales_person_id: IdSchema,
@@ -542,6 +570,7 @@ export interface EditOrderOptions {
   billing_address?: Address;
   channel_order_number?: string;
   contact_id?: number;
+  custom_fields?: EditCustomField[];
   delivery_date?: string;
   payment_method?: string;
   reference_number?: string;
@@ -552,7 +581,7 @@ export interface EditOrderOptions {
   shipping_service?: string;
   order_extra_items?: Array<OrderExtraItem>;
   order_items?: Array<UpdateOrderItem>;
-  warehouse_id: number;
+  warehouse_id?: number;
 }
 
 export interface ListOrdersResponse {

@@ -11,6 +11,7 @@ import {
   DimensionUnitSchema,
   IdArraySchema,
 } from "./global";
+import { InventoryWarehouse } from "./inventory";
 import { Tag } from "./tags";
 
 export type ProductType = 1 | 2 | 3 | 6 | 7;
@@ -178,7 +179,7 @@ interface CreateProductTags {
 interface BundleComponents extends Timestamps {
   component_product_id: number;
   component_quantity: number;
-  components: Product[];
+  component: Product;
 }
 
 const CreateBundleComponentSchema = joi.object().keys({
@@ -246,16 +247,6 @@ interface StockWarehouseReturn {
 export interface StockUpdateReturn {
   warehouses: StockWarehouseReturn[];
   purchaseOrderRequest: boolean;
-}
-
-export interface ProductWarehouse extends Timestamps {
-  quantity: number;
-  warehouse_id: number;
-  warehouse_name: string;
-  reserve_qty: number;
-  purchase_qty: number;
-  intransfer_qty: number;
-  warehouse_city: string;
 }
 
 const ConfigurableProductOptionsSchema = joi.object().keys({
@@ -367,7 +358,7 @@ export interface Product extends Timestamps {
   bundle_components?: BundleComponents[];
   category?: ProductCategory;
   product_prices?: ProductPrice[];
-  product_warehouses: ProductWarehouse[];
+  product_warehouses: InventoryWarehouse[];
   product_stores: ProductStore[];
   product_images?: ProductImage[];
   product_suppliers?: ProductSupplier[];
@@ -600,7 +591,9 @@ export const SearchOptionsSchema = joi.object().keys({
   query: joi.string(),
   size: joi.number().integer().positive(),
   page: joi.number().integer().positive(),
-  types: joi.valid("SIMPLE", "CONFIGURABLE", "VIRTUAL", "LINKED", "BUNDLE"),
+  types: joi
+    .array()
+    .items(joi.valid("SIMPLE", "CONFIGURABLE", "VIRTUAL", "LINKED", "BUNDLE")),
   statuses: joi.valid(1, 2, 3, 6, 7),
   tag_ids: IdArraySchema,
   store_ids: IdArraySchema,

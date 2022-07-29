@@ -176,6 +176,8 @@ class Orderhive {
     inventory.getProductsInventory.bind(this);
   getProductInventory: typeof inventory.getProductInventory =
     inventory.getProductInventory.bind(this);
+  editProductInventory: typeof inventory.editProductInventory =
+    inventory.editProductInventory.bind(this);
   constructor(config: OrderhiveConfig) {
     this.idToken = config.idToken;
     this.refreshToken = config.refreshToken;
