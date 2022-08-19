@@ -10,6 +10,8 @@ import warehouses from "./warehouses/index";
 import products from "./products/index";
 import shipping from "./shipping/index";
 import inventory from "./inventory/index";
+import customers from "./customers/index";
+import customFields from "./customFields";
 import { Model, Sequelize, DataTypes, Optional, Op } from "sequelize";
 import CryptoJS from "crypto-js";
 
@@ -178,6 +180,33 @@ class Orderhive {
     inventory.getProductInventory.bind(this);
   editProductInventory: typeof inventory.editProductInventory =
     inventory.editProductInventory.bind(this);
+
+  getCustomerById: typeof customers.getCustomerById = 
+    customers.getCustomerById.bind(this);
+  createCustomer: typeof customers.createCustomer =
+    customers.createCustomer.bind(this);
+  updateCustomer: typeof customers.updateCustomer = 
+    customers.updateCustomer.bind(this);
+  createCompany: typeof customers.createCompany =
+    customers.createCompany.bind(this);
+
+  createCustomCompanyField: typeof customFields.createCustomCompanyField =
+    customFields.createCustomCompanyField.bind(this);
+  createCustomCustomerField: typeof customFields.createCustomCustomerField =
+    customFields.createCustomCustomerField.bind(this);
+
+  getCustomersByDetails: typeof customers.getCustomersByDetails =
+    customers.getCustomersByDetails.bind(this);
+  
+  getCompanyByDetails: typeof customers.getCompanyByDetails =
+    customers.getCompanyByDetails.bind(this);
+
+  updateCompany: typeof customers.updateCompany =
+    customers.updateCompany.bind(this);
+  
+  linkCustomerToCompany: typeof customers.linkCustomerToCompany =
+    customers.linkCustomerToCompany.bind(this);
+
   constructor(config: OrderhiveConfig) {
     this.idToken = config.idToken;
     this.refreshToken = config.refreshToken;

@@ -24,7 +24,7 @@ const AddCustomFieldSchema = joi.object().keys({
     .required(),
   type: joi
     .string()
-    .valid("DROP_DOWN", "TEXT", "DATE", "CHECKBOX", "NUMBER")
+    .valid("DROP_DOWN", "TEXT", "DATE", "CHECKBOX", "NUMBER", "LINK")
     .required(),
 });
 
@@ -40,19 +40,19 @@ const EditCustomFieldSchema = joi.object().keys({
     .required(),
   type: joi
     .string()
-    .valid("DROP_DOWN", "TEXT", "DATE", "CHECKBOX", "NUMBER")
+    .valid("DROP_DOWN", "TEXT", "DATE", "CHECKBOX", "NUMBER", "LINK")
     .required(),
 });
 export interface CustomField {
   id?: string;
   name: string;
   value: Boolean | string | object | Array<string>;
-  type: "DROP_DOWN" | "TEXT" | "DATE" | "CHECKBOX" | "NUMBER";
+  type: "DROP_DOWN" | "TEXT" | "DATE" | "CHECKBOX" | "NUMBER" | "LINK";
 }
 interface EditCustomField {
   name: string;
   value: Boolean | string | object | Array<string>;
-  type: "DROP_DOWN" | "TEXT" | "DATE" | "CHECKBOX" | "NUMBER";
+  type: "DROP_DOWN" | "TEXT" | "DATE" | "CHECKBOX" | "NUMBER" | "LINK";
 }
 
 const GroupSchema = joi.object().keys({

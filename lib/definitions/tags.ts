@@ -7,6 +7,7 @@ export interface NewTag {
   tag_color: string;
 }
 
+//typo
 export const TageTypeSchema = joi
   .string()
   .valid("sales_order", "item", "customer", "company", "purchase_order");
@@ -35,3 +36,4 @@ export interface TagData {
   type: TagType;
   tag_color?: string;
 }
+

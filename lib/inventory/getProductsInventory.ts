@@ -4,7 +4,7 @@ import { ProductsInventory } from "../definitions/inventory";
 
 /**
  * @param  {number[]} productIds - Array of Orderhive Product IDs
- * @return {Promise<ProductInventory[]>}
+ * @return {Promise<ProductsInventory[]>}
  */
 
 export default async function getProductsInventory(
