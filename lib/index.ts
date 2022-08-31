@@ -11,7 +11,8 @@ import products from "./products/index";
 import shipping from "./shipping/index";
 import inventory from "./inventory/index";
 import customers from "./customers/index";
-import customFields from "./customFields";
+import customFields from "./customFields/index";
+import transfers from "./transfers/index";
 import { Model, Sequelize, DataTypes, Optional, Op } from "sequelize";
 import CryptoJS from "crypto-js";
 
@@ -181,11 +182,11 @@ class Orderhive {
   editProductInventory: typeof inventory.editProductInventory =
     inventory.editProductInventory.bind(this);
 
-  getCustomerById: typeof customers.getCustomerById = 
+  getCustomerById: typeof customers.getCustomerById =
     customers.getCustomerById.bind(this);
   createCustomer: typeof customers.createCustomer =
     customers.createCustomer.bind(this);
-  updateCustomer: typeof customers.updateCustomer = 
+  updateCustomer: typeof customers.updateCustomer =
     customers.updateCustomer.bind(this);
   createCompany: typeof customers.createCompany =
     customers.createCompany.bind(this);
@@ -197,15 +198,26 @@ class Orderhive {
 
   getCustomersByDetails: typeof customers.getCustomersByDetails =
     customers.getCustomersByDetails.bind(this);
-  
+
   getCompanyByDetails: typeof customers.getCompanyByDetails =
     customers.getCompanyByDetails.bind(this);
-
   updateCompany: typeof customers.updateCompany =
     customers.updateCompany.bind(this);
-  
   linkCustomerToCompany: typeof customers.linkCustomerToCompany =
     customers.linkCustomerToCompany.bind(this);
+
+  createTransfer: typeof transfers.createTransfer =
+    transfers.createTransfer.bind(this);
+  deleteTransfer: typeof transfers.deleteTransfer =
+    transfers.deleteTransfer.bind(this);
+  shipTransfer: typeof transfers.shipTransfer =
+    transfers.shipTransfer.bind(this);
+  receiveTransfer: typeof transfers.receiveTransfer =
+    transfers.receiveTransfer.bind(this);
+  completeTransfer: typeof transfers.completeTransfer =
+    transfers.completeTransfer.bind(this);
+  getTransferDetails: typeof transfers.getTransferDetails =
+    transfers.getTransferDetails.bind(this);
 
   constructor(config: OrderhiveConfig) {
     this.idToken = config.idToken;
