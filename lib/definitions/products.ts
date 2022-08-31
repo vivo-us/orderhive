@@ -1,9 +1,6 @@
 import joi from "joi";
 import {
-  OptionalWeight,
-  OptionalDimensions,
   Timestamps,
-  Weight,
   IdSchema,
   WeightUnit,
   DimensionUnit,
@@ -12,7 +9,14 @@ import {
   IdArraySchema,
 } from "./global";
 import { InventoryWarehouse } from "./inventory";
-import { Tag } from "./tags";
+
+export interface ProductTag {
+  created: string;
+  modified: string;
+  tag_id: number;
+  tag_name: string;
+  tag_color: string;
+}
 
 export type ProductType = 1 | 2 | 3 | 6 | 7;
 export type ReadableProductType =
@@ -362,7 +366,7 @@ export interface Product extends Timestamps {
   product_stores: ProductStore[];
   product_images?: ProductImage[];
   product_suppliers?: ProductSupplier[];
-  tags?: Tag[];
+  tags?: ProductTag[];
   custom_fields?: CustomField[];
   customs_information: ProductCustomsInformation;
   weight?: number;

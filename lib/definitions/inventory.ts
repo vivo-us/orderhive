@@ -80,7 +80,7 @@ export interface ProductsInventory {
 }
 
 export interface ProductInventory {
-  _id: number;
+  _id: string;
   location: string;
   product_id: number;
   tenant_id: number;
@@ -88,6 +88,7 @@ export interface ProductInventory {
   is_default: boolean;
   quantity: number;
   version?: number;
+  batch?: string;
 }
 
 export interface WarehouseInventoryReponse {

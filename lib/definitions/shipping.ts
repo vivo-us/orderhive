@@ -1,7 +1,6 @@
 import joi from "joi";
-import { CustomField, OrderExtraItem, OrderItem } from "./orders";
+import { CustomField, OrderExtraItem, OrderItem, OrderTag } from "./orders";
 import { Warehouse } from "./warehouses";
-import { Tag } from "./tags";
 import {
   WeightUnit,
   DimensionUnit,
@@ -403,7 +402,7 @@ export interface Shipment {
   print_status: OrderPrintStatus | null;
   purchase_order_links: string[] | null;
   sub_users: [];
-  tags: Tag[];
+  tags: OrderTag[];
   unread_comment_count: number;
   custom_pricing_tier_id: number | null;
   list_order_items: ListOrderItem[];
