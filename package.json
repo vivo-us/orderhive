@@ -21,6 +21,7 @@
   },
   "devDependencies": {
     "@types/crypto-js": "^4.1.1",
+    "@types/luxon": "^3.0.0",
     "mysql2": "^2.3.3"
   },
   "dependencies": {
@@ -29,6 +30,7 @@
     "crypto-js": "^4.1.1",
     "csv-parser": "^3.0.0",
     "joi": "^17.6.0",
+    "luxon": "^3.0.3",
     "sequelize": "^6.21.2",
     "winston": "^3.7.2"
   },
