@@ -89,6 +89,7 @@ export interface ProductInventory {
   quantity: number;
   version?: number;
   batch?: string;
+  cost?: number;
 }
 
 export interface WarehouseInventoryReponse {

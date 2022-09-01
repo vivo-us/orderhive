@@ -218,7 +218,7 @@ interface StockUpdateInventoryLevels {
 export const StockDataSchema = joi.array().items(
   joi.object().keys({
     warehouse_id: IdSchema.required(),
-    on_hand_quantity: joi.number().positive().integer().required(),
+    on_hand_quantity: joi.number().min(0).integer().required(),
     remark: joi.object().keys({ source: joi.string().required() }).required(),
     inventory_levels: joi.array().items(InventoryLevelsSchema),
   })

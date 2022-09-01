@@ -158,6 +158,8 @@ interface TransferLbcdetail {
   id: string;
   location: string;
   quantity: number;
+  batch?: string;
+  cost?: number;
 }
 
 export interface ShipTransferData {
@@ -175,6 +177,8 @@ export const ShipTransferDataSchema = Joi.array().items(
           id: Joi.string().required(),
           location: Joi.string().required(),
           quantity: Joi.number().required(),
+          batch: Joi.string(),
+          cost: Joi.number(),
         })
       )
       .required(),
