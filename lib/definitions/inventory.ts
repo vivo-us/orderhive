@@ -110,7 +110,7 @@ const EditInventoryLevelSchema = joi
     onhand_original: joi.number().integer(),
     quantity: joi.number().integer(),
     batch: joi.string(),
-    cost: joi.number().positive().cast("string"),
+    cost: joi.number().positive().allow(0).cast("string"),
     reason: joi.string(),
     remove: joi.boolean(),
     new_quantity: joi.number().cast("string"),

@@ -24,7 +24,9 @@ import { AxiosError } from "axios";
  * @property {CustomField[]} custom_fields - Custom fields to receive product with
  */
 
-/** receiveTransfer Definition
+/**
+ * Recieves a transfer based on the ID and data provided
+ *
  * @param {string} transferId - ID of transfer to receive
  * @param {ReceiveTransfer[]} data - Data to ship transfer with
  * @returns {Promise<ShipTransferResponse>}
@@ -34,7 +36,7 @@ export default async function receiveTransfer(
   this: Orderhive,
   transferId: string,
   data: ReceiveTransferData[]
-) {
+): Promise<ShipTransferResponse> {
   try {
     data = await ReceiveTransferDataSchema.validateAsync(data);
     transferId = await QuerySchema.validateAsync(transferId);

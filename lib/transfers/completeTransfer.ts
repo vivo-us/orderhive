@@ -4,7 +4,9 @@ import { ValidationError } from "joi";
 import { AxiosError } from "axios";
 import { ShipTransferResponse } from "../definitions/transfers";
 
-/** completeTransfer Definition
+/**
+ * Moves a transfer to the complete state based on the ID provided
+ *
  * @param {string} transferId - ID of transfer to complete
  * @returns {Promise<ShipTransferResponse>}
  */
@@ -12,7 +14,7 @@ import { ShipTransferResponse } from "../definitions/transfers";
 export default async function completeTransfer(
   this: Orderhive,
   transferId: string
-) {
+): Promise<ShipTransferResponse> {
   try {
     transferId = await QuerySchema.validateAsync(transferId);
   } catch (error: any) {

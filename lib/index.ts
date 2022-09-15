@@ -218,6 +218,8 @@ class Orderhive {
     transfers.completeTransfer.bind(this);
   getTransferDetails: typeof transfers.getTransferDetails =
     transfers.getTransferDetails.bind(this);
+  listTransfers: typeof transfers.listTransfers =
+    transfers.listTransfers.bind(this);
 
   constructor(config: OrderhiveConfig) {
     this.idToken = config.idToken;

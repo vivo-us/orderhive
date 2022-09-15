@@ -4,12 +4,16 @@ import { ValidationError } from "joi";
 import { AxiosError } from "axios";
 import { Transfer } from "../definitions/transfers";
 
-/** getTransfer Definition
+/**
+ * Fetches and returns a transfer based on the ID provided
  * @param {string} transferId - ID of transfer to get
  * @returns {Promise<Transfer>}
  */
 
-export default async function getTransfer(this: Orderhive, transferId: string) {
+export default async function getTransfer(
+  this: Orderhive,
+  transferId: string
+): Promise<Transfer> {
   try {
     transferId = await QuerySchema.validateAsync(transferId);
   } catch (error: any) {

@@ -255,3 +255,47 @@ export const ReceiveTransferDataSchema = Joi.array().items(
     received_qty: Joi.number().required(),
   }).required()
 );
+
+export const TransferStatusOptionsSchema = Joi.string().valid(
+  "RAISED",
+  "SHIPPED",
+  "PARTIALLY_RECEIVED",
+  "RECEIVED",
+  "CANCELLED",
+  "COMPLETED"
+);
+
+export const ListTransfersOptionsSchema = Joi.object({
+  page: Joi.number().positive().default(1),
+  folder_ids: Joi.array().items(Joi.string()),
+});
+
+export type TransferStatusOptions =
+  | "RAISED"
+  | "SHIPPED"
+  | "PARTIALLY_RECEIVED"
+  | "RECEIVED"
+  | "CANCELLED"
+  | "COMPLETED";
+
+export interface ListTransfersOptions {
+  page?: number;
+  folder_ids?: string[];
+}
+
+export interface ListTransfersPayload {
+  folder_ids?: string[];
+  status: TransferStatusOptions;
+}
+
+interface ListTransfersMeta {
+  current_page: number;
+  size: number;
+  records: number;
+}
+
+export interface ListTransfersResponse {
+  count: number | null;
+  stock_transfer: Transfer[];
+  meta: ListTransfersMeta;
+}

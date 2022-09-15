@@ -52,7 +52,9 @@ import { AxiosError } from "axios";
  * @property {string} [transfer_description] - Description of transfer
  */
 
-/** createTransfer Definition
+/**
+ * Creates a transfer in Orderhive based on data given.
+ *
  * @param {CreateTransfer} data - Data to create transfer with
  * @returns {Promise<CreateTransferResponse>}
  */
@@ -60,7 +62,7 @@ import { AxiosError } from "axios";
 export default async function createTransfer(
   this: Orderhive,
   data: CreateTransferData
-) {
+): Promise<CreateTransferResponse> {
   try {
     data = await CreateTransferDataSchema.validateAsync(data);
   } catch (error: any) {

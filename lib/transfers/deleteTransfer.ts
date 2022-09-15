@@ -3,7 +3,9 @@ import Orderhive from "../index";
 import { ValidationError } from "joi";
 import { AxiosError } from "axios";
 
-/** deleteTransfer Definition
+/**
+ * Deletes a transfer based on the ID provided
+ *
  * @param {Orderhive} this
  * @param  {string} transferId - ID of transfer to delete
  * @returns {Promise<string>}
@@ -12,7 +14,7 @@ import { AxiosError } from "axios";
 export default async function deleteTransfer(
   this: Orderhive,
   transferId: string
-) {
+): Promise<string> {
   try {
     transferId = await IdSchema.validateAsync(transferId);
   } catch (error: any) {

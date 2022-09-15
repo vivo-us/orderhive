@@ -21,7 +21,9 @@ import { AxiosError } from "axios";
  * @property {Lbcdetail[]} lbcdetails - Lbcdetails to ship with
  */
 
-/** shipTransfer Definition
+/**
+ * Ships a transfer based on the ID and data provided
+ *
  * @param {string} transferId - ID of transfer to ship
  * @param {ShipTransfer[]} data - Data to ship transfer with
  * @returns {Promise<ShipTransferResponse>}
@@ -31,7 +33,7 @@ export default async function shipTransfer(
   this: Orderhive,
   transferId: string,
   data: ShipTransferData[]
-) {
+): Promise<ShipTransferResponse> {
   try {
     data = await ShipTransferDataSchema.validateAsync(data);
     transferId = await QuerySchema.validateAsync(transferId);
