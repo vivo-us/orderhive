@@ -7,6 +7,7 @@ import listShippingMethods from "./listShippingMethods";
 import listShippingPackageTypes from "./listShippingPackageTypes";
 import getLabelSettings from "./getLabelSettings";
 import getCustomsSettings from "./getCustomsSettings";
+import createShipmentDocuments from "./createShippingDocument";
 
 export default {
   getShipments,
@@ -18,4 +19,5 @@ export default {
   listShippingPackageTypes,
   getLabelSettings,
   getCustomsSettings,
+  createShipmentDocuments,
 };

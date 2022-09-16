@@ -1,6 +1,6 @@
 {
   "name": "orderhive",
-  "version": "1.2.3",
+  "version": "1.2.4",
   "description": "Module for interacting with Orderhive's API",
   "main": "index.js",
   "types": "index.d.ts",

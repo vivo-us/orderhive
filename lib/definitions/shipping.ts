@@ -460,3 +460,19 @@ export interface Shipment {
   next_page: unknown | null;
   shipping_due_date: string | null;
 }
+
+export const CreateShipmentDocumentDataScehma = joi.object({
+  shipment_ids: joi.array().items(joi.number().required()).required(),
+  bulk: joi.boolean().required(),
+  action: joi.string().valid("download", "print").required(),
+});
+export interface CreateShippingDocumentData {
+  shipment_ids: number[];
+  bulk: boolean;
+  action: "download" | "print";
+}
+
+export interface CreateShippingDocumentResponse {
+  status: string;
+  url: string;
+}

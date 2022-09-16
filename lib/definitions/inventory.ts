@@ -193,3 +193,17 @@ export interface EditInventoryResponse {
   warehouses: EditInventoryReponseWarehouse[];
   purchaseOrderRequest: boolean;
 }
+
+interface BatchData {
+  batch_number: string;
+  status: string;
+}
+
+export interface ListBatchResponse {
+  BatchResponse: Object;
+  created: string;
+  modified: string;
+  id: string;
+  batch: string;
+  data: BatchData;
+}

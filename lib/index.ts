@@ -172,6 +172,8 @@ class Orderhive {
     shipping.getLabelSettings.bind(this);
   getCustomsSettings: typeof shipping.getCustomsSettings =
     shipping.getCustomsSettings.bind(this);
+  createShipmentDocuments: typeof shipping.createShipmentDocuments =
+    shipping.createShipmentDocuments.bind(this);
 
   getWarehouseInventory: typeof inventory.getWarehouseInventory =
     inventory.getWarehouseInventory.bind(this);
@@ -181,6 +183,10 @@ class Orderhive {
     inventory.getProductInventory.bind(this);
   editProductInventory: typeof inventory.editProductInventory =
     inventory.editProductInventory.bind(this);
+  listInventoryBatches: typeof inventory.listInventoryBatches =
+    inventory.listInventoryBatches.bind(this);
+  deleteInventoryBatch: typeof inventory.deleteInventoryBatch =
+    inventory.deleteInventoryBatch.bind(this);
 
   getCustomerById: typeof customers.getCustomerById =
     customers.getCustomerById.bind(this);
