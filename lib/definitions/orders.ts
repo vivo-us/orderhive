@@ -9,9 +9,9 @@ import {
   WeightUnitSchema,
   WeightUnit,
 } from "./global";
-import { Tag } from "./tags";
+import { InventoryWarehouse } from "./inventory";
 
-const AddCustomFieldSchema = joi.object().keys({
+export const AddCustomFieldSchema = joi.object().keys({
   id: IdSchema.optional(),
   name: joi.string().required(),
   value: joi
@@ -43,6 +43,14 @@ const EditCustomFieldSchema = joi.object().keys({
     .valid("DROP_DOWN", "TEXT", "DATE", "CHECKBOX", "NUMBER", "LINK")
     .required(),
 });
+
+export interface OrderTag {
+  id: number;
+  tag_id: number;
+  linked_id: number;
+  tag_name: string;
+  tag_color: string;
+}
 export interface CustomField {
   id?: string;
   name: string;
@@ -86,13 +94,22 @@ export interface ProductImage {
   url: string;
 }
 
+export interface InventoryLevel {
+  default: boolean;
+  cost: number;
+  batch: string | null;
+  location: string | null;
+  product_id: number;
+  warehouse_id: number;
+  adjust_quantity: any | null;
+  is_default: boolean;
+}
 export interface ItemWarehouse {
+  warehouse_id: number;
   available_qty: number;
   incoming_qty: number;
   outgoing_qty: number;
-  warehouse_qty: number;
-  warehouse_id: number;
-  name: string;
+  inventory_levels?: InventoryLevel[];
 }
 
 const MetaDataSchema = joi.object().keys({
@@ -122,7 +139,16 @@ const AddOrderExtraItemSchema = joi.object().keys({
   tax_percent: joi.number().positive().allow(0),
   tax_value: joi.number().positive().allow(0),
 });
-export interface AddOrderExtraItem extends Weight {
+export interface AddOrderExtraItem {
+  id: number;
+  channel_description?: string;
+  quantity_available?: number;
+  quantity_cancelled?: number;
+  quantity_dropship?: number;
+  quantity_invoiced?: number;
+  quantity_packed?: number;
+  quantity_shipped?: number;
+  update_type?: "ADD" | "EDIT" | "REMOVE";
   display_type?: string;
   name: string;
   price: number;
@@ -133,6 +159,7 @@ export interface AddOrderExtraItem extends Weight {
   tax_value?: number;
 }
 export interface OrderExtraItem extends Weight {
+  id: number;
   channel_description?: string;
   display_type?: string;
   name: string;
@@ -144,11 +171,11 @@ export interface OrderExtraItem extends Weight {
   quantity_ordered: number;
   quantity_packed?: number;
   quantity_shipped?: number;
-  row_total?: number;
+  row_total: number;
   tax_info?: TaxInfo;
   tax_percent: number;
-  tax_value?: number;
-  update_type?: "ADD" | "EDIT" | "REMOVE";
+  tax_value: number;
+  type: string | null;
 }
 
 export const UpdateOrderItemSchema = joi.object().keys({
@@ -279,14 +306,36 @@ export interface AddOrderItem extends Weight {
   tax_value?: number;
   type?: string | null;
 }
-export interface OrderItem extends Weight {
+
+export interface OrderItemMetaData {
+  name: string;
+  value: string | number;
+}
+
+export interface OrderItemComponent {
+  sku: string;
+  name: string | null;
+  barcode: string | null;
+  asin: string | null;
+  item_id: number;
+  available_qty: number;
+  incoming_qty: number;
+  outgoing_qty: number;
+  image: ProductImage;
+  quantity_in_bundle: number;
+  locations: any[] | null;
+  product_warehouses: InventoryWarehouse[];
+  qty_picked: number | null;
+}
+
+export interface OrderItem {
   asin_number: string | null;
   barcode: string | null;
   brand: string | null;
   category: string | null;
   channel_primary_id: string | null;
   channel_secondary_id: string | null;
-  components: Array<any> | null;
+  components: OrderItemComponent[] | null;
   default_supplier_id: number | null;
   discount_percent: number;
   discount_type: "percent" | "value";
@@ -295,7 +344,7 @@ export interface OrderItem extends Weight {
   item_id: number;
   item_warehouse: Array<ItemWarehouse> | null;
   last_purchase_price: number | null;
-  meta_data: Array<MetaData> | null;
+  meta_data: Array<OrderItemMetaData> | null;
   name: string | null;
   note: string | null;
   price: number;
@@ -313,13 +362,15 @@ export interface OrderItem extends Weight {
   quantity_invoiced: number;
   row_total: number;
   serial_numbers: Array<string> | null;
-  sku: string | null;
+  sku: string;
   suppliers: object;
   tax_info: TaxInfo | null;
   tax_percent: number;
   tax_value: number;
   type: string | null;
   update_type?: "ADD" | "EDIT" | "REMOVE";
+  weight: number;
+  weight_unit: WeightUnit;
 }
 
 export const OrderStatusSchema = joi
@@ -395,41 +446,106 @@ export interface CreateOrder {
   warehouse_id: number;
 }
 
+export interface Link {
+  href: string;
+}
+export interface ResourceInfo {
+  self: Link;
+  action_require: Link;
+  order_sales_summary: Link;
+}
+export interface ListOrderItem {
+  id: number;
+  name: string;
+  item_id: number;
+  sku: string;
+  quantity_ordered: number;
+  quantity_shipped: number;
+  quantity_cancelled: number;
+  quantity_packed: number;
+  item_price: number;
+  row_total: number;
+  discount_percent: number;
+  discount_value: number;
+  weight: number | null;
+}
+
 export interface Order {
+  address_verification: any | null;
   base_currency: string | null;
   base_currency_rate: number | null;
   billing_address: CreateAddress;
+  billing_name: string | null;
+  channel_id: number;
   channel_order_id: string;
   channel_order_number: string | null;
+  channel_icon: string | null;
+  channel_name: string;
   config: any | null;
   contact_id: number | null;
+  comment_count: number;
+  created_date: string;
   currency: string;
-  custom_fields: Array<CustomField> | null;
+  custom_fields: CustomField[] | null;
   custom_pricing_tier_id: number | null;
   custom_status: number | null;
   delivery_date: string | null;
+  discount_code: string | null;
+  display_number: string;
+  external_billing_bill_id: number | null;
+  export_type: string | null;
+  fulfillment_status: string | null;
   grand_total: number;
+  hold_date: string | null;
   id: number;
-  order_extra_items: Array<OrderExtraItem>;
-  order_items: Array<OrderItem>;
+  is_action_required: boolean;
+  is_any_unread: boolean;
+  is_back_order: boolean;
+  is_prime: boolean;
+  invoice_created: boolean;
+  list_order_items: ListOrderItem[];
+  mcf_status: string | null;
+  next_page: any | null;
+  order_extra_items: OrderExtraItem[];
+  order_items: OrderItem[];
+  order_items_size: number;
   order_status: OrderStatus;
   parent_id: number | null;
+  partially_cancel: boolean;
   payment_method: string | null;
   payment_status: PaymentStatus;
   preset_id: number | null;
+  prefix: string | null;
   prime: boolean;
+  print_status: string | null;
+  purchase_order_links: any[] | null;
   reference_number: string | null;
   remark: string | null;
+  resource_info: ResourceInfo;
+  sales_person: any | null;
   sales_person_id: number | null;
   shipping_address: CreateAddress;
+  shipping_address_type: string | null;
   shipping_carrier: string | null;
   shipping_due_date: string | null;
   shipping_service: string | null;
+  shipping_name: string | null;
+  shipment: any | null;
+  split_order: boolean;
   store_id: number;
   store_name: string;
+  sub_users: any[];
+  suffix: string | null;
   sync_created: string;
-  tax_type: "INCLUSIVE" | "EXCLUSIVE";
-  tags: Tag[] | null;
+  sync_modified: string | null;
+  tax_calculation: string;
+  tax_type: "inclusive" | "exclusive";
+  tags: OrderTag[] | null;
+  templates: Object;
+  total: number;
+  total_quantity_ordered: number;
+  unread_comment_count: number;
+  valid_shipping_address: boolean;
   warehouse_id: number;
 }
 
@@ -580,7 +696,7 @@ export interface EditOrderOptions {
   shipping_address?: Address;
   shipping_carrier?: string;
   shipping_service?: string;
-  order_extra_items?: Array<OrderExtraItem>;
+  order_extra_items?: Array<AddOrderExtraItem>;
   order_items?: Array<UpdateOrderItem>;
   warehouse_id?: number;
 }

@@ -11,7 +11,8 @@ import products from "./products/index";
 import shipping from "./shipping/index";
 import inventory from "./inventory/index";
 import customers from "./customers/index";
-import customFields from "./customFields";
+import customFields from "./customFields/index";
+import transfers from "./transfers/index";
 import payments from "./payments/index";
 import invoices from "./invoices/index";
 import { Model, Sequelize, DataTypes, Optional, Op } from "sequelize";
@@ -176,6 +177,8 @@ class Orderhive {
     shipping.getLabelSettings.bind(this);
   getCustomsSettings: typeof shipping.getCustomsSettings =
     shipping.getCustomsSettings.bind(this);
+  createShipmentDocuments: typeof shipping.createShipmentDocuments =
+    shipping.createShipmentDocuments.bind(this);
 
   getWarehouseInventory: typeof inventory.getWarehouseInventory =
     inventory.getWarehouseInventory.bind(this);
@@ -185,12 +188,16 @@ class Orderhive {
     inventory.getProductInventory.bind(this);
   editProductInventory: typeof inventory.editProductInventory =
     inventory.editProductInventory.bind(this);
+  listInventoryBatches: typeof inventory.listInventoryBatches =
+    inventory.listInventoryBatches.bind(this);
+  deleteInventoryBatch: typeof inventory.deleteInventoryBatch =
+    inventory.deleteInventoryBatch.bind(this);
 
-  getCustomerById: typeof customers.getCustomerById = 
+  getCustomerById: typeof customers.getCustomerById =
     customers.getCustomerById.bind(this);
   createCustomer: typeof customers.createCustomer =
     customers.createCustomer.bind(this);
-  updateCustomer: typeof customers.updateCustomer = 
+  updateCustomer: typeof customers.updateCustomer =
     customers.updateCustomer.bind(this);
   createCompany: typeof customers.createCompany =
     customers.createCompany.bind(this);
@@ -210,12 +217,25 @@ class Orderhive {
   
   getCompanyByDetails: typeof customers.getCompanyByDetails =
     customers.getCompanyByDetails.bind(this);
-
   updateCompany: typeof customers.updateCompany =
     customers.updateCompany.bind(this);
-  
   linkCustomerToCompany: typeof customers.linkCustomerToCompany =
     customers.linkCustomerToCompany.bind(this);
+
+  createTransfer: typeof transfers.createTransfer =
+    transfers.createTransfer.bind(this);
+  deleteTransfer: typeof transfers.deleteTransfer =
+    transfers.deleteTransfer.bind(this);
+  shipTransfer: typeof transfers.shipTransfer =
+    transfers.shipTransfer.bind(this);
+  receiveTransfer: typeof transfers.receiveTransfer =
+    transfers.receiveTransfer.bind(this);
+  completeTransfer: typeof transfers.completeTransfer =
+    transfers.completeTransfer.bind(this);
+  getTransferDetails: typeof transfers.getTransferDetails =
+    transfers.getTransferDetails.bind(this);
+  listTransfers: typeof transfers.listTransfers =
+    transfers.listTransfers.bind(this);
 
   getPayment: typeof payments.getPayment = 
     payments.getPayment.bind(this);

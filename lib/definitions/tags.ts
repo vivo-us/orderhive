@@ -36,4 +36,3 @@ export interface TagData {
   type: TagType;
   tag_color?: string;
 }
-

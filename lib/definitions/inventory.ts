@@ -80,7 +80,7 @@ export interface ProductsInventory {
 }
 
 export interface ProductInventory {
-  _id: number;
+  _id: string;
   location: string;
   product_id: number;
   tenant_id: number;
@@ -88,6 +88,8 @@ export interface ProductInventory {
   is_default: boolean;
   quantity: number;
   version?: number;
+  batch?: string;
+  cost?: number;
 }
 
 export interface WarehouseInventoryReponse {
@@ -108,7 +110,7 @@ const EditInventoryLevelSchema = joi
     onhand_original: joi.number().integer(),
     quantity: joi.number().integer(),
     batch: joi.string(),
-    cost: joi.number().positive().cast("string"),
+    cost: joi.number().positive().allow(0).cast("string"),
     reason: joi.string(),
     remove: joi.boolean(),
     new_quantity: joi.number().cast("string"),
@@ -190,4 +192,18 @@ interface EditInventoryReponseWarehouse {
 export interface EditInventoryResponse {
   warehouses: EditInventoryReponseWarehouse[];
   purchaseOrderRequest: boolean;
+}
+
+interface BatchData {
+  batch_number: string;
+  status: string;
+}
+
+export interface ListBatchResponse {
+  BatchResponse: Object;
+  created: string;
+  modified: string;
+  id: string;
+  batch: string;
+  data: BatchData;
 }

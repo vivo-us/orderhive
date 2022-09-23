@@ -1,7 +1,6 @@
 import joi from "joi";
-import { CustomField, OrderExtraItem, OrderItem } from "./orders";
+import { CustomField, OrderExtraItem, OrderItem, OrderTag } from "./orders";
 import { Warehouse } from "./warehouses";
-import { Tag } from "./tags";
 import {
   WeightUnit,
   DimensionUnit,
@@ -75,6 +74,15 @@ const CreateShipmentItemSchema = joi.object().keys({
   sales_order_item_id: IdSchema.required(),
   sku: joi.string(),
   price: joi.number().positive(),
+  channel_primary_id: joi.string(),
+  channel_secondary_id: joi.string(),
+  discount_percent: joi.number().positive().allow(0),
+  discount_value: joi.number().positive().allow(0),
+  name: joi.string(),
+  note: joi.string(),
+  row_total: joi.number().positive().allow(0),
+  tax_info: joi.any(),
+  tax_value: joi.number().positive().allow(0),
 });
 interface CreateShipmentItem {
   item_id: number;
@@ -82,6 +90,15 @@ interface CreateShipmentItem {
   sales_order_item_id: number;
   sku?: string;
   price?: number;
+  channel_primary_id?: string;
+  channel_secondary_id?: string;
+  discount_percent?: number;
+  discount_value?: number;
+  name?: string;
+  note?: string;
+  row_total?: number;
+  tax_info?: any;
+  tax_value?: number;
 }
 
 const ParentChildShipmentSchema = joi.object().keys({
@@ -113,6 +130,7 @@ export const CreateMultipieceShipmentSchema = joi.object().keys({
   parent_shipment: ParentChildShipmentSchema.required(),
   child_shipments: joi.array().items(ParentChildShipmentSchema).required(),
   rate_value: joi.number().positive(),
+  custom_information_id: joi.string(),
   order_rate_value: joi.number().positive(),
   order_currency: joi.string().required(),
   shipping_method: joi.string().required(),
@@ -138,8 +156,11 @@ export interface CreateMultipieceShipmentOptions {
 
 export const CreateShipmentSchema = joi.object().keys({
   order_currency: joi.string().required(),
+  order_rate_value: joi.number().positive().allow(0),
+  custom_information_id: joi.string(),
   shipping_method: joi.string().required(),
   courier_name: joi.string().required(),
+  service_name: joi.string(),
   shipping_date: joi.date().required(),
   sales_order_id: IdSchema.required(),
   warehouse_id: IdSchema.required(),
@@ -152,11 +173,14 @@ export const CreateShipmentSchema = joi.object().keys({
   width: joi.number().positive(),
   height: joi.number().positive(),
   dimension_unit: DimensionUnitSchema,
+  shipping_currency: joi.string(),
   shipping_cost: joi.number().positive(),
 });
 export interface CreateShipmentOptions {
   order_currency: string;
+  order_rate_value?: number | null;
   shipping_method: string;
+  custom_information_id: string;
   courier_name: string;
   shipping_date: string;
   sales_order_id: number;
@@ -169,7 +193,9 @@ export interface CreateShipmentOptions {
   length?: number;
   width?: number;
   height?: number;
+  service_name?: string;
   dimension_unit?: DimensionUnit;
+  shipping_currency: string;
   shipping_cost?: number;
 }
 
@@ -403,7 +429,7 @@ export interface Shipment {
   print_status: OrderPrintStatus | null;
   purchase_order_links: string[] | null;
   sub_users: [];
-  tags: Tag[];
+  tags: OrderTag[];
   unread_comment_count: number;
   custom_pricing_tier_id: number | null;
   list_order_items: ListOrderItem[];
@@ -433,4 +459,20 @@ export interface Shipment {
   external_billing_bill_id: boolean;
   next_page: unknown | null;
   shipping_due_date: string | null;
+}
+
+export const CreateShipmentDocumentDataScehma = joi.object({
+  shipment_ids: joi.array().items(joi.number().required()).required(),
+  bulk: joi.boolean().required(),
+  action: joi.string().valid("download", "print").required(),
+});
+export interface CreateShippingDocumentData {
+  shipment_ids: number[];
+  bulk: boolean;
+  action: "download" | "print";
+}
+
+export interface CreateShippingDocumentResponse {
+  status: string;
+  url: string;
 }
