@@ -22,7 +22,7 @@ export default async function getCustomersByDetails(
   } catch (error: any) {
     if (error.response) {
       throw new this.OrderhiveError(
-        `Error getting order details for order ${FilterFields}`,
+        `Error getting customers by details for order ${FilterFields}`,
         error.response.data
       );
     }

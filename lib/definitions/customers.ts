@@ -98,6 +98,7 @@ export interface CreateCustomer {
     pricing_tier_id: number | null,
     custom_fields: object | null,
     error_messages: any | null,
+    error: any | null,
   }
 
   export interface UpdateCustomer {
@@ -112,23 +113,23 @@ export interface CreateCustomer {
   }
 
   export interface CreateCompany {
-    channel_id: number | null,
-    store_id: number | null,
-    tags_links?: Array<object> | Array<any> | null,
+    channel_id?: number | null,
+    store_id?: number | null,
+    tag_links?: Array<object> | Array<any> | null,
     //email: string | null,
     name: string,
-    default_tax_id: number | null,
-    default_discount_rate: number | null,
-    pricing_tier_id: number | null,
-    custom_fields: object | null,
+    default_tax_id?: number | null,
+    default_discount_rate?: number | null,
+    pricing_tier_id?: number | null,
+    custom_fields?: Array<object> | null,
   }
 
   export const CreateCompanySchema = joi.object().keys({
     channel_id: joi.number().allow(null),
     store_id: joi.number().allow(null),
-    tags_links: joi.array().allow(null),
+    tag_links: joi.array().allow(null),
     //email: joi.string().allow(null),
-    name: joi.string().allow(null).allow(""),
+    name: joi.string().max(49).truncate().allow(null).allow(""),
     default_tax_id: joi.number().allow(null),
     default_discount_rate: joi.number().allow(null),
     pricing_tier_id: joi.number().allow(null),

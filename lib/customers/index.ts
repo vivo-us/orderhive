@@ -7,6 +7,8 @@ import getCustomersByDetails from "./getCustomersByDetails";
 import getCompanyByDetails from "./getCompanyByDetails";
 import updateCompany from "./updateCompany";
 import linkCustomerToCompany from "./linkCustomerToCompany";
+import getCustomerList from "./getCustomerList";
+import deleteCustomerById from "./deleteCustomerById";
 export default {
     
     getCustomerById,
@@ -16,5 +18,7 @@ export default {
     getCustomersByDetails,
     getCompanyByDetails,
     updateCompany,
-    linkCustomerToCompany
+    linkCustomerToCompany,
+    getCustomerList,
+    deleteCustomerById
 };

@@ -21,7 +21,7 @@ export default async function createCompany(
   } catch (error: any) {
     if (error.response) {
       throw new this.OrderhiveError(
-        "Error creating company",
+        "Error creating company " + company.name,
         error.response.data
       );
     }

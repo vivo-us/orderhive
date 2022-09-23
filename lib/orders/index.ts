@@ -11,6 +11,8 @@ import splitOrder from "./splitOrder";
 import moveOrderToFolder from "./moveOrderToFolder";
 import addComment from "./addComment";
 import removeTag from "./removeTag";
+import archiveOrder from "./archiveOrder";
+import getOrders from "./getOrders";
 
 export default {
   createOrder,
@@ -26,4 +28,6 @@ export default {
   moveOrderToFolder,
   addComment,
   removeTag,
+  archiveOrder,
+  getOrders
 };

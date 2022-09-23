@@ -229,7 +229,7 @@ const AddOrderItemSchema = joi.object().keys({
     then: joi.number().positive().allow(0).required(),
     otherwise: joi.number().positive().allow(0),
   }),
-  discount_type: joi.string().valid("percent", "value").required(),
+  discount_type: joi.string().valid("percent", "value").allow(null),
   discount_value: joi.when("discount_type", {
     is: "value",
     then: joi.number().positive().allow(0).required(),
@@ -254,8 +254,8 @@ const AddOrderItemSchema = joi.object().keys({
   tax_percent: joi.number().positive().allow(0).required(),
   tax_value: joi.number().positive().allow(0),
   type: joi.string(),
-  weight: joi.number().positive().allow(0).required(),
-  weight_unit: WeightUnitSchema.required(),
+  weight: joi.number().positive().allow(0).allow(null),
+  weight_unit: WeightUnitSchema.allow(null),
 });
 export interface AddOrderItem extends Weight {
   asin_number?: string | null;

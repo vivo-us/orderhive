@@ -1,19 +1,19 @@
 import Orderhive from "../index";
 import { IdSchema } from "../definitions/global";
-import { Order } from "../definitions/orders";
+import { Payment } from "../definitions/payments";
 
 /**
  * @param  {number} orderId - Orderhive Order ID
  * @return {Promise<Order>}
  */
 
-export default async function getOrderDetails(
+export default async function getPayment(
   this: Orderhive,
   orderId: number
-): Promise<Order> {
+): Promise<Payment> {
   await IdSchema.required().validateAsync(orderId);
   try {
-    const path = `/orders/salesorder/v1/${orderId}`;
+    const path = `/orders/payment/${orderId}`;
     const headers = await this.signRequest("GET", path);
     if (!headers) throw new Error("Could not sign request");
     const res = await this.http.get(path, { headers });
@@ -21,7 +21,7 @@ export default async function getOrderDetails(
   } catch (error: any) {
     if (error.response) {
       throw new this.OrderhiveError(
-        `Error getting order details for order ${orderId}`,
+        `Error getting payment details for order ${orderId}`,
         error.response.data
       );
     }

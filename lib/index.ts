@@ -12,6 +12,8 @@ import shipping from "./shipping/index";
 import inventory from "./inventory/index";
 import customers from "./customers/index";
 import customFields from "./customFields";
+import payments from "./payments/index";
+import invoices from "./invoices/index";
 import { Model, Sequelize, DataTypes, Optional, Op } from "sequelize";
 import CryptoJS from "crypto-js";
 
@@ -97,6 +99,7 @@ class Orderhive {
   createTag: typeof tags.createTag = tags.createTag.bind(this);
   addTag: typeof tags.addTag = tags.addTag.bind(this);
   listTags: typeof tags.listTags = tags.listTags.bind(this);
+  addTagToCustomer: typeof tags.addTagToCustomer = tags.addTagToCustomer.bind(this);
 
   createOrder: typeof orders.createOrder = orders.createOrder.bind(this);
   updateOrderStatus: typeof orders.updateOrderStatus =
@@ -116,6 +119,8 @@ class Orderhive {
     orders.moveOrderToFolder.bind(this);
   addComment: typeof orders.addComment = orders.addComment.bind(this);
   removeTag: typeof orders.removeTag = orders.removeTag.bind(this);
+  archiveOrder: typeof orders.archiveOrder = orders.archiveOrder.bind(this);
+  getOrders: typeof orders.getOrders = orders.getOrders.bind(this);
 
   listStores: typeof stores.listStores = stores.listStores.bind(this);
   getStoreDetails: typeof stores.getStoreDetails =
@@ -189,6 +194,8 @@ class Orderhive {
     customers.updateCustomer.bind(this);
   createCompany: typeof customers.createCompany =
     customers.createCompany.bind(this);
+  deleteCustomerById: typeof customers.deleteCustomerById =
+    customers.deleteCustomerById.bind(this);
 
   createCustomCompanyField: typeof customFields.createCustomCompanyField =
     customFields.createCustomCompanyField.bind(this);
@@ -197,6 +204,9 @@ class Orderhive {
 
   getCustomersByDetails: typeof customers.getCustomersByDetails =
     customers.getCustomersByDetails.bind(this);
+
+  getCustomerList: typeof customers.getCustomerList = 
+    customers.getCustomerList.bind(this);
   
   getCompanyByDetails: typeof customers.getCompanyByDetails =
     customers.getCompanyByDetails.bind(this);
@@ -206,6 +216,11 @@ class Orderhive {
   
   linkCustomerToCompany: typeof customers.linkCustomerToCompany =
     customers.linkCustomerToCompany.bind(this);
+
+  getPayment: typeof payments.getPayment = 
+    payments.getPayment.bind(this);
+  getInvoices: typeof invoices.getInvoices =
+    invoices.getInvoices.bind(this);
 
   constructor(config: OrderhiveConfig) {
     this.idToken = config.idToken;

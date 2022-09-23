@@ -9,7 +9,7 @@ import { Tag, TageTypeSchema, TagType } from "../definitions/tags";
 export default async function listTags(
   this: Orderhive,
   type: TagType
-): Promise<Tag[]> {
+): Promise<any> {
   await TageTypeSchema.required().validateAsync(type);
   try {
     let path = `/orders/tags/${type}/all`;
