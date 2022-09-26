@@ -16,7 +16,7 @@ export default async function deleteOrders(
     const headers = await this.signRequest("PUT", path, obj);
     if (!headers) throw new Error("Could not sign request");
     const res = await this.http.put(path, obj, { headers });
-    this.logger.info(res.data.message);
+    this.logger.debug(res.data.message);
   } catch (error: any) {
     if (error.response) {
       throw new this.OrderhiveError(

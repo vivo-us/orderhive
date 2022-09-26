@@ -16,7 +16,7 @@ export default async function createOrder(
     const headers = await this.signRequest("POST", path, order);
     if (!headers) throw new Error("Could not sign request");
     const res = await this.http.post(path, order, { headers });
-    this.logger.info(`Successfully created order ${res.data.id}`);
+    this.logger.debug(`Successfully created order ${res.data.id}`);
     return res.data;
   } catch (error: any) {
     if (error.response) {

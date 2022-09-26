@@ -37,7 +37,7 @@ export default async function deleteTransfer(
       );
     } else throw new this.OrderhiveError(error);
   }
-  this.logger.info(`Successfully deleted transfer ${transferId}`);
+  this.logger.debug(`Successfully deleted transfer ${transferId}`);
   return res.data;
 }
 

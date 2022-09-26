@@ -31,7 +31,7 @@ export default async function getTransfer(
       throw new this.OrderhiveError(error.message, error.response?.data);
     } else throw new this.OrderhiveError(error);
   }
-  this.logger.info(`Successfully fetched transfer ${transferId}`);
+  this.logger.debug(`Successfully fetched transfer ${transferId}`);
   return res.data;
 }
 

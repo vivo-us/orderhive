@@ -57,7 +57,7 @@ export default async function listTransfers(
       throw new this.OrderhiveError(error.message, error.response?.data);
     } else throw new this.OrderhiveError(error);
   }
-  this.logger.info(`Successfully fetched transfers list`);
+  this.logger.debug(`Successfully fetched transfers list`);
   return res.data;
 }
 

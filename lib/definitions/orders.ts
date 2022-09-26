@@ -648,14 +648,14 @@ export const ListOrderSchema = joi.object().keys({
   filters: FilterSchema,
   sortBy: SortSchema,
   query: joi.string(),
-  nextToken: joi.string(),
+  next_token: joi.string(),
 });
 
 export interface ListOrdersOptions {
   filters?: Filter;
   sortBy?: Sort;
   query?: string;
-  nextToken?: string;
+  next_token?: string;
 }
 
 export const EditOrderSchema = joi.object().keys({

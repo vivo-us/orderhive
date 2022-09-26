@@ -1,5 +1,9 @@
 import Orderhive from "../index";
-import { Customer, CreateCustomerSchema, CreateCustomer} from "../definitions/customers";
+import {
+  Customer,
+  CreateCustomerSchema,
+  CreateCustomer,
+} from "../definitions/customers";
 
 /**
  * @param  {CreateOrder} customer
@@ -16,7 +20,7 @@ export default async function createCustomer(
     const headers = await this.signRequest("POST", path, customer);
     if (!headers) throw new Error("Could not sign request");
     const res = await this.http.post(path, customer, { headers });
-    this.logger.info(`Successfully created customer ${res.data.id}`);
+    this.logger.debug(`Successfully created customer ${res.data.id}`);
     return res.data;
   } catch (error: any) {
     if (error.response) {

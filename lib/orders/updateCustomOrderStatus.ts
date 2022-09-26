@@ -22,7 +22,7 @@ export default async function updateCustomOrderStatus(
     const headers = await this.signRequest("POST", path, obj);
     if (!headers) throw new Error("Could not sign request");
     const res = await this.http.post(path, obj, { headers });
-    this.logger.info(res.data.message);
+    this.logger.debug(res.data.message);
   } catch (error: any) {
     if (error.response) {
       throw new this.OrderhiveError(

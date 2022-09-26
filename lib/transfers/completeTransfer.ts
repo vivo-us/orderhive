@@ -32,7 +32,7 @@ export default async function completeTransfer(
       throw new this.OrderhiveError(error.message, error.response?.data);
     } else throw new this.OrderhiveError(error);
   }
-  this.logger.info(`Successfully completed transfer ${transferId}`);
+  this.logger.debug(`Successfully completed transfer ${transferId}`);
   return res.data;
 }
 

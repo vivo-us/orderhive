@@ -61,7 +61,7 @@ export default async function shipTransfer(
       throw new this.OrderhiveError(error.message, error.response?.data);
     } else throw new this.OrderhiveError(error);
   }
-  this.logger.info(`Successfully shipped transfer ${transferId}`);
+  this.logger.debug(`Successfully shipped transfer ${transferId}`);
   return res.data;
 }
 

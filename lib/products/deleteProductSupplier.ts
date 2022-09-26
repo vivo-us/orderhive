@@ -19,7 +19,7 @@ export default async function updateProductSupplier(
     const headers = await this.signRequest("DELETE", path);
     if (!headers) throw new Error("Could not sign request");
     await this.http.delete(path, { headers });
-    this.logger.info(`Successfully deleted supplier from product`);
+    this.logger.debug(`Successfully deleted supplier from product`);
     return;
   } catch (error: any) {
     if (error.response) {

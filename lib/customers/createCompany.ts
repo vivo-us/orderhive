@@ -1,5 +1,9 @@
 import Orderhive from "../index";
-import { Company, CreateCompany, CreateCompanySchema} from "../definitions/customers";
+import {
+  Company,
+  CreateCompany,
+  CreateCompanySchema,
+} from "../definitions/customers";
 
 /**
  * @param  {CreateCompany} company
@@ -16,7 +20,7 @@ export default async function createCompany(
     const headers = await this.signRequest("POST", path, company);
     if (!headers) throw new Error("Could not sign request");
     const res = await this.http.post(path, company, { headers });
-    this.logger.info(`Successfully added company ${res.data.id}`);
+    this.logger.debug(`Successfully added company ${res.data.id}`);
     return res.data;
   } catch (error: any) {
     if (error.response) {

@@ -57,7 +57,7 @@ export default async function receiveTransfer(
       throw new this.OrderhiveError(error.message, error.response?.data);
     } else throw new this.OrderhiveError(error);
   }
-  this.logger.info(`Successfully received transfer ${transferId}`);
+  this.logger.debug(`Successfully received transfer ${transferId}`);
   return res.data;
 }
 

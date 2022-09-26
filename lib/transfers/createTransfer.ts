@@ -113,7 +113,7 @@ export default async function createTransfer(
       throw new this.OrderhiveError(error.message, error.response?.data);
     } else throw new this.OrderhiveError(error);
   }
-  this.logger.info(`Successfully created transfer ${res.data.id}`);
+  this.logger.debug(`Successfully created transfer ${res.data.id}`);
   return res.data;
 }
 
