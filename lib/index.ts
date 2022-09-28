@@ -15,6 +15,7 @@ import customFields from "./customFields/index";
 import transfers from "./transfers/index";
 import payments from "./payments/index";
 import invoices from "./invoices/index";
+import users from "./users/index";
 import { Model, Sequelize, DataTypes, Optional, Op } from "sequelize";
 import CryptoJS from "crypto-js";
 
@@ -100,7 +101,8 @@ class Orderhive {
   createTag: typeof tags.createTag = tags.createTag.bind(this);
   addTag: typeof tags.addTag = tags.addTag.bind(this);
   listTags: typeof tags.listTags = tags.listTags.bind(this);
-  addTagToCustomer: typeof tags.addTagToCustomer = tags.addTagToCustomer.bind(this);
+  addTagToCustomer: typeof tags.addTagToCustomer =
+    tags.addTagToCustomer.bind(this);
 
   createOrder: typeof orders.createOrder = orders.createOrder.bind(this);
   updateOrderStatus: typeof orders.updateOrderStatus =
@@ -208,13 +210,15 @@ class Orderhive {
     customFields.createCustomCompanyField.bind(this);
   createCustomCustomerField: typeof customFields.createCustomCustomerField =
     customFields.createCustomCustomerField.bind(this);
+  listCustomFields: typeof customFields.listCustomFields =
+    customFields.listCustomFields.bind(this);
 
   getCustomersByDetails: typeof customers.getCustomersByDetails =
     customers.getCustomersByDetails.bind(this);
 
-  getCustomerList: typeof customers.getCustomerList = 
+  getCustomerList: typeof customers.getCustomerList =
     customers.getCustomerList.bind(this);
-  
+
   getCompanyByDetails: typeof customers.getCompanyByDetails =
     customers.getCompanyByDetails.bind(this);
   updateCompany: typeof customers.updateCompany =
@@ -237,10 +241,10 @@ class Orderhive {
   listTransfers: typeof transfers.listTransfers =
     transfers.listTransfers.bind(this);
 
-  getPayment: typeof payments.getPayment = 
-    payments.getPayment.bind(this);
-  getInvoices: typeof invoices.getInvoices =
-    invoices.getInvoices.bind(this);
+  getPayment: typeof payments.getPayment = payments.getPayment.bind(this);
+  getInvoices: typeof invoices.getInvoices = invoices.getInvoices.bind(this);
+
+  listUsers: typeof users.listUsers = users.listUsers.bind(this);
 
   constructor(config: OrderhiveConfig) {
     this.idToken = config.idToken;

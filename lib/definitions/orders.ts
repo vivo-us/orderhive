@@ -138,6 +138,7 @@ const AddOrderExtraItemSchema = joi.object().keys({
   tax_info: TaxInfoSchema,
   tax_percent: joi.number().positive().allow(0),
   tax_value: joi.number().positive().allow(0),
+  type: joi.string().required(),
 });
 export interface AddOrderExtraItem {
   id: number;
@@ -251,6 +252,7 @@ const AddOrderItemSchema = joi.object().keys({
   barcode: joi.string(),
   channel_primary_id: joi.string(),
   channel_secondary_id: joi.string(),
+  description: joi.string(),
   discount_percent: joi.when("discount_type", {
     is: "percent",
     then: joi.number().positive().allow(0).required(),
@@ -398,7 +400,7 @@ export const CreateOrderSchema = joi.object().keys({
   currency: joi.string(),
   custom_fields: joi.array().items(AddCustomFieldSchema),
   custom_pricing_tier_id: IdSchema,
-  delivery_date: joi.string(),
+  delivery_date: joi.string().allow(null),
   grand_total: joi.number().positive().allow(0).required(),
   order_extra_items: joi.array().items(AddOrderExtraItemSchema),
   order_items: joi.array().items(AddOrderItemSchema).required(),
@@ -411,6 +413,8 @@ export const CreateOrderSchema = joi.object().keys({
   shipping_address: CreateAddressSchema.required(),
   shipping_carrier: joi.string(),
   shipping_service: joi.string(),
+  shipping_due_date: joi.string(),
+  sync_created: joi.string(),
   store_id: IdSchema.required(),
   tax_type: joi.string().valid("INCLUSIVE", "EXCLUSIVE").required(),
   warehouse_id: IdSchema.required(),
@@ -441,6 +445,7 @@ export interface CreateOrder {
   shipping_carrier?: string | null;
   shipping_due_date?: string | null;
   shipping_service?: string | null;
+  sync_created?: string | null;
   store_id: number;
   tax_type: "INCLUSIVE" | "EXCLUSIVE";
   warehouse_id: number;

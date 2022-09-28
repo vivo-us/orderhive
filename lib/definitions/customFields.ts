@@ -41,3 +41,14 @@ export const CreateCustomCustomerFieldSchema = joi.object().keys({
 });
 
 export interface CustomCustomerField {}
+
+export interface CustomField {
+  apply_on_filter: boolean;
+  id: string;
+  is_required: boolean;
+  module_type: string;
+  name: string;
+  show_on_frontcard: boolean;
+  type: "DROP_DOWN" | "TEXT" | "DATE" | "CHECKBOX" | "NUMBER" | "LINK";
+  type_values: string[];
+}
