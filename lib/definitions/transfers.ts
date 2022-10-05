@@ -134,6 +134,8 @@ const TransferStockItemsSchema = Joi.object({
   item_price: Joi.number().required(),
   product_id: Joi.number().required(),
   transfer_qty: Joi.number().required(),
+  item_note: Joi.string(),
+
 });
 
 export const CreateTransferDataSchema = Joi.object({
