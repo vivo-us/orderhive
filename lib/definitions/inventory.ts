@@ -115,6 +115,7 @@ const EditInventoryLevelSchema = joi
     remove: joi.boolean(),
     new_quantity: joi.number().cast("string"),
     new_location: joi.boolean(),
+    //warehouse_id: joi.number()
   })
   .or("location", "batch", "cost")
   .with("new_location", ["new_quantity", "quantity", "onhand_original"])
@@ -146,13 +147,14 @@ interface EditInventoryLevel {
   location?: string;
   is_default?: boolean;
   onhand_original?: number;
-  quantity?: number;
+  quantity?: number; //final quantity
   batch?: string;
   cost?: number;
   reason?: string;
   remove?: boolean;
-  new_quantity?: number;
+  new_quantity?: number; //original on hand + added
   new_location?: boolean;
+  warehouse_id?: number;
 }
 interface EditInventoryLevelWarehouse {
   warehouse_id: number;

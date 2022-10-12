@@ -5,6 +5,7 @@ import { IdSchema } from "../definitions/global";
 /**
  * @param  {number} orderId - Orderhive Order ID
  * @param  {OrderStatus} orderStatus - Order status to set
+ * @note Order cannot revert from CONFIRM status to NOT CONFIRM
  */
 
 export default async function updateOrderStatus(

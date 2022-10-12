@@ -182,7 +182,7 @@ export interface OrderExtraItem extends Weight {
 export const UpdateOrderItemSchema = joi.object().keys({
   id: IdSchema,
   item_id: IdSchema,
-  asin_number: joi.string(),
+  asin_number: joi.string().allow(null),
   barcode: joi.string(),
   channel_primary_id: joi.string(),
   channel_secondary_id: joi.string(),
