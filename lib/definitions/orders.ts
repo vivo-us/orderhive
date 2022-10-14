@@ -8,6 +8,7 @@ import {
   CreateAddress,
   WeightUnitSchema,
   WeightUnit,
+  LongIdSchema
 } from "./global";
 import { InventoryWarehouse } from "./inventory";
 
@@ -180,7 +181,7 @@ export interface OrderExtraItem extends Weight {
 }
 
 export const UpdateOrderItemSchema = joi.object().keys({
-  id: IdSchema,
+  id: LongIdSchema,
   item_id: IdSchema,
   asin_number: joi.string().allow(null),
   barcode: joi.string(),

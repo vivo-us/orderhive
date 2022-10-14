@@ -158,7 +158,7 @@ export const CreateTransferDataSchema = Joi.object({
 
 interface TransferLbcdetail {
   id: string;
-  location: string;
+  location?: string;
   quantity: number;
   batch?: string;
   cost?: number;
@@ -177,7 +177,7 @@ export const ShipTransferDataSchema = Joi.array().items(
       .items(
         Joi.object({
           id: Joi.string().required(),
-          location: Joi.string().required(),
+          location: Joi.string().allow(null),//.required(),
           quantity: Joi.number().required(),
           batch: Joi.string(),
           cost: Joi.number(),
