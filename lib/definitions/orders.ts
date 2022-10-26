@@ -8,7 +8,6 @@ import {
   CreateAddress,
   WeightUnitSchema,
   WeightUnit,
-  LongIdSchema
 } from "./global";
 import { InventoryWarehouse } from "./inventory";
 
@@ -209,7 +208,7 @@ export const OrderBulkListingFiltersSchema = joi.object().keys({
 }).with("from_date", "to_date").with('to_date', 'from_date').with("from_modified_date", "to_modified_date").with('to_modified_date', 'from_modified_date');
 
 export const UpdateOrderItemSchema = joi.object().keys({
-  id: LongIdSchema,
+  id: IdSchema,
   item_id: IdSchema,
   asin_number: joi.string().allow(null),
   barcode: joi.string(),
