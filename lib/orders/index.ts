@@ -13,6 +13,7 @@ import addComment from "./addComment";
 import removeTag from "./removeTag";
 import archiveOrder from "./archiveOrder";
 import getOrders from "./getOrders";
+import getOrderBulkListing from "./getOrderBulkListing";
 
 export default {
   createOrder,
@@ -29,5 +30,6 @@ export default {
   addComment,
   removeTag,
   archiveOrder,
-  getOrders
+  getOrders,
+  getOrderBulkListing
 };

@@ -246,6 +246,8 @@ class Orderhive {
 
   listUsers: typeof users.listUsers = users.listUsers.bind(this);
 
+  getOrderBulkListing: typeof orders.getOrderBulkListing = orders.getOrderBulkListing.bind(this);
+
   constructor(config: OrderhiveConfig) {
     this.idToken = config.idToken;
     this.refreshToken = config.refreshToken;

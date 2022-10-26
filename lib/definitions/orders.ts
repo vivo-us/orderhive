@@ -180,6 +180,34 @@ export interface OrderExtraItem extends Weight {
   type: string | null;
 }
 
+export interface OrderBulkListingFilters { 
+  order_status:Array<String>,	
+  custom_status:	Array<String>,	
+  storesByIds:	Array<Number>,
+  from_date:	String,	
+  to_date:	String,	
+  from_modified_date:	String,	
+  to_modified_date:	String
+}
+
+export const OrderBulkListingFiltersSchema = joi.object().keys({
+  order_status: joi.array().items(joi.string().valid(
+    "CONFIRM",
+    "NOT_CONFIRM",
+    "PARTIAL_SHIP",
+    "SHIP",
+    "DELIVER",
+    "CANCEL",
+    "RETURN"
+  )),
+  custom_status: joi.array().items(joi.string()),
+  storesByIds: joi.array().items(joi.number()),
+  from_date: joi.date(),
+  to_date: joi.date(),
+  from_modified_date: joi.date(),
+  to_modified_date: joi.date(),
+}).with("from_date", "to_date").with('to_date', 'from_date').with("from_modified_date", "to_modified_date").with('to_modified_date', 'from_modified_date');
+
 export const UpdateOrderItemSchema = joi.object().keys({
   id: LongIdSchema,
   item_id: IdSchema,
