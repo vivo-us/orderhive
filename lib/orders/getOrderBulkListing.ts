@@ -3,7 +3,7 @@ import { IdSchema } from "../definitions/global";
 import {OrderBulkListingFilters, OrderBulkListingFiltersSchema} from "../definitions/orders";
 import { Order } from "../definitions/orders";
 
-import { string } from "joi";
+import { any, string } from "joi";
 
 /**
  * @param  {number} orderId - Orderhive Order ID
@@ -24,8 +24,9 @@ export default async function getOrderBulkListing(
     } 
 
     for(let item of Object.keys(filterData)) {
-        if(!allowedFilters.includes(item)) continue
-        body.filters[item] = filterData[item];
+        const keyTyped = item as keyof OrderBulkListingFilters;
+        if(!allowedFilters.includes(keyTyped)) continue
+        body.filters[item] = filterData[keyTyped]
     }
 
     OrderBulkListingFiltersSchema.required().validateAsync(body.filters);

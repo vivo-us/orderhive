@@ -1,0 +1,3001 @@
+{
+    "sales_order": [
+        {
+            "id": 3073082,
+            "tag_id": 3073082,
+            "count": 33977,
+            "tag_name": "AmznBusiness",
+            "tag_color": "#3179a6"
+        },
+        {
+            "id": 3073083,
+            "tag_id": 3073083,
+            "count": 139196,
+            "tag_name": "AmznPrime",
+            "tag_color": "#e47911"
+        },
+        {
+            "id": 3073116,
+            "tag_id": 3073116,
+            "count": 10,
+            "tag_name": "Testing",
+            "tag_color": "#92461c"
+        },
+        {
+            "id": 3073859,
+            "tag_id": 3073859,
+            "count": 11,
+            "tag_name": "Wholesale",
+            "tag_color": "#0085ff"
+        },
+        {
+            "id": 3180502,
+            "tag_id": 3180502,
+            "count": 5,
+            "tag_name": "Pending Routing",
+            "tag_color": "#ffaf00"
+        },
+        {
+            "id": 3181889,
+            "tag_id": 3181889,
+            "count": 3,
+            "tag_name": "Ready To Route",
+            "tag_color": "#ffe700"
+        },
+        {
+            "id": 3212032,
+            "tag_id": 3212032,
+            "count": 476,
+            "tag_name": "Routing Complete",
+            "tag_color": "#06ff00"
+        },
+        {
+            "id": 3212033,
+            "tag_id": 3212033,
+            "count": 0,
+            "tag_name": "Express Approved",
+            "tag_color": "#38ff00"
+        },
+        {
+            "id": 3212034,
+            "tag_id": 3212034,
+            "count": 0,
+            "tag_name": "Express Denied",
+            "tag_color": "#ff0000"
+        },
+        {
+            "id": 3212653,
+            "tag_id": 3212653,
+            "count": 4,
+            "tag_name": "Routing Failed",
+            "tag_color": "#ff0000"
+        },
+        {
+            "id": 3212716,
+            "tag_id": 3212716,
+            "count": 5,
+            "tag_name": "Small Parcel",
+            "tag_color": "#00ff9e"
+        },
+        {
+            "id": 3212717,
+            "tag_id": 3212717,
+            "count": 2,
+            "tag_name": "Freight",
+            "tag_color": "#bd80ff"
+        },
+        {
+            "id": 3227905,
+            "tag_id": 3227905,
+            "count": 7,
+            "tag_name": "Backordered",
+            "tag_color": "#fa7087"
+        },
+        {
+            "id": 3237518,
+            "tag_id": 3237518,
+            "count": 85,
+            "tag_name": "seon_fraud_score:2",
+            "tag_color": "#647196"
+        },
+        {
+            "id": 3237517,
+            "tag_id": 3237517,
+            "count": 624,
+            "tag_name": "seon_approved",
+            "tag_color": "#173e14"
+        },
+        {
+            "id": 3237519,
+            "tag_id": 3237519,
+            "count": 0,
+            "tag_name": "Logistics",
+            "tag_color": "#c200ff"
+        },
+        {
+            "id": 3237590,
+            "tag_id": 3237590,
+            "count": 130,
+            "tag_name": "seon_fraud_score:0",
+            "tag_color": "#000000"
+        },
+        {
+            "id": 3237658,
+            "tag_id": 3237658,
+            "count": 85,
+            "tag_name": "seon_fraud_score:1",
+            "tag_color": "#431327"
+        },
+        {
+            "id": 3237870,
+            "tag_id": 3237870,
+            "count": 23,
+            "tag_name": "seon_declined",
+            "tag_color": "#ac2a59"
+        },
+        {
+            "id": 3237871,
+            "tag_id": 3237871,
+            "count": 2,
+            "tag_name": "seon_fraud_score:21.2",
+            "tag_color": "#061c09"
+        },
+        {
+            "id": 3237914,
+            "tag_id": 3237914,
+            "count": 3,
+            "tag_name": "Qty Available",
+            "tag_color": "#27ff00"
+        },
+        {
+            "id": 3237990,
+            "tag_id": 3237990,
+            "count": 47,
+            "tag_name": "seon_review",
+            "tag_color": "#417f2e"
+        },
+        {
+            "id": 3237991,
+            "tag_id": 3237991,
+            "count": 34,
+            "tag_name": "seon_fraud_score:10",
+            "tag_color": "#9e7f77"
+        },
+        {
+            "id": 3238011,
+            "tag_id": 3238011,
+            "count": 47,
+            "tag_name": "seon_fraud_score:4",
+            "tag_color": "#337279"
+        },
+        {
+            "id": 3238044,
+            "tag_id": 3238044,
+            "count": 23,
+            "tag_name": "seon_fraud_score:6",
+            "tag_color": "#121416"
+        },
+        {
+            "id": 3238078,
+            "tag_id": 3238078,
+            "count": 1,
+            "tag_name": "Chris Test",
+            "tag_color": "#0b3364"
+        },
+        {
+            "id": 3238115,
+            "tag_id": 3238115,
+            "count": 2,
+            "tag_name": "seon_fraud_score:26",
+            "tag_color": "#3d3451"
+        },
+        {
+            "id": 3238245,
+            "tag_id": 3238245,
+            "count": 17,
+            "tag_name": "seon_fraud_score:12",
+            "tag_color": "#504646"
+        },
+        {
+            "id": 3238554,
+            "tag_id": 3238554,
+            "count": 58,
+            "tag_name": "seon_fraud_score:3",
+            "tag_color": "#692200"
+        },
+        {
+            "id": 3238755,
+            "tag_id": 3238755,
+            "count": 7,
+            "tag_name": "seon_fraud_score:24",
+            "tag_color": "#6e2527"
+        },
+        {
+            "id": 3238833,
+            "tag_id": 3238833,
+            "count": 2,
+            "tag_name": "seon_fraud_score:3.4",
+            "tag_color": "#3a435c"
+        },
+        {
+            "id": 3238844,
+            "tag_id": 3238844,
+            "count": 33,
+            "tag_name": "seon_fraud_score:5",
+            "tag_color": "#120c0e"
+        },
+        {
+            "id": 3239302,
+            "tag_id": 3239302,
+            "count": 8,
+            "tag_name": "seon_fraud_score:14",
+            "tag_color": "#582002"
+        },
+        {
+            "id": 3239403,
+            "tag_id": 3239403,
+            "count": 3,
+            "tag_name": "seon_fraud_score:11.6",
+            "tag_color": "#606a6e"
+        },
+        {
+            "id": 3239904,
+            "tag_id": 3239904,
+            "count": 24,
+            "tag_name": "seon_fraud_score:7",
+            "tag_color": "#1e7e94"
+        },
+        {
+            "id": 3239975,
+            "tag_id": 3239975,
+            "count": 9,
+            "tag_name": "seon_fraud_score:11",
+            "tag_color": "#22201d"
+        },
+        {
+            "id": 3240391,
+            "tag_id": 3240391,
+            "count": 25,
+            "tag_name": "seon_fraud_score:8",
+            "tag_color": "#3e312a"
+        },
+        {
+            "id": 3240692,
+            "tag_id": 3240692,
+            "count": 35,
+            "tag_name": "seon_fraud_score:9",
+            "tag_color": "#27495b"
+        },
+        {
+            "id": 3241423,
+            "tag_id": 3241423,
+            "count": 2,
+            "tag_name": "seon_fraud_score:17",
+            "tag_color": "#778879"
+        },
+        {
+            "id": 3242293,
+            "tag_id": 3242293,
+            "count": 8,
+            "tag_name": "seon_fraud_score:16",
+            "tag_color": "#0d0418"
+        },
+        {
+            "id": 3242330,
+            "tag_id": 3242330,
+            "count": 2,
+            "tag_name": "seon_fraud_score:25.2",
+            "tag_color": "#705836"
+        },
+        {
+            "id": 3242355,
+            "tag_id": 3242355,
+            "count": 1,
+            "tag_name": "seon_fraud_score:39.9",
+            "tag_color": "#101e12"
+        },
+        {
+            "id": 3242360,
+            "tag_id": 3242360,
+            "count": 1,
+            "tag_name": "seon_fraud_score:35.2",
+            "tag_color": "#080a04"
+        },
+        {
+            "id": 3243186,
+            "tag_id": 3243186,
+            "count": 10,
+            "tag_name": "seon_fraud_score:13",
+            "tag_color": "#030201"
+        },
+        {
+            "id": 3245123,
+            "tag_id": 3245123,
+            "count": 10,
+            "tag_name": "Use Selected Warehouse",
+            "tag_color": "#f48024"
+        },
+        {
+            "id": 3245158,
+            "tag_id": 3245158,
+            "count": 1,
+            "tag_name": "seon_fraud_score:15.2",
+            "tag_color": "#8446ad"
+        },
+        {
+            "id": 3245806,
+            "tag_id": 3245806,
+            "count": 1,
+            "tag_name": "seon_fraud_score:13.2",
+            "tag_color": "#ad4f04"
+        },
+        {
+            "id": 3246096,
+            "tag_id": 3246096,
+            "count": 6,
+            "tag_name": "Rush Shipping",
+            "tag_color": "#271d1c"
+        },
+        {
+            "id": 3246580,
+            "tag_id": 3246580,
+            "count": 2,
+            "tag_name": "seon_fraud_score:23",
+            "tag_color": "#5b4c60"
+        },
+        {
+            "id": 3247825,
+            "tag_id": 3247825,
+            "count": 1,
+            "tag_name": "Needs Tested",
+            "tag_color": "#0092ff"
+        },
+        {
+            "id": 3248655,
+            "tag_id": 3248655,
+            "count": 1,
+            "tag_name": "seon_fraud_score:14.2",
+            "tag_color": "#1c1c1f"
+        },
+        {
+            "id": 3251328,
+            "tag_id": 3251328,
+            "count": 1,
+            "tag_name": "seon_fraud_score:26.2",
+            "tag_color": "#582337"
+        },
+        {
+            "id": 3251459,
+            "tag_id": 3251459,
+            "count": 1,
+            "tag_name": "seon_fraud_score:29",
+            "tag_color": "#2d2b46"
+        },
+        {
+            "id": 3251945,
+            "tag_id": 3251945,
+            "count": 2,
+            "tag_name": "seon_fraud_score:33",
+            "tag_color": "#171c1e"
+        },
+        {
+            "id": 3252669,
+            "tag_id": 3252669,
+            "count": 3,
+            "tag_name": "seon_fraud_score:15",
+            "tag_color": "#ae9d97"
+        },
+        {
+            "id": 3259896,
+            "tag_id": 3259896,
+            "count": 1,
+            "tag_name": "seon_fraud_score:26.6",
+            "tag_color": "#157576"
+        },
+        {
+            "id": 3260866,
+            "tag_id": 3260866,
+            "count": 2,
+            "tag_name": "seon_fraud_score:88",
+            "tag_color": "#1c101e"
+        },
+        {
+            "id": 3261132,
+            "tag_id": 3261132,
+            "count": 1,
+            "tag_name": "seon_fraud_score:27",
+            "tag_color": "#859257"
+        },
+        {
+            "id": 3262184,
+            "tag_id": 3262184,
+            "count": 2,
+            "tag_name": "seon_fraud_score:5.2",
+            "tag_color": "#1c1d1a"
+        },
+        {
+            "id": 3262460,
+            "tag_id": 3262460,
+            "count": 1,
+            "tag_name": "seon_fraud_score:24.2",
+            "tag_color": "#3c5b3f"
+        },
+        {
+            "id": 3265665,
+            "tag_id": 3265665,
+            "count": 1,
+            "tag_name": "seon_fraud_score:17.2",
+            "tag_color": "#010200"
+        },
+        {
+            "id": 3266037,
+            "tag_id": 3266037,
+            "count": 1,
+            "tag_name": "seon_fraud_score:4.59",
+            "tag_color": "#0f3c5f"
+        },
+        {
+            "id": 3267621,
+            "tag_id": 3267621,
+            "count": 2,
+            "tag_name": "seon_fraud_score:2.4",
+            "tag_color": "#010101"
+        },
+        {
+            "id": 3268649,
+            "tag_id": 3268649,
+            "count": 1,
+            "tag_name": "seon_fraud_score:35",
+            "tag_color": "#71603d"
+        },
+        {
+            "id": 3268758,
+            "tag_id": 3268758,
+            "count": 1,
+            "tag_name": "seon_fraud_score:13.6",
+            "tag_color": "#020202"
+        },
+        {
+            "id": 3268779,
+            "tag_id": 3268779,
+            "count": 1,
+            "tag_name": "seon_fraud_score:18",
+            "tag_color": "#6daca0"
+        },
+        {
+            "id": 3287952,
+            "tag_id": 3287952,
+            "count": 0,
+            "tag_name": "Buy Outside Amazon",
+            "tag_color": "#fa7087"
+        },
+        {
+            "id": 3287966,
+            "tag_id": 3287966,
+            "count": 2,
+            "tag_name": "seon_fraud_score:17.25",
+            "tag_color": "#31412a"
+        },
+        {
+            "id": 3289165,
+            "tag_id": 3289165,
+            "count": 1,
+            "tag_name": "seon_fraud_score:92.25",
+            "tag_color": "#191215"
+        },
+        {
+            "id": 3289972,
+            "tag_id": 3289972,
+            "count": 3,
+            "tag_name": "seon_fraud_score:22.2",
+            "tag_color": "#776417"
+        },
+        {
+            "id": 3293512,
+            "tag_id": 3293512,
+            "count": 2,
+            "tag_name": "Override Address Validation",
+            "tag_color": "#3b9c0d"
+        },
+        {
+            "id": 3296639,
+            "tag_id": 3296639,
+            "count": 1,
+            "tag_name": "seon_fraud_score:20",
+            "tag_color": "#628e17"
+        },
+        {
+            "id": 3301061,
+            "tag_id": 3301061,
+            "count": 1,
+            "tag_name": "seon_fraud_score:89",
+            "tag_color": "#502036"
+        },
+        {
+            "id": 3302344,
+            "tag_id": 3302344,
+            "count": 1,
+            "tag_name": "seon_fraud_score:4.4",
+            "tag_color": "#0a0b07"
+        },
+        {
+            "id": 3304057,
+            "tag_id": 3304057,
+            "count": 0,
+            "tag_name": "Ship When Paid",
+            "tag_color": "#ffde4c"
+        },
+        {
+            "id": 3304458,
+            "tag_id": 3304458,
+            "count": 1,
+            "tag_name": "seon_fraud_score:21",
+            "tag_color": "#661e61"
+        },
+        {
+            "id": 3304889,
+            "tag_id": 3304889,
+            "count": 0,
+            "tag_name": "From Salesforce",
+            "tag_color": "#0092ff"
+        },
+        {
+            "id": 3305279,
+            "tag_id": 3305279,
+            "count": 1,
+            "tag_name": "seon_fraud_score:37",
+            "tag_color": "#6d3652"
+        }
+    ],
+    "item": [
+        {
+            "id": 3073127,
+            "tag_id": 3073127,
+            "count": 2,
+            "tag_name": "Material_Aluminum",
+            "tag_color": "#2a040e"
+        },
+        {
+            "id": 3073129,
+            "tag_id": 3073129,
+            "count": 211,
+            "tag_name": "_tab_warranty",
+            "tag_color": "#6b2d3e"
+        },
+        {
+            "id": 3073126,
+            "tag_id": 3073126,
+            "count": 27,
+            "tag_name": "Type_Freestanding",
+            "tag_color": "#0e000b"
+        },
+        {
+            "id": 3073128,
+            "tag_id": 3073128,
+            "count": 8,
+            "tag_name": "Number of Screens_1",
+            "tag_color": "#3d3f5c"
+        },
+        {
+            "id": 3073125,
+            "tag_id": 3073125,
+            "count": 2,
+            "tag_name": "Length_12\"",
+            "tag_color": "#0b1319"
+        },
+        {
+            "id": 3073130,
+            "tag_id": 3073130,
+            "count": 5,
+            "tag_name": "Color_Silver",
+            "tag_color": "#38404c"
+        },
+        {
+            "id": 3073131,
+            "tag_id": 3073131,
+            "count": 12,
+            "tag_name": "Color_Gray",
+            "tag_color": "#04160b"
+        },
+        {
+            "id": 3073133,
+            "tag_id": 3073133,
+            "count": 11,
+            "tag_name": "Category_Kitchen and Concessions",
+            "tag_color": "#0e0e0d"
+        },
+        {
+            "id": 3073132,
+            "tag_id": 3073132,
+            "count": 221,
+            "tag_name": "Color_Black",
+            "tag_color": "#12421b"
+        },
+        {
+            "id": 3073136,
+            "tag_id": 3073136,
+            "count": 53,
+            "tag_name": "Lift Type_Manual",
+            "tag_color": "#6e7444"
+        },
+        {
+            "id": 3073137,
+            "tag_id": 3073137,
+            "count": 1,
+            "tag_name": "Desk Type_Single Tier",
+            "tag_color": "#69524d"
+        },
+        {
+            "id": 3073138,
+            "tag_id": 3073138,
+            "count": 1,
+            "tag_name": "Length_Small (22\" to 31\")",
+            "tag_color": "#111011"
+        },
+        {
+            "id": 3073139,
+            "tag_id": 3073139,
+            "count": 34,
+            "tag_name": "_tab_1-year-warranty",
+            "tag_color": "#aa2168"
+        },
+        {
+            "id": 3073142,
+            "tag_id": 3073142,
+            "count": 18,
+            "tag_name": "Desk Type_Dual Tier",
+            "tag_color": "#252c24"
+        },
+        {
+            "id": 3073141,
+            "tag_id": 3073141,
+            "count": 46,
+            "tag_name": "_label_New",
+            "tag_color": "#5d543c"
+        },
+        {
+            "id": 3073140,
+            "tag_id": 3073140,
+            "count": 17,
+            "tag_name": "Length_Standard (32\" to 38\")",
+            "tag_color": "#a3b193"
+        },
+        {
+            "id": 3073148,
+            "tag_id": 3073148,
+            "count": 153,
+            "tag_name": "Color_White",
+            "tag_color": "#151408"
+        },
+        {
+            "id": 3073144,
+            "tag_id": 3073144,
+            "count": 22,
+            "tag_name": "_label_Best Seller",
+            "tag_color": "#010200"
+        },
+        {
+            "id": 3073146,
+            "tag_id": 3073146,
+            "count": 1,
+            "tag_name": "Color_Light Wood / Black",
+            "tag_color": "#352915"
+        },
+        {
+            "id": 3073145,
+            "tag_id": 3073145,
+            "count": 1,
+            "tag_name": "Color_Light Wood / White",
+            "tag_color": "#7c705a"
+        },
+        {
+            "id": 3073147,
+            "tag_id": 3073147,
+            "count": 1,
+            "tag_name": "Color_Dark Walnut / Black",
+            "tag_color": "#746979"
+        },
+        {
+            "id": 3073149,
+            "tag_id": 3073149,
+            "count": 77,
+            "tag_name": "Lift Type_Electric",
+            "tag_color": "#679658"
+        },
+        {
+            "id": 3073168,
+            "tag_id": 3073168,
+            "count": 98,
+            "tag_name": "Desk Type_Full Length Desk",
+            "tag_color": "#11381f"
+        },
+        {
+            "id": 3073176,
+            "tag_id": 3073176,
+            "count": 65,
+            "tag_name": "Color_Vintage Brown",
+            "tag_color": "#155172"
+        },
+        {
+            "id": 3073178,
+            "tag_id": 3073178,
+            "count": 115,
+            "tag_name": "Color_Light Wood",
+            "tag_color": "#8c9e69"
+        },
+        {
+            "id": 3073179,
+            "tag_id": 3073179,
+            "count": 113,
+            "tag_name": "Color_Dark Walnut",
+            "tag_color": "#93549e"
+        },
+        {
+            "id": 3073177,
+            "tag_id": 3073177,
+            "count": 59,
+            "tag_name": "Color_Espresso",
+            "tag_color": "#1f0414"
+        },
+        {
+            "id": 3073185,
+            "tag_id": 3073185,
+            "count": 2,
+            "tag_name": "Length_Wide (39\" and above)",
+            "tag_color": "#2c2626"
+        },
+        {
+            "id": 3073186,
+            "tag_id": 3073186,
+            "count": 1,
+            "tag_name": "Desk Type_Corner",
+            "tag_color": "#6e2570"
+        },
+        {
+            "id": 3073193,
+            "tag_id": 3073193,
+            "count": 24,
+            "tag_name": "Length_43\"",
+            "tag_color": "#a51e40"
+        },
+        {
+            "id": 3073194,
+            "tag_id": 3073194,
+            "count": 7,
+            "tag_name": "Product Type_Desktop",
+            "tag_color": "#6d6b66"
+        },
+        {
+            "id": 3073198,
+            "tag_id": 3073198,
+            "count": 2,
+            "tag_name": "Color_Black & Vintage Brown",
+            "tag_color": "#6b6a5c"
+        },
+        {
+            "id": 3073197,
+            "tag_id": 3073197,
+            "count": 2,
+            "tag_name": "Color_White & Light Wood",
+            "tag_color": "#111c19"
+        },
+        {
+            "id": 3073261,
+            "tag_id": 3073261,
+            "count": 3,
+            "tag_name": "Type_Ceiling Mount",
+            "tag_color": "#0e0403"
+        },
+        {
+            "id": 3073262,
+            "tag_id": 3073262,
+            "count": 1,
+            "tag_name": "UTP Type_Cat5e",
+            "tag_color": "#655347"
+        },
+        {
+            "id": 3073265,
+            "tag_id": 3073265,
+            "count": 4,
+            "tag_name": "Material_CCA",
+            "tag_color": "#943946"
+        },
+        {
+            "id": 3073263,
+            "tag_id": 3073263,
+            "count": 9,
+            "tag_name": "__label:Best Seller",
+            "tag_color": "#2e2350"
+        },
+        {
+            "id": 3073264,
+            "tag_id": 3073264,
+            "count": 2,
+            "tag_name": "Length_1000 ft",
+            "tag_color": "#223370"
+        },
+        {
+            "id": 3073267,
+            "tag_id": 3073267,
+            "count": 7,
+            "tag_name": "Type_Clamp On",
+            "tag_color": "#344037"
+        },
+        {
+            "id": 3073268,
+            "tag_id": 3073268,
+            "count": 7,
+            "tag_name": "Frame Type_Standard",
+            "tag_color": "#19171d"
+        },
+        {
+            "id": 3073269,
+            "tag_id": 3073269,
+            "count": 3,
+            "tag_name": "Number of Motors_1",
+            "tag_color": "#898686"
+        },
+        {
+            "id": 3073272,
+            "tag_id": 3073272,
+            "count": 1,
+            "tag_name": "Number of Motors_3",
+            "tag_color": "#647037"
+        },
+        {
+            "id": 3073270,
+            "tag_id": 3073270,
+            "count": 6,
+            "tag_name": "Product Type_Desk Frame",
+            "tag_color": "#460838"
+        },
+        {
+            "id": 3073271,
+            "tag_id": 3073271,
+            "count": 1,
+            "tag_name": "Frame Type_L-Shaped",
+            "tag_color": "#0c1220"
+        },
+        {
+            "id": 3073274,
+            "tag_id": 3073274,
+            "count": 15,
+            "tag_name": "Amount of Screens_1",
+            "tag_color": "#0e5f3a"
+        },
+        {
+            "id": 3073273,
+            "tag_id": 3073273,
+            "count": 1,
+            "tag_name": "Type_Laptop",
+            "tag_color": "#483e4c"
+        },
+        {
+            "id": 3073275,
+            "tag_id": 3073275,
+            "count": 1,
+            "tag_name": "Item_Foot Rests",
+            "tag_color": "#584a4e"
+        },
+        {
+            "id": 3073278,
+            "tag_id": 3073278,
+            "count": 1,
+            "tag_name": "Setup_Pole Mount",
+            "tag_color": "#a29ba3"
+        },
+        {
+            "id": 3073279,
+            "tag_id": 3073279,
+            "count": 1,
+            "tag_name": "Shelving Units_1",
+            "tag_color": "#191e1e"
+        },
+        {
+            "id": 3073280,
+            "tag_id": 3073280,
+            "count": 1,
+            "tag_name": "Type_Whiteboard",
+            "tag_color": "#191151"
+        },
+        {
+            "id": 3073281,
+            "tag_id": 3073281,
+            "count": 4,
+            "tag_name": "Type_Mouse Pad",
+            "tag_color": "#020000"
+        },
+        {
+            "id": 3073282,
+            "tag_id": 3073282,
+            "count": 8,
+            "tag_name": "Desk Type_Corner Desk",
+            "tag_color": "#5b7467"
+        },
+        {
+            "id": 3073290,
+            "tag_id": 3073290,
+            "count": 16,
+            "tag_name": "Amount of Screens_2",
+            "tag_color": "#756e49"
+        },
+        {
+            "id": 3073289,
+            "tag_id": 3073289,
+            "count": 6,
+            "tag_name": "Screen Size Compatibility_17\" to 32\"",
+            "tag_color": "#a13723"
+        },
+        {
+            "id": 3073291,
+            "tag_id": 3073291,
+            "count": 19,
+            "tag_name": "Type_Desk Mount",
+            "tag_color": "#0b0304"
+        },
+        {
+            "id": 3073292,
+            "tag_id": 3073292,
+            "count": 3,
+            "tag_name": "Screen Size Compatibility_17\" to 27\"",
+            "tag_color": "#363d6e"
+        },
+        {
+            "id": 3073293,
+            "tag_id": 3073293,
+            "count": 4,
+            "tag_name": "Material_Glass",
+            "tag_color": "#172c31"
+        },
+        {
+            "id": 3073294,
+            "tag_id": 3073294,
+            "count": 9,
+            "tag_name": "Screen Size Compatibility_13\" to 27\"",
+            "tag_color": "#312e2c"
+        },
+        {
+            "id": 3073295,
+            "tag_id": 3073295,
+            "count": 1,
+            "tag_name": "Screen Size Compatibility_13\" to 38\"",
+            "tag_color": "#141c1d"
+        },
+        {
+            "id": 3073296,
+            "tag_id": 3073296,
+            "count": 7,
+            "tag_name": "Screen Size Compatibility_13\" to 32\"",
+            "tag_color": "#080217"
+        },
+        {
+            "id": 3073297,
+            "tag_id": 3073297,
+            "count": 1,
+            "tag_name": "Type_Cart",
+            "tag_color": "#275038"
+        },
+        {
+            "id": 3073298,
+            "tag_id": 3073298,
+            "count": 2,
+            "tag_name": "Max Screen Size_65\"",
+            "tag_color": "#466653"
+        },
+        {
+            "id": 3073299,
+            "tag_id": 3073299,
+            "count": 23,
+            "tag_name": "Length_36\"",
+            "tag_color": "#1a1774"
+        },
+        {
+            "id": 3073304,
+            "tag_id": 3073304,
+            "count": 2,
+            "tag_name": "Number of Motors_2",
+            "tag_color": "#5c6b57"
+        },
+        {
+            "id": 3073308,
+            "tag_id": 3073308,
+            "count": 2,
+            "tag_name": "Type_Foldable",
+            "tag_color": "#24231c"
+        },
+        {
+            "id": 3073309,
+            "tag_id": 3073309,
+            "count": 2,
+            "tag_name": "Length_38\"",
+            "tag_color": "#646470"
+        },
+        {
+            "id": 3073307,
+            "tag_id": 3073307,
+            "count": 2,
+            "tag_name": "Length_22\"",
+            "tag_color": "#15382b"
+        },
+        {
+            "id": 3073310,
+            "tag_id": 3073310,
+            "count": 1,
+            "tag_name": "Length_16\"",
+            "tag_color": "#0b0d0e"
+        },
+        {
+            "id": 3073311,
+            "tag_id": 3073311,
+            "count": 12,
+            "tag_name": "Length_26\"",
+            "tag_color": "#b1a671"
+        },
+        {
+            "id": 3073313,
+            "tag_id": 3073313,
+            "count": 1,
+            "tag_name": "Color_Blue",
+            "tag_color": "#49403c"
+        },
+        {
+            "id": 3073312,
+            "tag_id": 3073312,
+            "count": 1,
+            "tag_name": "Color_Pink",
+            "tag_color": "#0b5133"
+        },
+        {
+            "id": 3073315,
+            "tag_id": 3073315,
+            "count": 8,
+            "tag_name": "Category_Outdoor and Recreation",
+            "tag_color": "#69536d"
+        },
+        {
+            "id": 3073316,
+            "tag_id": 3073316,
+            "count": 1,
+            "tag_name": "Type_Wheels",
+            "tag_color": "#150530"
+        },
+        {
+            "id": 3073318,
+            "tag_id": 3073318,
+            "count": 2,
+            "tag_name": "Category_Beekeeping",
+            "tag_color": "#49a87f"
+        },
+        {
+            "id": 3073320,
+            "tag_id": 3073320,
+            "count": 2,
+            "tag_name": "Type_TV Hardware",
+            "tag_color": "#382739"
+        },
+        {
+            "id": 3073321,
+            "tag_id": 3073321,
+            "count": 2,
+            "tag_name": "Screen Size Compatibility_15\" to 27\"",
+            "tag_color": "#323637"
+        },
+        {
+            "id": 3073322,
+            "tag_id": 3073322,
+            "count": 8,
+            "tag_name": "Type_Wall Mount",
+            "tag_color": "#106633"
+        },
+        {
+            "id": 3073323,
+            "tag_id": 3073323,
+            "count": 1,
+            "tag_name": "Screen Size Compatibility_17\" to 32\" and Ultrawides up to 43\"",
+            "tag_color": "#16201a"
+        },
+        {
+            "id": 3073325,
+            "tag_id": 3073325,
+            "count": 2,
+            "tag_name": "Screen Size Compatibility_17\" to 32\" and Ultrawides up to 49\"",
+            "tag_color": "#652c80"
+        },
+        {
+            "id": 3073326,
+            "tag_id": 3073326,
+            "count": 1,
+            "tag_name": "Screen Size Compatibility_17\" to 24\"",
+            "tag_color": "#050505"
+        },
+        {
+            "id": 3073327,
+            "tag_id": 3073327,
+            "count": 4,
+            "tag_name": "Amount of Screens_3",
+            "tag_color": "#5c6b45"
+        },
+        {
+            "id": 3073328,
+            "tag_id": 3073328,
+            "count": 1,
+            "tag_name": "Type_Laptop Tray",
+            "tag_color": "#8baf9d"
+        },
+        {
+            "id": 3073330,
+            "tag_id": 3073330,
+            "count": 1,
+            "tag_name": "Type_Stool",
+            "tag_color": "#176daf"
+        },
+        {
+            "id": 3073331,
+            "tag_id": 3073331,
+            "count": 1,
+            "tag_name": "Screen Size Compatibility_13\" to 24\"",
+            "tag_color": "#010303"
+        },
+        {
+            "id": 3073332,
+            "tag_id": 3073332,
+            "count": 3,
+            "tag_name": "Amount of Screens_4",
+            "tag_color": "#04251b"
+        },
+        {
+            "id": 3073333,
+            "tag_id": 3073333,
+            "count": 1,
+            "tag_name": "Type_Under Desk",
+            "tag_color": "#4b8338"
+        },
+        {
+            "id": 3073334,
+            "tag_id": 3073334,
+            "count": 1,
+            "tag_name": "SCREEN SIZE COMPATIBILITY _17\" to 32\"",
+            "tag_color": "#684070"
+        },
+        {
+            "id": 3073335,
+            "tag_id": 3073335,
+            "count": 1,
+            "tag_name": "Type_Universal Monitor Adapters",
+            "tag_color": "#46134a"
+        },
+        {
+            "id": 3073336,
+            "tag_id": 3073336,
+            "count": 1,
+            "tag_name": "Type_Single Monitor Arm",
+            "tag_color": "#694f98"
+        },
+        {
+            "id": 3073343,
+            "tag_id": 3073343,
+            "count": 5,
+            "tag_name": "Length_15\"",
+            "tag_color": "#56715f"
+        },
+        {
+            "id": 3073342,
+            "tag_id": 3073342,
+            "count": 5,
+            "tag_name": "Length_39\"",
+            "tag_color": "#080809"
+        },
+        {
+            "id": 3073341,
+            "tag_id": 3073341,
+            "count": 5,
+            "tag_name": "Number of Screens_2",
+            "tag_color": "#150c14"
+        },
+        {
+            "id": 3073344,
+            "tag_id": 3073344,
+            "count": 7,
+            "tag_name": "Length_24\"",
+            "tag_color": "#a11309"
+        },
+        {
+            "id": 3073340,
+            "tag_id": 3073340,
+            "count": 5,
+            "tag_name": "_tab_p65-warning",
+            "tag_color": "#294651"
+        },
+        {
+            "id": 3073346,
+            "tag_id": 3073346,
+            "count": 1,
+            "tag_name": "Screen Size Compatibility_13\" to 30\"",
+            "tag_color": "#1b9896"
+        },
+        {
+            "id": 3073347,
+            "tag_id": 3073347,
+            "count": 2,
+            "tag_name": "Max Screen Size_70\"",
+            "tag_color": "#4f375d"
+        },
+        {
+            "id": 3073348,
+            "tag_id": 3073348,
+            "count": 1,
+            "tag_name": "Max Screen Size_90\"",
+            "tag_color": "#0b0002"
+        },
+        {
+            "id": 3073349,
+            "tag_id": 3073349,
+            "count": 1,
+            "tag_name": "Max Screen Size_80\"",
+            "tag_color": "#979b97"
+        },
+        {
+            "id": 3073350,
+            "tag_id": 3073350,
+            "count": 1,
+            "tag_name": "Type_Samsung Monitor Adapters",
+            "tag_color": "#acacb0"
+        },
+        {
+            "id": 3073351,
+            "tag_id": 3073351,
+            "count": 1,
+            "tag_name": "Type_VESA Converters",
+            "tag_color": "#647d7b"
+        },
+        {
+            "id": 3073352,
+            "tag_id": 3073352,
+            "count": 1,
+            "tag_name": "Type_Apple iMac Adapters",
+            "tag_color": "#9b899d"
+        },
+        {
+            "id": 3073362,
+            "tag_id": 3073362,
+            "count": 2,
+            "tag_name": "LP133WX3(TL)(A5)",
+            "tag_color": "#836e4f"
+        },
+        {
+            "id": 3073360,
+            "tag_id": 3073360,
+            "count": 2,
+            "tag_name": "LTN133AT09-W01",
+            "tag_color": "#3a003c"
+        },
+        {
+            "id": 3073367,
+            "tag_id": 3073367,
+            "count": 2,
+            "tag_name": "LP133WX2(TL)(G6)",
+            "tag_color": "#9b9b9c"
+        },
+        {
+            "id": 3073361,
+            "tag_id": 3073361,
+            "count": 2,
+            "tag_name": "LP133WX3(TL)(A6)",
+            "tag_color": "#226e3a"
+        },
+        {
+            "id": 3073366,
+            "tag_id": 3073366,
+            "count": 2,
+            "tag_name": "LP133WX2(TL)(GV)",
+            "tag_color": "#120915"
+        },
+        {
+            "id": 3073356,
+            "tag_id": 3073356,
+            "count": 2,
+            "tag_name": "LP133WX2(TL)(C1)",
+            "tag_color": "#885aa3"
+        },
+        {
+            "id": 3073357,
+            "tag_id": 3073357,
+            "count": 2,
+            "tag_name": "LP133WX3(TL)(AA)",
+            "tag_color": "#5f091c"
+        },
+        {
+            "id": 3073373,
+            "tag_id": 3073373,
+            "count": 2,
+            "tag_name": "LP133WX2-TLG5",
+            "tag_color": "#3c2e0d"
+        },
+        {
+            "id": 3073370,
+            "tag_id": 3073370,
+            "count": 2,
+            "tag_name": "LP133WX2(TL)(C3)",
+            "tag_color": "#454d9b"
+        },
+        {
+            "id": 3073364,
+            "tag_id": 3073364,
+            "count": 2,
+            "tag_name": "LP133WX3(TL)(A1)",
+            "tag_color": "#6690aa"
+        },
+        {
+            "id": 3073372,
+            "tag_id": 3073372,
+            "count": 2,
+            "tag_name": "LP133WX2(TL)(C6)",
+            "tag_color": "#a85757"
+        },
+        {
+            "id": 3073369,
+            "tag_id": 3073369,
+            "count": 2,
+            "tag_name": "B133EW04 V.4",
+            "tag_color": "#69385b"
+        },
+        {
+            "id": 3073363,
+            "tag_id": 3073363,
+            "count": 2,
+            "tag_name": "LP133WX3(TL)(A2)",
+            "tag_color": "#0e2109"
+        },
+        {
+            "id": 3073371,
+            "tag_id": 3073371,
+            "count": 2,
+            "tag_name": "LTN133AT09-G01",
+            "tag_color": "#785f6f"
+        },
+        {
+            "id": 3073355,
+            "tag_id": 3073355,
+            "count": 2,
+            "tag_name": "LP133WX2(TL)(G1)",
+            "tag_color": "#706d4f"
+        },
+        {
+            "id": 3073359,
+            "tag_id": 3073359,
+            "count": 2,
+            "tag_name": "B133EW07 V.2",
+            "tag_color": "#a69aa4"
+        },
+        {
+            "id": 3073365,
+            "tag_id": 3073365,
+            "count": 2,
+            "tag_name": "LP133WX3(TL)(A4)",
+            "tag_color": "#87430b"
+        },
+        {
+            "id": 3073368,
+            "tag_id": 3073368,
+            "count": 2,
+            "tag_name": "LTN133AT09-G02",
+            "tag_color": "#1d1c22"
+        },
+        {
+            "id": 3073358,
+            "tag_id": 3073358,
+            "count": 2,
+            "tag_name": "LP133WX2(TL)(G2)",
+            "tag_color": "#85365c"
+        },
+        {
+            "id": 3073395,
+            "tag_id": 3073395,
+            "count": 1,
+            "tag_name": "BT156GW01 V.4",
+            "tag_color": "#35313c"
+        },
+        {
+            "id": 3073386,
+            "tag_id": 3073386,
+            "count": 1,
+            "tag_name": "667896-001",
+            "tag_color": "#887061"
+        },
+        {
+            "id": 3073402,
+            "tag_id": 3073402,
+            "count": 1,
+            "tag_name": "LP156WH4-TLN1",
+            "tag_color": "#4d514b"
+        },
+        {
+            "id": 3073382,
+            "tag_id": 3073382,
+            "count": 1,
+            "tag_name": "N156BGE-L21",
+            "tag_color": "#72b097"
+        },
+        {
+            "id": 3073376,
+            "tag_id": 3073376,
+            "count": 1,
+            "tag_name": "LTN156AT05-H07",
+            "tag_color": "#5f14a8"
+        },
+        {
+            "id": 3073421,
+            "tag_id": 3073421,
+            "count": 1,
+            "tag_name": "LTN156AT32 L01",
+            "tag_color": "#8d1512"
+        },
+        {
+            "id": 3073378,
+            "tag_id": 3073378,
+            "count": 1,
+            "tag_name": "LP156WH2 (TL)(QB)",
+            "tag_color": "#2b3561"
+        },
+        {
+            "id": 3073407,
+            "tag_id": 3073407,
+            "count": 1,
+            "tag_name": "1JC2N",
+            "tag_color": "#354b1d"
+        },
+        {
+            "id": 3073415,
+            "tag_id": 3073415,
+            "count": 1,
+            "tag_name": "N156B6-LOB",
+            "tag_color": "#3f1f35"
+        },
+        {
+            "id": 3073425,
+            "tag_id": 3073425,
+            "count": 1,
+            "tag_name": "9HXXJ",
+            "tag_color": "#972e8c"
+        },
+        {
+            "id": 3073419,
+            "tag_id": 3073419,
+            "count": 1,
+            "tag_name": "LTN156AT16-L01",
+            "tag_color": "#9a69a7"
+        },
+        {
+            "id": 3073403,
+            "tag_id": 3073403,
+            "count": 1,
+            "tag_name": "LP156WH4-TLN2",
+            "tag_color": "#352330"
+        },
+        {
+            "id": 3073401,
+            "tag_id": 3073401,
+            "count": 1,
+            "tag_name": "LTN156AT05-S01",
+            "tag_color": "#3c3d3d"
+        },
+        {
+            "id": 3073422,
+            "tag_id": 3073422,
+            "count": 1,
+            "tag_name": "HB156WX1-100",
+            "tag_color": "#363831"
+        },
+        {
+            "id": 3073399,
+            "tag_id": 3073399,
+            "count": 1,
+            "tag_name": "LP156WH2(TL)(EA)",
+            "tag_color": "#9c9898"
+        },
+        {
+            "id": 3073408,
+            "tag_id": 3073408,
+            "count": 1,
+            "tag_name": "4Y4GM",
+            "tag_color": "#4a2f2f"
+        },
+        {
+            "id": 3073394,
+            "tag_id": 3073394,
+            "count": 1,
+            "tag_name": "XM5XG",
+            "tag_color": "#74977d"
+        },
+        {
+            "id": 3073406,
+            "tag_id": 3073406,
+            "count": 1,
+            "tag_name": "LTN156AT17",
+            "tag_color": "#143533"
+        },
+        {
+            "id": 3073397,
+            "tag_id": 3073397,
+            "count": 1,
+            "tag_name": "LP156WH2 (TL) (Q2)",
+            "tag_color": "#3c3c3e"
+        },
+        {
+            "id": 3073385,
+            "tag_id": 3073385,
+            "count": 1,
+            "tag_name": "N156B6-L04 Rev C.1",
+            "tag_color": "#627456"
+        },
+        {
+            "id": 3073379,
+            "tag_id": 3073379,
+            "count": 1,
+            "tag_name": "LP156Wh4-TLQ2",
+            "tag_color": "#682f34"
+        },
+        {
+            "id": 3073410,
+            "tag_id": 3073410,
+            "count": 1,
+            "tag_name": "LTN156AT05-U09",
+            "tag_color": "#3c322b"
+        },
+        {
+            "id": 3073411,
+            "tag_id": 3073411,
+            "count": 1,
+            "tag_name": "CLAA156WB11A",
+            "tag_color": "#5a3377"
+        },
+        {
+            "id": 3073414,
+            "tag_id": 3073414,
+            "count": 1,
+            "tag_name": "LP156WH2-TLQ1",
+            "tag_color": "#353a47"
+        },
+        {
+            "id": 3073418,
+            "tag_id": 3073418,
+            "count": 1,
+            "tag_name": "B156XW02 V.1",
+            "tag_color": "#841704"
+        },
+        {
+            "id": 3073388,
+            "tag_id": 3073388,
+            "count": 1,
+            "tag_name": "LP156WH2 (TL)(A1)",
+            "tag_color": "#0a0307"
+        },
+        {
+            "id": 3073391,
+            "tag_id": 3073391,
+            "count": 1,
+            "tag_name": "N156B6-L06 rev.C1",
+            "tag_color": "#aaaf75"
+        },
+        {
+            "id": 3073377,
+            "tag_id": 3073377,
+            "count": 1,
+            "tag_name": "B156XTN02.0",
+            "tag_color": "#190819"
+        },
+        {
+            "id": 3073398,
+            "tag_id": 3073398,
+            "count": 1,
+            "tag_name": "689690-001",
+            "tag_color": "#989a9c"
+        },
+        {
+            "id": 3073404,
+            "tag_id": 3073404,
+            "count": 1,
+            "tag_name": "LTN156AT05-W01",
+            "tag_color": "#021517"
+        },
+        {
+            "id": 3073420,
+            "tag_id": 3073420,
+            "count": 1,
+            "tag_name": "D669J",
+            "tag_color": "#7f0164"
+        },
+        {
+            "id": 3073380,
+            "tag_id": 3073380,
+            "count": 1,
+            "tag_name": "CLAA156WB13A",
+            "tag_color": "#284330"
+        },
+        {
+            "id": 3073424,
+            "tag_id": 3073424,
+            "count": 1,
+            "tag_name": "LTN156AT02",
+            "tag_color": "#67776f"
+        },
+        {
+            "id": 3073417,
+            "tag_id": 3073417,
+            "count": 1,
+            "tag_name": "B156XW02 V.2",
+            "tag_color": "#111212"
+        },
+        {
+            "id": 3073396,
+            "tag_id": 3073396,
+            "count": 1,
+            "tag_name": "LTN156AT24",
+            "tag_color": "#050407"
+        },
+        {
+            "id": 3073405,
+            "tag_id": 3073405,
+            "count": 1,
+            "tag_name": "LP156WH2 (TL)(AA)",
+            "tag_color": "#006c51"
+        },
+        {
+            "id": 3073387,
+            "tag_id": 3073387,
+            "count": 1,
+            "tag_name": "N156B6-L0B",
+            "tag_color": "#3b814f"
+        },
+        {
+            "id": 3073375,
+            "tag_id": 3073375,
+            "count": 1,
+            "tag_name": "B156XTN02.2",
+            "tag_color": "#655648"
+        },
+        {
+            "id": 3073409,
+            "tag_id": 3073409,
+            "count": 1,
+            "tag_name": "LTN156AT05-Y02",
+            "tag_color": "#171b25"
+        },
+        {
+            "id": 3073392,
+            "tag_id": 3073392,
+            "count": 1,
+            "tag_name": "BT156GW01 V.1",
+            "tag_color": "#a34761"
+        },
+        {
+            "id": 3073413,
+            "tag_id": 3073413,
+            "count": 1,
+            "tag_name": "641663-001",
+            "tag_color": "#5a044d"
+        },
+        {
+            "id": 3073423,
+            "tag_id": 3073423,
+            "count": 1,
+            "tag_name": "LTN156AT05",
+            "tag_color": "#15201f"
+        },
+        {
+            "id": 3073400,
+            "tag_id": 3073400,
+            "count": 1,
+            "tag_name": "B156XW02 V.2 HW4A",
+            "tag_color": "#36203c"
+        },
+        {
+            "id": 3073427,
+            "tag_id": 3073427,
+            "count": 1,
+            "tag_name": "LP156WH4 (TL)(A1)",
+            "tag_color": "#6c727c"
+        },
+        {
+            "id": 3073384,
+            "tag_id": 3073384,
+            "count": 1,
+            "tag_name": "LTN156AT24-L01",
+            "tag_color": "#727272"
+        },
+        {
+            "id": 3073381,
+            "tag_id": 3073381,
+            "count": 1,
+            "tag_name": "LP156WH2 (TL)(AC)",
+            "tag_color": "#202335"
+        },
+        {
+            "id": 3073426,
+            "tag_id": 3073426,
+            "count": 1,
+            "tag_name": "N156B6-L0B REV.C2",
+            "tag_color": "#020202"
+        },
+        {
+            "id": 3073428,
+            "tag_id": 3073428,
+            "count": 1,
+            "tag_name": "LTN156AT09",
+            "tag_color": "#161512"
+        },
+        {
+            "id": 3073393,
+            "tag_id": 3073393,
+            "count": 1,
+            "tag_name": "BT156GW01 V.3",
+            "tag_color": "#58613e"
+        },
+        {
+            "id": 3073383,
+            "tag_id": 3073383,
+            "count": 1,
+            "tag_name": "645096-001",
+            "tag_color": "#33853e"
+        },
+        {
+            "id": 3073416,
+            "tag_id": 3073416,
+            "count": 1,
+            "tag_name": "LP156WH4(TL)(A1)",
+            "tag_color": "#807049"
+        },
+        {
+            "id": 3073374,
+            "tag_id": 3073374,
+            "count": 1,
+            "tag_name": "LTN156AT05-H01",
+            "tag_color": "#1057ac"
+        },
+        {
+            "id": 3073412,
+            "tag_id": 3073412,
+            "count": 1,
+            "tag_name": "B156XW02 V.6",
+            "tag_color": "#09090f"
+        },
+        {
+            "id": 3073389,
+            "tag_id": 3073389,
+            "count": 1,
+            "tag_name": "LTN156AT32",
+            "tag_color": "#937141"
+        },
+        {
+            "id": 3073390,
+            "tag_id": 3073390,
+            "count": 1,
+            "tag_name": "LP156WH2 (TL)(G1)",
+            "tag_color": "#8c9697"
+        },
+        {
+            "id": 3073433,
+            "tag_id": 3073433,
+            "count": 1,
+            "tag_name": "B101AW06 V.0",
+            "tag_color": "#489341"
+        },
+        {
+            "id": 3073445,
+            "tag_id": 3073445,
+            "count": 1,
+            "tag_name": "LTN101NT05",
+            "tag_color": "#4e231e"
+        },
+        {
+            "id": 3073432,
+            "tag_id": 3073432,
+            "count": 1,
+            "tag_name": "B101AW06 V.1",
+            "tag_color": "#796400"
+        },
+        {
+            "id": 3073431,
+            "tag_id": 3073431,
+            "count": 1,
+            "tag_name": "LTN101NT05-A01",
+            "tag_color": "#744f50"
+        },
+        {
+            "id": 3073446,
+            "tag_id": 3073446,
+            "count": 1,
+            "tag_name": "HX101SW01 V.3",
+            "tag_color": "#958071"
+        },
+        {
+            "id": 3073443,
+            "tag_id": 3073443,
+            "count": 1,
+            "tag_name": "N101L6-L0D C1",
+            "tag_color": "#202511"
+        },
+        {
+            "id": 3073441,
+            "tag_id": 3073441,
+            "count": 1,
+            "tag_name": "LTN101NT05-T01",
+            "tag_color": "#19690f"
+        },
+        {
+            "id": 3073437,
+            "tag_id": 3073437,
+            "count": 1,
+            "tag_name": "LP101WSB(TL)(N1)",
+            "tag_color": "#7c7b93"
+        },
+        {
+            "id": 3073444,
+            "tag_id": 3073444,
+            "count": 1,
+            "tag_name": "N101L6-L0D C2",
+            "tag_color": "#379a20"
+        },
+        {
+            "id": 3073434,
+            "tag_id": 3073434,
+            "count": 1,
+            "tag_name": "LTN101NT05-U03",
+            "tag_color": "#4d6c07"
+        },
+        {
+            "id": 3073438,
+            "tag_id": 3073438,
+            "count": 1,
+            "tag_name": "LP101WSB(TL)(P2)",
+            "tag_color": "#372402"
+        },
+        {
+            "id": 3073430,
+            "tag_id": 3073430,
+            "count": 1,
+            "tag_name": "CLAA101NB03",
+            "tag_color": "#35150e"
+        },
+        {
+            "id": 3073429,
+            "tag_id": 3073429,
+            "count": 1,
+            "tag_name": "N101L6-LOD",
+            "tag_color": "#63636d"
+        },
+        {
+            "id": 3073442,
+            "tag_id": 3073442,
+            "count": 1,
+            "tag_name": "LTN101NT08",
+            "tag_color": "#1c382a"
+        },
+        {
+            "id": 3073435,
+            "tag_id": 3073435,
+            "count": 1,
+            "tag_name": "LP101WSB-TLN1",
+            "tag_color": "#2c2734"
+        },
+        {
+            "id": 3073440,
+            "tag_id": 3073440,
+            "count": 1,
+            "tag_name": "CLAA101NB03A",
+            "tag_color": "#1c1506"
+        },
+        {
+            "id": 3073439,
+            "tag_id": 3073439,
+            "count": 1,
+            "tag_name": "B101AW02 V.0",
+            "tag_color": "#97a598"
+        },
+        {
+            "id": 3073436,
+            "tag_id": 3073436,
+            "count": 1,
+            "tag_name": "N101LGE-L41",
+            "tag_color": "#280e06"
+        },
+        {
+            "id": 3073469,
+            "tag_id": 3073469,
+            "count": 1,
+            "tag_name": "LTN140AT10",
+            "tag_color": "#a74241"
+        },
+        {
+            "id": 3073452,
+            "tag_id": 3073452,
+            "count": 1,
+            "tag_name": "740155-001",
+            "tag_color": "#14090e"
+        },
+        {
+            "id": 3073463,
+            "tag_id": 3073463,
+            "count": 1,
+            "tag_name": "LP140WH2-TLSA",
+            "tag_color": "#2b1b1c"
+        },
+        {
+            "id": 3073482,
+            "tag_id": 3073482,
+            "count": 1,
+            "tag_name": "N140BGE-LA3",
+            "tag_color": "#95938d"
+        },
+        {
+            "id": 3073466,
+            "tag_id": 3073466,
+            "count": 1,
+            "tag_name": "B140XW02 V.1",
+            "tag_color": "#09080a"
+        },
+        {
+            "id": 3073449,
+            "tag_id": 3073449,
+            "count": 1,
+            "tag_name": "LP140WH2(TL)(E3)",
+            "tag_color": "#2e1a4a"
+        },
+        {
+            "id": 3073476,
+            "tag_id": 3073476,
+            "count": 1,
+            "tag_name": "CLAA140WB01A",
+            "tag_color": "#01957b"
+        },
+        {
+            "id": 3073450,
+            "tag_id": 3073450,
+            "count": 1,
+            "tag_name": "HB140WX1-300",
+            "tag_color": "#040204"
+        },
+        {
+            "id": 3073462,
+            "tag_id": 3073462,
+            "count": 1,
+            "tag_name": "LTN140AT12-H01",
+            "tag_color": "#350d1f"
+        },
+        {
+            "id": 3073470,
+            "tag_id": 3073470,
+            "count": 1,
+            "tag_name": "LP140WHU-TLA1",
+            "tag_color": "#000000"
+        },
+        {
+            "id": 3073464,
+            "tag_id": 3073464,
+            "count": 1,
+            "tag_name": "N140BGE-LB2",
+            "tag_color": "#162a41"
+        },
+        {
+            "id": 3073468,
+            "tag_id": 3073468,
+            "count": 1,
+            "tag_name": "B140XW02 V.2",
+            "tag_color": "#523125"
+        },
+        {
+            "id": 3073447,
+            "tag_id": 3073447,
+            "count": 1,
+            "tag_name": "LP140WH2(TL)(L1)",
+            "tag_color": "#27063e"
+        },
+        {
+            "id": 3073457,
+            "tag_id": 3073457,
+            "count": 1,
+            "tag_name": "B140XTN02.3",
+            "tag_color": "#8a9764"
+        },
+        {
+            "id": 3073483,
+            "tag_id": 3073483,
+            "count": 1,
+            "tag_name": "LTN140AT22",
+            "tag_color": "#363424"
+        },
+        {
+            "id": 3073459,
+            "tag_id": 3073459,
+            "count": 1,
+            "tag_name": "LTN140AT06",
+            "tag_color": "#358c5a"
+        },
+        {
+            "id": 3073471,
+            "tag_id": 3073471,
+            "count": 1,
+            "tag_name": "B140XW03 V.0",
+            "tag_color": "#0b1312"
+        },
+        {
+            "id": 3073475,
+            "tag_id": 3073475,
+            "count": 1,
+            "tag_name": "LP140WH2(TL)(L2)",
+            "tag_color": "#541f5a"
+        },
+        {
+            "id": 3073480,
+            "tag_id": 3073480,
+            "count": 1,
+            "tag_name": "LP140WH2 TLN1",
+            "tag_color": "#66683c"
+        },
+        {
+            "id": 3073454,
+            "tag_id": 3073454,
+            "count": 1,
+            "tag_name": "LTN140AT08",
+            "tag_color": "#161617"
+        },
+        {
+            "id": 3073448,
+            "tag_id": 3073448,
+            "count": 1,
+            "tag_name": "LP140WH2(TL)(N1)",
+            "tag_color": "#2a0223"
+        },
+        {
+            "id": 3073472,
+            "tag_id": 3073472,
+            "count": 1,
+            "tag_name": "N140BGE-L41",
+            "tag_color": "#4c3015"
+        },
+        {
+            "id": 3073455,
+            "tag_id": 3073455,
+            "count": 1,
+            "tag_name": "B140XTN03.1",
+            "tag_color": "#160519"
+        },
+        {
+            "id": 3073458,
+            "tag_id": 3073458,
+            "count": 1,
+            "tag_name": "LP140WH2(TL)(A1)",
+            "tag_color": "#082a43"
+        },
+        {
+            "id": 3073479,
+            "tag_id": 3073479,
+            "count": 1,
+            "tag_name": "LTN140AT08-S01",
+            "tag_color": "#876446"
+        },
+        {
+            "id": 3073484,
+            "tag_id": 3073484,
+            "count": 1,
+            "tag_name": "698523-001",
+            "tag_color": "#333a4c"
+        },
+        {
+            "id": 3073485,
+            "tag_id": 3073485,
+            "count": 1,
+            "tag_name": "LP140WH2(TL)(Q1)",
+            "tag_color": "#8772a0"
+        },
+        {
+            "id": 3073474,
+            "tag_id": 3073474,
+            "count": 1,
+            "tag_name": "N140BGE-L42",
+            "tag_color": "#070904"
+        },
+        {
+            "id": 3073465,
+            "tag_id": 3073465,
+            "count": 1,
+            "tag_name": "B140XTN03.6",
+            "tag_color": "#83713c"
+        },
+        {
+            "id": 3073478,
+            "tag_id": 3073478,
+            "count": 1,
+            "tag_name": "LP140WH2(TL)(A2)",
+            "tag_color": "#43a90c"
+        },
+        {
+            "id": 3073460,
+            "tag_id": 3073460,
+            "count": 1,
+            "tag_name": "N140B6-L06 Rev. C2",
+            "tag_color": "#49253a"
+        },
+        {
+            "id": 3073477,
+            "tag_id": 3073477,
+            "count": 1,
+            "tag_name": "LTN140AT08-S03",
+            "tag_color": "#683074"
+        },
+        {
+            "id": 3073451,
+            "tag_id": 3073451,
+            "count": 1,
+            "tag_name": "LP140WH2(TL)(SA)",
+            "tag_color": "#3a073a"
+        },
+        {
+            "id": 3073481,
+            "tag_id": 3073481,
+            "count": 1,
+            "tag_name": "N140BGE-L43 Rev C2",
+            "tag_color": "#070607"
+        },
+        {
+            "id": 3073467,
+            "tag_id": 3073467,
+            "count": 1,
+            "tag_name": "B140XW02 V.0",
+            "tag_color": "#04070a"
+        },
+        {
+            "id": 3073461,
+            "tag_id": 3073461,
+            "count": 1,
+            "tag_name": "LP140WH2(TL)(B1)",
+            "tag_color": "#2a082a"
+        },
+        {
+            "id": 3073453,
+            "tag_id": 3073453,
+            "count": 1,
+            "tag_name": "B140XTN02.0",
+            "tag_color": "#3c2744"
+        },
+        {
+            "id": 3073473,
+            "tag_id": 3073473,
+            "count": 1,
+            "tag_name": "CLAA140WB01",
+            "tag_color": "#1a3535"
+        },
+        {
+            "id": 3073486,
+            "tag_id": 3073486,
+            "count": 1,
+            "tag_name": "N116BGE-L41 C.1",
+            "tag_color": "#2f2734"
+        },
+        {
+            "id": 3073488,
+            "tag_id": 3073488,
+            "count": 1,
+            "tag_name": "B116XW03 V.2",
+            "tag_color": "#7272a1"
+        },
+        {
+            "id": 3073487,
+            "tag_id": 3073487,
+            "count": 1,
+            "tag_name": "N116BGE-L42 C.1",
+            "tag_color": "#28783a"
+        },
+        {
+            "id": 3073496,
+            "tag_id": 3073496,
+            "count": 1,
+            "tag_name": "B116XW01 V.0",
+            "tag_color": "#2e172a"
+        },
+        {
+            "id": 3073492,
+            "tag_id": 3073492,
+            "count": 1,
+            "tag_name": "N116BGE-L41 B1",
+            "tag_color": "#040302"
+        },
+        {
+            "id": 3073497,
+            "tag_id": 3073497,
+            "count": 1,
+            "tag_name": "N116B6-L04",
+            "tag_color": "#2c680f"
+        },
+        {
+            "id": 3073490,
+            "tag_id": 3073490,
+            "count": 1,
+            "tag_name": "LTN116AT04",
+            "tag_color": "#07316d"
+        },
+        {
+            "id": 3073495,
+            "tag_id": 3073495,
+            "count": 1,
+            "tag_name": "LP116WH2(TL)(N1)",
+            "tag_color": "#0c3333"
+        },
+        {
+            "id": 3073500,
+            "tag_id": 3073500,
+            "count": 1,
+            "tag_name": "B116XW03 V.0",
+            "tag_color": "#101408"
+        },
+        {
+            "id": 3073494,
+            "tag_id": 3073494,
+            "count": 1,
+            "tag_name": "LTN116AT04-L01",
+            "tag_color": "#0b3c2b"
+        },
+        {
+            "id": 3073498,
+            "tag_id": 3073498,
+            "count": 1,
+            "tag_name": "N116BGE-L42",
+            "tag_color": "#a3b09a"
+        },
+        {
+            "id": 3073491,
+            "tag_id": 3073491,
+            "count": 1,
+            "tag_name": "LTN116AT04-S01",
+            "tag_color": "#459f3c"
+        },
+        {
+            "id": 3073493,
+            "tag_id": 3073493,
+            "count": 1,
+            "tag_name": "580001-001",
+            "tag_color": "#191c19"
+        },
+        {
+            "id": 3073502,
+            "tag_id": 3073502,
+            "count": 1,
+            "tag_name": "LTN116AT04-T02",
+            "tag_color": "#434543"
+        },
+        {
+            "id": 3073499,
+            "tag_id": 3073499,
+            "count": 1,
+            "tag_name": "629775-001",
+            "tag_color": "#906684"
+        },
+        {
+            "id": 3073489,
+            "tag_id": 3073489,
+            "count": 1,
+            "tag_name": "LTN116AT02",
+            "tag_color": "#634069"
+        },
+        {
+            "id": 3073501,
+            "tag_id": 3073501,
+            "count": 1,
+            "tag_name": "LP116WH2(TL)(C1)",
+            "tag_color": "#384e5b"
+        },
+        {
+            "id": 3073503,
+            "tag_id": 3073503,
+            "count": 1,
+            "tag_name": "B116XW03 V.1",
+            "tag_color": "#571764"
+        },
+        {
+            "id": 3073504,
+            "tag_id": 3073504,
+            "count": 1,
+            "tag_name": "M116NWR1",
+            "tag_color": "#02452b"
+        },
+        {
+            "id": 3073505,
+            "tag_id": 3073505,
+            "count": 1,
+            "tag_name": "NT116WHM-N10",
+            "tag_color": "#69887f"
+        },
+        {
+            "id": 3073506,
+            "tag_id": 3073506,
+            "count": 1,
+            "tag_name": "N116BGE-L32",
+            "tag_color": "#aa763c"
+        },
+        {
+            "id": 3073518,
+            "tag_id": 3073518,
+            "count": 1,
+            "tag_name": "N156B6-L0D",
+            "tag_color": "#0c1022"
+        },
+        {
+            "id": 3073510,
+            "tag_id": 3073510,
+            "count": 1,
+            "tag_name": "B156XTN03.2",
+            "tag_color": "#063627"
+        },
+        {
+            "id": 3073529,
+            "tag_id": 3073529,
+            "count": 1,
+            "tag_name": "LP156WH3-TLQ1",
+            "tag_color": "#ac7e93"
+        },
+        {
+            "id": 3073522,
+            "tag_id": 3073522,
+            "count": 1,
+            "tag_name": "LTN156AT11",
+            "tag_color": "#a7a365"
+        },
+        {
+            "id": 3073508,
+            "tag_id": 3073508,
+            "count": 1,
+            "tag_name": "LP156WH3-TLA2",
+            "tag_color": "#6d9ca0"
+        },
+        {
+            "id": 3073521,
+            "tag_id": 3073521,
+            "count": 1,
+            "tag_name": "B156XW03 V.1",
+            "tag_color": "#040713"
+        },
+        {
+            "id": 3073511,
+            "tag_id": 3073511,
+            "count": 1,
+            "tag_name": "B156XTN04.2",
+            "tag_color": "#15240a"
+        },
+        {
+            "id": 3073524,
+            "tag_id": 3073524,
+            "count": 1,
+            "tag_name": "LP156WH3-TLS1",
+            "tag_color": "#0d799a"
+        },
+        {
+            "id": 3073507,
+            "tag_id": 3073507,
+            "count": 1,
+            "tag_name": "LP156WH3-TLA3",
+            "tag_color": "#284617"
+        },
+        {
+            "id": 3073523,
+            "tag_id": 3073523,
+            "count": 1,
+            "tag_name": "686602-001",
+            "tag_color": "#42464b"
+        },
+        {
+            "id": 3073531,
+            "tag_id": 3073531,
+            "count": 1,
+            "tag_name": "N156BGE-L31",
+            "tag_color": "#3d0d45"
+        },
+        {
+            "id": 3073534,
+            "tag_id": 3073534,
+            "count": 1,
+            "tag_name": "B156XW04 V.0",
+            "tag_color": "#645153"
+        },
+        {
+            "id": 3073527,
+            "tag_id": 3073527,
+            "count": 1,
+            "tag_name": "CLAA156WA15A",
+            "tag_color": "#3a6279"
+        },
+        {
+            "id": 3073530,
+            "tag_id": 3073530,
+            "count": 1,
+            "tag_name": "LP156WH3-TLS3",
+            "tag_color": "#301f13"
+        },
+        {
+            "id": 3073536,
+            "tag_id": 3073536,
+            "count": 1,
+            "tag_name": "LP156WH3-TLE1",
+            "tag_color": "#3f717d"
+        },
+        {
+            "id": 3073533,
+            "tag_id": 3073533,
+            "count": 1,
+            "tag_name": "686921-001",
+            "tag_color": "#122a01"
+        },
+        {
+            "id": 3073514,
+            "tag_id": 3073514,
+            "count": 1,
+            "tag_name": "N156BGE-L41",
+            "tag_color": "#8b88a5"
+        },
+        {
+            "id": 3073519,
+            "tag_id": 3073519,
+            "count": 1,
+            "tag_name": "B156XW04 V.5",
+            "tag_color": "#120375"
+        },
+        {
+            "id": 3073535,
+            "tag_id": 3073535,
+            "count": 1,
+            "tag_name": "LP156WH3-TLSA",
+            "tag_color": "#15a79d"
+        },
+        {
+            "id": 3073513,
+            "tag_id": 3073513,
+            "count": 1,
+            "tag_name": "LTN156AT20",
+            "tag_color": "#654820"
+        },
+        {
+            "id": 3073515,
+            "tag_id": 3073515,
+            "count": 1,
+            "tag_name": "LP156WH3-TLL1",
+            "tag_color": "#373d43"
+        },
+        {
+            "id": 3073520,
+            "tag_id": 3073520,
+            "count": 1,
+            "tag_name": "LP156WHB(TL)(C1) LP156WHB-TLA1",
+            "tag_color": "#4a1e84"
+        },
+        {
+            "id": 3073512,
+            "tag_id": 3073512,
+            "count": 1,
+            "tag_name": "N156BGE-LB1",
+            "tag_color": "#333326"
+        },
+        {
+            "id": 3073528,
+            "tag_id": 3073528,
+            "count": 1,
+            "tag_name": "LP156WH3(TL)(S2)",
+            "tag_color": "#092506"
+        },
+        {
+            "id": 3073516,
+            "tag_id": 3073516,
+            "count": 1,
+            "tag_name": "LP156WH3-TLL3",
+            "tag_color": "#ac9f47"
+        },
+        {
+            "id": 3073525,
+            "tag_id": 3073525,
+            "count": 1,
+            "tag_name": "LP156WHB(TL)(C2)",
+            "tag_color": "#0d5169"
+        },
+        {
+            "id": 3073526,
+            "tag_id": 3073526,
+            "count": 1,
+            "tag_name": "LP156WH3(TL)(T1)",
+            "tag_color": "#363848"
+        },
+        {
+            "id": 3073532,
+            "tag_id": 3073532,
+            "count": 1,
+            "tag_name": "LP156WH3-TLM1",
+            "tag_color": "#243526"
+        },
+        {
+            "id": 3073517,
+            "tag_id": 3073517,
+            "count": 1,
+            "tag_name": "701688-001",
+            "tag_color": "#222323"
+        },
+        {
+            "id": 3073509,
+            "tag_id": 3073509,
+            "count": 1,
+            "tag_name": "LP156WH3-TLA1",
+            "tag_color": "#030403"
+        },
+        {
+            "id": 3073539,
+            "tag_id": 3073539,
+            "count": 1,
+            "tag_name": "LTN156AT37",
+            "tag_color": "#7b856f"
+        },
+        {
+            "id": 3073537,
+            "tag_id": 3073537,
+            "count": 1,
+            "tag_name": "B156XW04 V.8",
+            "tag_color": "#415da3"
+        },
+        {
+            "id": 3073538,
+            "tag_id": 3073538,
+            "count": 1,
+            "tag_name": "B156XTN03.1",
+            "tag_color": "#5f6666"
+        },
+        {
+            "id": 3073542,
+            "tag_id": 3073542,
+            "count": 1,
+            "tag_name": "N156BGE-E41",
+            "tag_color": "#4dac94"
+        },
+        {
+            "id": 3073543,
+            "tag_id": 3073543,
+            "count": 1,
+            "tag_name": "N156BGE-E42",
+            "tag_color": "#270e31"
+        },
+        {
+            "id": 3073544,
+            "tag_id": 3073544,
+            "count": 1,
+            "tag_name": "N156BGE-EB1",
+            "tag_color": "#040e0d"
+        },
+        {
+            "id": 3073541,
+            "tag_id": 3073541,
+            "count": 1,
+            "tag_name": "LP156WHB-TPA1",
+            "tag_color": "#382531"
+        },
+        {
+            "id": 3073540,
+            "tag_id": 3073540,
+            "count": 1,
+            "tag_name": "N156BGE-EB2",
+            "tag_color": "#883b8c"
+        },
+        {
+            "id": 3073546,
+            "tag_id": 3073546,
+            "count": 1,
+            "tag_name": "LP156WHB-TPD1",
+            "tag_color": "#010a0e"
+        },
+        {
+            "id": 3073548,
+            "tag_id": 3073548,
+            "count": 1,
+            "tag_name": "N156BGE-E32",
+            "tag_color": "#7b6933"
+        },
+        {
+            "id": 3073545,
+            "tag_id": 3073545,
+            "count": 1,
+            "tag_name": "B156XTN07.1",
+            "tag_color": "#7d222e"
+        },
+        {
+            "id": 3073547,
+            "tag_id": 3073547,
+            "count": 1,
+            "tag_name": "LP156WH3-TPTH",
+            "tag_color": "#030201"
+        },
+        {
+            "id": 3073551,
+            "tag_id": 3073551,
+            "count": 1,
+            "tag_name": "N140BGE-E43",
+            "tag_color": "#340f3d"
+        },
+        {
+            "id": 3073553,
+            "tag_id": 3073553,
+            "count": 1,
+            "tag_name": "B140XTN02.4",
+            "tag_color": "#1f0120"
+        },
+        {
+            "id": 3073552,
+            "tag_id": 3073552,
+            "count": 1,
+            "tag_name": "N140BGE-EB3",
+            "tag_color": "#3a5a34"
+        },
+        {
+            "id": 3073550,
+            "tag_id": 3073550,
+            "count": 1,
+            "tag_name": "LTN140AT30",
+            "tag_color": "#29142c"
+        },
+        {
+            "id": 3073549,
+            "tag_id": 3073549,
+            "count": 2,
+            "tag_name": "N140BGE-E33",
+            "tag_color": "#0a724f"
+        },
+        {
+            "id": 3073555,
+            "tag_id": 3073555,
+            "count": 1,
+            "tag_name": "B140XTN02.1",
+            "tag_color": "#2e2f0e"
+        },
+        {
+            "id": 3073554,
+            "tag_id": 3073554,
+            "count": 1,
+            "tag_name": "N140BGE-EA3",
+            "tag_color": "#8dab5e"
+        },
+        {
+            "id": 3073557,
+            "tag_id": 3073557,
+            "count": 1,
+            "tag_name": "N116BGE-E32",
+            "tag_color": "#51315e"
+        },
+        {
+            "id": 3073559,
+            "tag_id": 3073559,
+            "count": 1,
+            "tag_name": "B116XTN01.1",
+            "tag_color": "#296027"
+        },
+        {
+            "id": 3073561,
+            "tag_id": 3073561,
+            "count": 1,
+            "tag_name": "N116BGE-E32 Rev C2",
+            "tag_color": "#795f69"
+        },
+        {
+            "id": 3073560,
+            "tag_id": 3073560,
+            "count": 1,
+            "tag_name": "B116XTN02.1",
+            "tag_color": "#545551"
+        },
+        {
+            "id": 3073564,
+            "tag_id": 3073564,
+            "count": 1,
+            "tag_name": "N116BGE-EA2 REV. C1",
+            "tag_color": "#a32080"
+        },
+        {
+            "id": 3073556,
+            "tag_id": 3073556,
+            "count": 1,
+            "tag_name": "M116NWR6",
+            "tag_color": "#a3a39a"
+        },
+        {
+            "id": 3073565,
+            "tag_id": 3073565,
+            "count": 1,
+            "tag_name": "B116XTN02.3",
+            "tag_color": "#975659"
+        },
+        {
+            "id": 3073563,
+            "tag_id": 3073563,
+            "count": 1,
+            "tag_name": "N116BGE-EA2 REV. C2",
+            "tag_color": "#9e908d"
+        },
+        {
+            "id": 3073562,
+            "tag_id": 3073562,
+            "count": 1,
+            "tag_name": "M116NWR6-R0",
+            "tag_color": "#621d0c"
+        },
+        {
+            "id": 3073558,
+            "tag_id": 3073558,
+            "count": 1,
+            "tag_name": "B116XTN02.3 H/W:4A",
+            "tag_color": "#5a855b"
+        },
+        {
+            "id": 3073571,
+            "tag_id": 3073571,
+            "count": 1,
+            "tag_name": "LTN133AT29-401",
+            "tag_color": "#43275c"
+        },
+        {
+            "id": 3073569,
+            "tag_id": 3073569,
+            "count": 1,
+            "tag_name": "N133BGE-EAB",
+            "tag_color": "#696213"
+        },
+        {
+            "id": 3073567,
+            "tag_id": 3073567,
+            "count": 1,
+            "tag_name": "M133NWN1 R3",
+            "tag_color": "#002a10"
+        },
+        {
+            "id": 3073570,
+            "tag_id": 3073570,
+            "count": 1,
+            "tag_name": "HB133WX1-402",
+            "tag_color": "#435d39"
+        },
+        {
+            "id": 3079060,
+            "tag_id": 3079060,
+            "count": 12,
+            "tag_name": "Length_42\"",
+            "tag_color": "#5d5f39"
+        },
+        {
+            "id": 3118916,
+            "tag_id": 3118916,
+            "count": 13,
+            "tag_name": "Length_71\"",
+            "tag_color": "#757575"
+        },
+        {
+            "id": 3139401,
+            "tag_id": 3139401,
+            "count": 1,
+            "tag_name": "Screen Size Compatibility_27\" to 38\"",
+            "tag_color": "#53432d"
+        },
+        {
+            "id": 3171439,
+            "tag_id": 3171439,
+            "count": 1,
+            "tag_name": "Length_55",
+            "tag_color": "#335c27"
+        },
+        {
+            "id": 3180504,
+            "tag_id": 3180504,
+            "count": 1,
+            "tag_name": "Testing",
+            "tag_color": "#7d203e"
+        },
+        {
+            "id": 3180510,
+            "tag_id": 3180510,
+            "count": 1,
+            "tag_name": "TEST2",
+            "tag_color": "#1ecbe1"
+        },
+        {
+            "id": 3235904,
+            "tag_id": 3235904,
+            "count": 22,
+            "tag_name": "Length_60\"",
+            "tag_color": "#5b4f48"
+        },
+        {
+            "id": 3235907,
+            "tag_id": 3235907,
+            "count": 5,
+            "tag_name": "Color_Dark Gray",
+            "tag_color": "#3e1c2a"
+        },
+        {
+            "id": 3235908,
+            "tag_id": 3235908,
+            "count": 1,
+            "tag_name": "Max Screen Size_75\"",
+            "tag_color": "#8b8f63"
+        },
+        {
+            "id": 3235909,
+            "tag_id": 3235909,
+            "count": 1,
+            "tag_name": "Type_Electric Wall Mount",
+            "tag_color": "#3c2e47"
+        },
+        {
+            "id": 3235910,
+            "tag_id": 3235910,
+            "count": 1,
+            "tag_name": "Screen Size Compatibility_21.5\" to 27\"",
+            "tag_color": "#2b1f4a"
+        },
+        {
+            "id": 3235911,
+            "tag_id": 3235911,
+            "count": 1,
+            "tag_name": "Type_Microphone Mounts",
+            "tag_color": "#371f22"
+        },
+        {
+            "id": 3235912,
+            "tag_id": 3235912,
+            "count": 1,
+            "tag_name": "Type_Tablet",
+            "tag_color": "#24897e"
+        },
+        {
+            "id": 3241334,
+            "tag_id": 3241334,
+            "count": 1,
+            "tag_name": "Rev",
+            "tag_color": "#564111"
+        },
+        {
+            "id": 3265177,
+            "tag_id": 3265177,
+            "count": 1,
+            "tag_name": "Type_Reinforcement Bracket",
+            "tag_color": "#071a0e"
+        },
+        {
+            "id": 3293424,
+            "tag_id": 3293424,
+            "count": 0,
+            "tag_name": "DESK-V000B",
+            "tag_color": "#295366"
+        },
+        {
+            "id": 3295857,
+            "tag_id": 3295857,
+            "count": 1,
+            "tag_name": "Length_40\"",
+            "tag_color": "#100944"
+        },
+        {
+            "id": 3296489,
+            "tag_id": 3296489,
+            "count": 4,
+            "tag_name": "UTP Type_Cat6",
+            "tag_color": "#070b04"
+        },
+        {
+            "id": 3296490,
+            "tag_id": 3296490,
+            "count": 3,
+            "tag_name": "Color_Grey",
+            "tag_color": "#468543"
+        },
+        {
+            "id": 3296491,
+            "tag_id": 3296491,
+            "count": 1,
+            "tag_name": "Length_250 ft",
+            "tag_color": "#6a2407"
+        },
+        {
+            "id": 3296494,
+            "tag_id": 3296494,
+            "count": 1,
+            "tag_name": "Material_Pure Copper",
+            "tag_color": "#a38294"
+        },
+        {
+            "id": 3296493,
+            "tag_id": 3296493,
+            "count": 1,
+            "tag_name": "Color_ Blue",
+            "tag_color": "#01380e"
+        },
+        {
+            "id": 3296492,
+            "tag_id": 3296492,
+            "count": 2,
+            "tag_name": "Length_500 ft",
+            "tag_color": "#540d2c"
+        },
+        {
+            "id": 3296495,
+            "tag_id": 3296495,
+            "count": 4,
+            "tag_name": "Length_63\"",
+            "tag_color": "#a69a87"
+        },
+        {
+            "id": 3296496,
+            "tag_id": 3296496,
+            "count": 6,
+            "tag_name": "Type_TV Cover",
+            "tag_color": "#5e2867"
+        },
+        {
+            "id": 3296500,
+            "tag_id": 3296500,
+            "count": 1,
+            "tag_name": "Setup_Corner Connector",
+            "tag_color": "#1e181c"
+        }
+    ],
+    "customer": [
+        {
+            "id": 3073653,
+            "tag_id": 3073653,
+            "count": 14,
+            "tag_name": "newsletter",
+            "tag_color": "#543037"
+        },
+        {
+            "id": 3073652,
+            "tag_id": 3073652,
+            "count": 13,
+            "tag_name": "prospect",
+            "tag_color": "#4d9486"
+        },
+        {
+            "id": 3265579,
+            "tag_id": 3265579,
+            "count": 0,
+            "tag_name": "test tag mc",
+            "tag_color": "#ff0000"
+        },
+        {
+            "id": 3296619,
+            "tag_id": 3296619,
+            "count": 11,
+            "tag_name": "Imported from Salesforce",
+            "tag_color": "#009EDB"
+        }
+    ],
+    "company": [
+        {
+            "id": 3180518,
+            "tag_id": 3180518,
+            "count": 0,
+            "tag_name": "Test",
+            "tag_color": "#b19575"
+        },
+        {
+            "id": 3240664,
+            "tag_id": 3240664,
+            "count": 0,
+            "tag_name": "Wholesale Customer",
+            "tag_color": "#00b4ff"
+        },
+        {
+            "id": 3296622,
+            "tag_id": 3296622,
+            "count": 0,
+            "tag_name": "Imported from Salesforce",
+            "tag_color": "#009EDB"
+        }
+    ],
+    "purchase_order": [
+        {
+            "id": 3180519,
+            "tag_id": 3180519,
+            "count": 0,
+            "tag_name": "test",
+            "tag_color": "#030b0e"
+        }
+    ]
+}

@@ -76,6 +76,10 @@ export interface CreateCustomer {
   parent_company_name: string | null;
   default_customer_payment: string | null;
   tags_links?: Array<object>;
+  pricing_tier: string | null;
+  preferred_tax: string | null;
+  payment_method: string | null;
+  preferred_discount: string | null;
 }
 
   export interface Company { 

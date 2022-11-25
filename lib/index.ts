@@ -297,7 +297,7 @@ class Orderhive {
     axiosRetry(this.http, {
       retries: 3,
       retryDelay: axiosRetry.exponentialDelay,
-      retryCondition: async (error) => {
+      retryCondition: async (error:any) => {
         let { response } = error;
         if (response?.status === 400) {
           this.logger.error("Bad request");
