@@ -6,7 +6,7 @@ import {
 } from "../definitions/customers";
 
 /**
- * @param  {CreateOrder} customer
+ * @param  {CreateCustomer} customer
  * @return {Promise<Customer>}
  */
 
@@ -15,6 +15,7 @@ export default async function createCustomer(
   customer: CreateCustomer
 ): Promise<Customer> {
   await CreateCustomerSchema.required().validateAsync(customer);
+  console.log("CREATE CUSTOMER");
   try {
     const path = "/orders/customers/add";
     const headers = await this.signRequest("POST", path, customer);

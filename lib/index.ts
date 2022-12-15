@@ -160,7 +160,10 @@ class Orderhive {
     products.updateProductStock.bind(this);
   searchProducts: typeof products.searchProducts =
     products.searchProducts.bind(this);
-  mapProducts: typeof products.mapProducts = products.mapProducts.bind(this);
+  mapProducts: typeof products.mapProducts = 
+    products.mapProducts.bind(this);
+  queryProduct: typeof products.queryProduct = 
+    products.queryProduct.bind(this);
 
   getShipments: typeof shipping.getShipments = shipping.getShipments.bind(this);
   createShipment: typeof shipping.createShipment =

@@ -31,6 +31,7 @@ export interface Customer {
     orders: { href: string | null };
   };
   error_message: string | null;
+  pricing_tier: string | null;
 }
 
 interface ContactStores {
@@ -58,7 +59,11 @@ export const CreateCustomerSchema = joi.object().keys({
   parent_company_id: joi.any().allow(null),
   parent_company_name: joi.any().allow(null),
   default_customer_payment: joi.any().allow(null),
+  pricing_tier: joi.any().allow(null),
   tags_links: joi.array().allow(null),
+  preferred_tax: joi.any().allow(null),
+  payment_method: joi.any().allow(null),
+  preferred_discount: joi.any().allow(null),
 });
 
 export interface CreateCustomer {

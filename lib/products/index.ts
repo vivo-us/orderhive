@@ -12,6 +12,7 @@ import getProductCatalog from "./getProductCatalog";
 import updateProductStock from "./updateProductStock";
 import searchProducts from "./searchProducts";
 import mapProducts from "./mapProducts";
+import queryProduct from "./queryProduct";
 
 export default {
   createSimpleProduct,
@@ -28,4 +29,5 @@ export default {
   updateProductStock,
   searchProducts,
   mapProducts,
+  queryProduct,
 };
