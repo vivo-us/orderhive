@@ -177,7 +177,7 @@ export const ShipTransferDataSchema = Joi.array().items(
       .items(
         Joi.object({
           id: Joi.string().required(),
-          location: Joi.string().allow(null),//.required(),
+          location: Joi.string().allow(null).allow(''),//.required(),
           quantity: Joi.number().required(),
           batch: Joi.string(),
           cost: Joi.number(),
@@ -190,7 +190,7 @@ export const ShipTransferDataSchema = Joi.array().items(
 
 interface TransferShippedFrom {
   id: string;
-  location: string;
+  location?: string;
   batch: string | null;
   cost: number | null;
   quantity: number;

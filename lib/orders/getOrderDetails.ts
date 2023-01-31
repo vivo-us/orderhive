@@ -19,6 +19,7 @@ export default async function getOrderDetails(
     const res = await this.http.get(path, { headers });
     return res.data;
   } catch (error: any) {
+    console.log(error);
     if (error.response) {
       throw new this.OrderhiveError(
         `Error getting order details for order ${orderId}`,
