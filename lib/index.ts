@@ -160,10 +160,8 @@ class Orderhive {
     products.updateProductStock.bind(this);
   searchProducts: typeof products.searchProducts =
     products.searchProducts.bind(this);
-  mapProducts: typeof products.mapProducts = 
-    products.mapProducts.bind(this);
-  queryProduct: typeof products.queryProduct = 
-    products.queryProduct.bind(this);
+  mapProducts: typeof products.mapProducts = products.mapProducts.bind(this);
+  queryProduct: typeof products.queryProduct = products.queryProduct.bind(this);
 
   getShipments: typeof shipping.getShipments = shipping.getShipments.bind(this);
   createShipment: typeof shipping.createShipment =
@@ -249,7 +247,8 @@ class Orderhive {
 
   listUsers: typeof users.listUsers = users.listUsers.bind(this);
 
-  getOrderBulkListing: typeof orders.getOrderBulkListing = orders.getOrderBulkListing.bind(this);
+  getOrderBulkListing: typeof orders.getOrderBulkListing =
+    orders.getOrderBulkListing.bind(this);
 
   constructor(config: OrderhiveConfig) {
     this.idToken = config.idToken;
@@ -300,7 +299,7 @@ class Orderhive {
     axiosRetry(this.http, {
       retries: 3,
       retryDelay: axiosRetry.exponentialDelay,
-      retryCondition: async (error:any) => {
+      retryCondition: async (error: any) => {
         let { response } = error;
         if (response?.status === 400) {
           this.logger.error("Bad request");
@@ -451,7 +450,7 @@ class Orderhive {
       let date = new Date();
       if (
         this.tokenExpiration &&
-        this.tokenExpiration.getTime() > new Date().getTime() + 1000 * 60 * 5
+        this.tokenExpiration.getTime() > new Date().getTime() + 1000 * 60 * 15
       ) {
         this.logger.debug("Using previously generated token");
         return;
@@ -459,7 +458,7 @@ class Orderhive {
       let tokens = await this.OrderhiveApiToken.findOne({
         where: {
           expirationDate: {
-            [Op.gt]: new Date(date.getTime() + 1000 * 60 * 5),
+            [Op.gt]: new Date(date.getTime() + 1000 * 60 * 15),
           },
         },
       });
