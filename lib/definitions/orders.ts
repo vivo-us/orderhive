@@ -261,7 +261,7 @@ export const UpdateOrderItemSchema = joi.object().keys({
 });
 
 export interface UpdateOrderItem {
-  id: number;
+  id?: number;
   item_id: number;
   asin_number?: string | null;
   barcode?: string | null;
