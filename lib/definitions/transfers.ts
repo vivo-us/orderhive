@@ -56,7 +56,7 @@ interface TransferWarehouse {
   warehouse_id: number;
 }
 
-interface TransferStockItems {
+export interface TransferStockItems {
   item_price: number;
   product_id: number;
   transfer_qty: number;
@@ -135,7 +135,6 @@ const TransferStockItemsSchema = Joi.object({
   product_id: Joi.number().required(),
   transfer_qty: Joi.number().required(),
   item_note: Joi.string(),
-
 });
 
 export const CreateTransferDataSchema = Joi.object({
@@ -177,7 +176,7 @@ export const ShipTransferDataSchema = Joi.array().items(
       .items(
         Joi.object({
           id: Joi.string().required(),
-          location: Joi.string().allow(null).allow(''),//.required(),
+          location: Joi.string().allow(null).allow(""), //.required(),
           quantity: Joi.number().required(),
           batch: Joi.string(),
           cost: Joi.number(),
