@@ -105,7 +105,7 @@ export const WarehouseInventorySchema = joi.object({
 
 const EditInventoryLevelSchema = joi
   .object({
-    location: joi.string(),
+    location: joi.string().allow(""),
     is_default: joi.boolean(),
     onhand_original: joi.number().integer(),
     quantity: joi.number().integer(),
@@ -115,6 +115,7 @@ const EditInventoryLevelSchema = joi
     remove: joi.boolean(),
     new_quantity: joi.number().cast("string"),
     new_location: joi.boolean(),
+    _id: joi.string().allow("").allow(null),
     //warehouse_id: joi.number()
   })
   .or("location", "batch", "cost")

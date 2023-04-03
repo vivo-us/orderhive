@@ -4,13 +4,13 @@ import { Payment } from "../definitions/payments";
 
 /**
  * @param  {number} orderId - Orderhive Order ID
- * @return {Promise<Order>}
+ * @return {Promise<[Payment]>}
  */
 
 export default async function getPayment(
   this: Orderhive,
   orderId: number
-): Promise<Payment> {
+): Promise<[Payment]> {
   await IdSchema.required().validateAsync(orderId);
   try {
     const path = `/orders/payment/${orderId}`;
