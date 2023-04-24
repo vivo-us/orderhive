@@ -10,7 +10,7 @@ import { Payment } from "../definitions/payments";
 export default async function getPayment(
   this: Orderhive,
   orderId: number
-): Promise<[Payment]> {
+): Promise<Payment[]> {
   await IdSchema.required().validateAsync(orderId);
   try {
     const path = `/orders/payment/${orderId}`;
