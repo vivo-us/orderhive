@@ -165,7 +165,7 @@ interface TransferLbcdetail {
 
 export interface ShipTransferData {
   id: number;
-  lbcdetails: TransferLbcdetail[];
+  lbcdetails: TransferLbcdetail[]; //location batch cost
   product_details?: unknown[];
 }
 

@@ -1,6 +1,7 @@
 /node_modules
 /files
 *test*.*
+*test_*
 *.js
 *.d.ts
 *.js.map

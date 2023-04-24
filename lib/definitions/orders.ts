@@ -550,6 +550,7 @@ export interface Order {
   invoice_created: boolean;
   list_order_items: ListOrderItem[];
   mcf_status: string | null;
+  modified_date: string;
   next_page: any | null;
   order_extra_items: OrderExtraItem[];
   order_items: OrderItem[];
