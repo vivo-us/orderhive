@@ -50,12 +50,12 @@ export interface InvoiceItem {
   total: number;
   sales_order_item_id: number;
   item_id: number;
-  tax_id: object;
-  tax_info: object;
+  tax_id: number;
+  tax_info: object | null;
   qty_invoiced: number;
   discount_percent: number;
   tax_percent: number;
-  meta_data: object;
+  meta_data: string | null;
 }
 
 export interface getInvoices {}
