@@ -15,8 +15,9 @@ export default async function deleteTransfer(
   this: Orderhive,
   transferId: string
 ): Promise<string> {
+  let validatedTransferId;
   try {
-    transferId = await IdSchema.validateAsync(transferId);
+    validatedTransferId = await IdSchema.validateAsync(transferId);
   } catch (error: any) {
     if (error instanceof ValidationError) {
       throw new this.OrderhiveError(`${error.message}`);
@@ -26,18 +27,20 @@ export default async function deleteTransfer(
   try {
     let headers = await this.signRequest(
       "DELETE",
-      `/stocktransfers/${transferId}`
+      `/stocktransfers/${validatedTransferId}`
     );
-    res = await this.http.delete(`/stocktransfers/${transferId}`, { headers });
+    res = await this.http.delete(`/stocktransfers/${validatedTransferId}`, {
+      headers,
+    });
   } catch (error: any) {
     if (error instanceof AxiosError) {
       throw new this.OrderhiveError(
-        `Error deleting transfer ${transferId}: ${error.message}`,
+        `Error deleting transfer ${validatedTransferId}: ${error.message}`,
         error.response?.data
       );
     } else throw new this.OrderhiveError(error);
   }
-  this.logger.debug(`Successfully deleted transfer ${transferId}`);
+  this.logger.debug(`Successfully deleted transfer ${validatedTransferId}`);
   return res.data;
 }
 
